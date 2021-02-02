@@ -1,0 +1,21 @@
+C:\Users\giugg\source\repos\short-streets\Short Streets\Short Streets\obj\Debug\Short Streets.csprojAssemblyReference.cache
+C:\Users\giugg\source\repos\short-streets\Short Streets\Short Streets\obj\Debug\Short_Streets.Form1.resources
+C:\Users\giugg\source\repos\short-streets\Short Streets\Short Streets\obj\Debug\Short_Streets.Properties.Resources.resources
+C:\Users\giugg\source\repos\short-streets\Short Streets\Short Streets\obj\Debug\Short Streets.csproj.GenerateResource.cache
+C:\Users\giugg\source\repos\short-streets\Short Streets\Short Streets\obj\Debug\Short Streets.csproj.CoreCompileInputs.cache
+C:\Users\giugg\source\repos\short-streets\Short Streets\Short Streets\bin\Debug\Short Streets.exe.config
+C:\Users\giugg\source\repos\short-streets\Short Streets\Short Streets\bin\Debug\Short Streets.exe
+C:\Users\giugg\source\repos\short-streets\Short Streets\Short Streets\bin\Debug\Short Streets.pdb
+C:\Users\giugg\source\repos\short-streets\Short Streets\Short Streets\bin\Debug\EntityFramework.dll
+C:\Users\giugg\source\repos\short-streets\Short Streets\Short Streets\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\giugg\source\repos\short-streets\Short Streets\Short Streets\bin\Debug\Newtonsoft.Json.dll
+C:\Users\giugg\source\repos\short-streets\Short Streets\Short Streets\bin\Debug\System.Data.SQLite.dll
+C:\Users\giugg\source\repos\short-streets\Short Streets\Short Streets\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\giugg\source\repos\short-streets\Short Streets\Short Streets\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\giugg\source\repos\short-streets\Short Streets\Short Streets\bin\Debug\EntityFramework.xml
+C:\Users\giugg\source\repos\short-streets\Short Streets\Short Streets\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\giugg\source\repos\short-streets\Short Streets\Short Streets\bin\Debug\Newtonsoft.Json.xml
+C:\Users\giugg\source\repos\short-streets\Short Streets\Short Streets\bin\Debug\System.Data.SQLite.xml
+C:\Users\giugg\source\repos\short-streets\Short Streets\Short Streets\obj\Debug\Short Streets.csproj.CopyComplete
+C:\Users\giugg\source\repos\short-streets\Short Streets\Short Streets\obj\Debug\Short Streets.exe
+C:\Users\giugg\source\repos\short-streets\Short Streets\Short Streets\obj\Debug\Short Streets.pdb
