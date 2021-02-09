@@ -26,7 +26,6 @@ namespace PCTO
             gMapControl1.MinZoom = 10;
             gMapControl1.MaxZoom = 17;
             gMapControl1.Zoom = 5;
-
         }
 
         private void button1_Click(object sender, EventArgs e)

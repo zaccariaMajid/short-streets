@@ -24,11 +24,21 @@ namespace PCTO
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var form2 = new Form2();
+            var numPackages = nudPackages.Value;
+            if (numPackages < 1)
+            {
+                MessageBox.Show("Invalid packages quantity");
+                return;
+            } 
+            //var form2 = new Form2();
+            //this.Hide();
+            //form2.Show();
 
-            this.Hide();
-
-            form2.Show();
+            var packages = new List<Package>();
+            for (int x = 0; x < numPackages; x++)
+                packages.Add(new Package( 0, 0, new Place(" ", " ", " ", " ")));
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = packages;
         }
 
         private void button2_Click(object sender, EventArgs e)
