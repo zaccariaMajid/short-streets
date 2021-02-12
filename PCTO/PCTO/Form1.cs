@@ -22,7 +22,7 @@ namespace PCTO
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnConfirmNumPackages_Click(object sender, EventArgs e)
         {
             var numPackages = nudPackages.Value;
             if (numPackages < 1)
@@ -34,9 +34,9 @@ namespace PCTO
             //this.Hide();
             //form2.Show();
 
-            var packages = new List<Package>();
+            var packages = new List<PackDTO>();
             for (int x = 0; x < numPackages; x++)
-                packages.Add(new Package( 0, 0, new Place(" ", " ", " ", " ")));
+                packages.Add(new Package(new Place()).ToDTO());
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = packages;
         }
