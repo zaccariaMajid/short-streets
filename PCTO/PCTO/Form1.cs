@@ -22,6 +22,7 @@ namespace PCTO
             InitializeComponent();
         }
 
+        Package currentPackage;
         private void btnConfirmNumPackages_Click(object sender, EventArgs e)
         {
             var numPackages = nudPackages.Value;
@@ -39,6 +40,7 @@ namespace PCTO
                 packages.Add(new Package(new Place()).ToDTO());
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = packages;
+            nudPackages.Value = 0;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -54,5 +56,22 @@ namespace PCTO
                 label3.Text = ex.Message;
             }
         }
+
+        private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.SelectedCells.Count < 1)
+                return;
+            currentPackage = Package.GetPackages()
+                .Where(x => x.Id.ToString() == dataGridView1.SelectedCells[0].OwningRow.Cells[0].Value.ToString())
+                .SingleOrDefault();
+            MessageBox.Show($"{currentPackage.Id}, {currentPackage.Volume}, {currentPackage.Weight}");
+        }
+
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            FormsElaboration.ChangePackageProperties(currentPackage, dataGridView1);
+        }
+
+        
     }
 }

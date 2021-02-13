@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.IO;
 
 namespace PCTO
 {
@@ -31,6 +35,20 @@ namespace PCTO
 
         string _province;
         public string Province { get { return _province; } set { _province = PropertyControl.Province(value); } }
+
+        void a()
+        {
+            string jsonString = string.Empty;
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://positionstack.com/");
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            using (Stream stream = response.GetResponseStream())
+            using (StreamReader reader = new StreamReader(stream))
+                jsonString = reader.ReadToEnd();
+            dynamic stuff = JsonConvert.DeserializeObject(jsonString);
+
+        }
+        
+
         public string Latitude { get; set; }
         public string Longitude { get; set; }
     }
