@@ -5560,19 +5560,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\giuggioli.17210\\.nuget\\packages\\": {}
+    "C:\\Users\\mbiss\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\giuggioli.17210\\Documents\\GitHub\\short-streets\\PCTO\\PCTO_Test\\PCTO_Test.csproj",
+      "projectUniqueName": "C:\\Users\\mbiss\\source\\repos\\short-streets\\PCTO\\PCTO_Test\\PCTO_Test.csproj",
       "projectName": "PCTO_Test",
-      "projectPath": "C:\\Users\\giuggioli.17210\\Documents\\GitHub\\short-streets\\PCTO\\PCTO_Test\\PCTO_Test.csproj",
-      "packagesPath": "C:\\Users\\giuggioli.17210\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\giuggioli.17210\\Documents\\GitHub\\short-streets\\PCTO\\PCTO_Test\\obj\\",
+      "projectPath": "C:\\Users\\mbiss\\source\\repos\\short-streets\\PCTO\\PCTO_Test\\PCTO_Test.csproj",
+      "packagesPath": "C:\\Users\\mbiss\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\mbiss\\source\\repos\\short-streets\\PCTO\\PCTO_Test\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\giuggioli.17210\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\mbiss\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5634,7 +5634,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }
