@@ -19,75 +19,80 @@ namespace algoritmo_ordinamento
             }
 
         }
+        public class soluzione
+        {
+            public int Prezzo;
+            public List<int> Percorso;
+            public soluzione(int prezzo, List<int> percorso)
+            {
+                Prezzo = prezzo;
+                Percorso = percorso;
+            }
+
+        }
         static void Main(string[] args)
         {
             List<int> coll = new List<int>();
             List<int> cost = new List<int>();
             List<vertici> dati = new List<vertici>();
-            dati.Add(new vertici(1, new List<int>() { 2, 4, 5 }, new List<int>() { 2, 2, 1 }));
-            dati.Add(new vertici(2, new List<int>() { 1, 3, 5 }, new List<int>() { 2, 2, 1 }));
-            dati.Add(new vertici(3, new List<int>() { 2, 4, 5 }, new List<int>() { 2, 2, 1 }));
-            dati.Add(new vertici(4, new List<int>() { 1, 3, 5 }, new List<int>() { 2, 2, 1 }));
-            dati.Add(new vertici(5, new List<int>() { 1, 2, 3, 4 }, new List<int>() { 1, 1, 1, 1 }));
-            /*
-                        dati.Add(new vertici(1, new List<int>() {6,12,17,20 }, new List<int>() {4,2,3,3 }));
-                        dati.Add(new vertici(2, new List<int>() {3,10,15,19 }, new List<int>() {4,2,2,3 }));
-                        dati.Add(new vertici(3, new List<int>() {2,10,12,14,20 }, new List<int>() {4,3,2,3,2 }));
-                        dati.Add(new vertici(4, new List<int>() {5,9,15 }, new List<int>() {4,2,2 }));
-                        dati.Add(new vertici(5, new List<int>() {4,8,9,15 }, new List<int>() {4,6,3,2 }));
-                        dati.Add(new vertici(6, new List<int>() {1,16,17 }, new List<int>() {4,2,1 }));
-                        dati.Add(new vertici(7, new List<int>() {14,16 }, new List<int>() {2,3 }));
-                        dati.Add(new vertici(8, new List<int>() {5,13 }, new List<int>() {6,5 }));
-                        dati.Add(new vertici(9, new List<int>() {4,5,11 }, new List<int>() {2,3,7 }));
-                        dati.Add(new vertici(10, new List<int>() {2,3,11,14,15 }, new List<int>() {2,2,4,4,1 }));
-                        dati.Add(new vertici(11, new List<int>() {9,10,13,14,18 }, new List<int>() {7,4,6,5,1 }));
-                        dati.Add(new vertici(12, new List<int>() {1,3,19 }, new List<int>() {2,2,1 }));
-                        dati.Add(new vertici(13, new List<int>() {8,11,18 }, new List<int>() {5,6,1 }));
-                        dati.Add(new vertici(14, new List<int>() {3,7,10,11 }, new List<int>() {3,2,4,5 }));
-                        dati.Add(new vertici(15, new List<int>() {2,4,5,10 }, new List<int>() {2,2,2,1 }));
-                        dati.Add(new vertici(16, new List<int>() {6,7 }, new List<int>() {2,3 }));
-                        dati.Add(new vertici(17, new List<int>() {1,6 }, new List<int>() {3,1 }));
-                        dati.Add(new vertici(18, new List<int>() {11,13 }, new List<int>() {1,1 }));
-                        dati.Add(new vertici(19, new List<int>() {2,12 }, new List<int>() {3,1 }));
-                        dati.Add(new vertici(20, new List<int>() {1,3 }, new List<int>() {3,2 }));
-            */
-            List<int> percorso = new List<int>();
-            int minPrezzo = int.MaxValue;
-            List<int> minPercorso = new List<int>();
 
-            var a = CalcoloPercorso(dati, percorso, ref minPrezzo, minPercorso);
+            dati.Add(new vertici(1, new List<int>() { 6, 12, 17, 20 }, new List<int>() { 4, 2, 3, 3 }));
+            dati.Add(new vertici(2, new List<int>() { 3, 10, 15, 19 }, new List<int>() { 4, 2, 2, 3 }));
+            dati.Add(new vertici(3, new List<int>() { 2, 10, 12, 14, 20 }, new List<int>() { 4, 3, 2, 3, 2 }));
+            dati.Add(new vertici(4, new List<int>() { 5, 9, 15 }, new List<int>() { 4, 2, 2 }));
+            dati.Add(new vertici(5, new List<int>() { 4, 8, 9, 15 }, new List<int>() { 4, 6, 3, 2 }));
+            dati.Add(new vertici(6, new List<int>() { 1, 16, 17 }, new List<int>() { 4, 2, 1 }));
+            dati.Add(new vertici(7, new List<int>() { 14, 16 }, new List<int>() { 2, 3 }));
+            dati.Add(new vertici(8, new List<int>() { 5, 13 }, new List<int>() { 6, 5 }));
+            dati.Add(new vertici(9, new List<int>() { 4, 5, 11 }, new List<int>() { 2, 3, 7 }));
+            dati.Add(new vertici(10, new List<int>() { 2, 3, 11, 14, 15 }, new List<int>() { 2, 2, 4, 4, 1 }));
+            dati.Add(new vertici(11, new List<int>() { 9, 10, 13, 14, 18 }, new List<int>() { 7, 4, 6, 5, 1 }));
+            dati.Add(new vertici(12, new List<int>() { 1, 3, 19 }, new List<int>() { 2, 2, 1 }));
+            dati.Add(new vertici(13, new List<int>() { 8, 11, 18 }, new List<int>() { 5, 6, 1 }));
+            dati.Add(new vertici(14, new List<int>() { 3, 7, 10, 11 }, new List<int>() { 3, 2, 4, 5 }));
+            dati.Add(new vertici(15, new List<int>() { 2, 4, 5, 10 }, new List<int>() { 2, 2, 2, 1 }));
+            dati.Add(new vertici(16, new List<int>() { 6, 7 }, new List<int>() { 2, 3 }));
+            dati.Add(new vertici(17, new List<int>() { 1, 6 }, new List<int>() { 3, 1 }));
+            dati.Add(new vertici(18, new List<int>() { 11, 13 }, new List<int>() { 1, 1 }));
+            dati.Add(new vertici(19, new List<int>() { 2, 12 }, new List<int>() { 3, 1 }));
+            dati.Add(new vertici(20, new List<int>() { 1, 3 }, new List<int>() { 3, 2 }));
 
-            minPercorso.ForEach(i => Console.Write("{0}\t", i));
-            Console.WriteLine("\n" + minPrezzo);
+
+
+            var sol = CalcoloPercorso(dati);
+
+            sol.Percorso.ForEach(i => Console.Write(i + " "));
+            Console.WriteLine("\n" + sol.Prezzo);
 
             Console.ReadKey();
         }
         /// <summary>
-        ///Restituisce il calcolodel percorso più breve
+        /// Restituisce il percorso minimo
         /// </summary>
-        /// <param name="dati">Contiene i dati</param>
-        /// <param name="percorso">Conterrà il percorso minimo</param>
-        /// <param name="minPrezzo">Conterrà il prezzo minimo finale</param>
-        /// <param name="minPercorso">Conterrà il percorso minimo finale</param>
+        /// <param name="dati">Contiene i dati iniziali</param>
         /// <returns></returns>
-        public static List<int> CalcoloPercorso(List<vertici> dati, List<int> percorso, ref int minPrezzo, List<int> minPercorso)
+        public static soluzione CalcoloPercorso(List<vertici> dati)
         {
+            List<int> minPercorso = new List<int>();
+            List<int> percorso = new List<int>();
+            int minPrezzo = int.MaxValue;
+            soluzione sol = new soluzione(minPrezzo, minPercorso);
             int prezzo = 0;
+
             percorso.Add(dati[0].Vertice);
-            Calcolo(dati[0].Collegati, percorso, dati, prezzo, ref minPrezzo, minPercorso);
-            return (percorso);
+            Calcola(dati[0].Collegati, percorso, dati, prezzo, ref sol);
+            return (sol);
         }
         /// <summary>
-        /// Calcola il percorso pù breve
+        /// Calcola il percorso minimo
         /// </summary>
-        /// <param name="coll">Contiene i vertici collegati al vertice preso in esame</param>
-        /// <param name="percorso">Conterrà il percorso minimo</param>
-        /// <param name="dati">Contiene i dati</param>
-        /// <param name="prezzo">Serve per verificare quale ramo collegato ha un minor costo</param>
-        /// <param name="minPrezzo">Conterrà il prezzo minimo finale</param>
-        /// <param name="minPercorso">Conterrà il percorso minimo finale</param>
+        /// <param name="coll">Contine tutti i vertici direttamente collegati al vertice preso in esame</param>
+        /// <param name="percorso">Contiene il percorso in modo temporaneo</param>
+        /// <param name="dati">Contiene i dati iniziali</param>
+        /// <param name="prezzo">Rappresenta il costo del ramo del grafo preso in esame</param>
+        /// <param name="sol">Contiene la soluzione</param>
         /// <returns></returns>
-        public static List<int> Calcolo(List<int> coll, List<int> percorso, List<vertici> dati, int prezzo, ref int minPrezzo, List<int> minPercorso)
+        public static List<int> Calcola(List<int> coll, List<int> percorso, List<vertici> dati, int prezzo, ref soluzione sol)
         {
             foreach (int i in coll)
             {
@@ -95,7 +100,7 @@ namespace algoritmo_ordinamento
                 {
                     percorso.Add(i);
                     var temp = dati[i - 1].Collegati;
-                    percorso = Calcolo(temp, percorso, dati, prezzo, ref minPrezzo, minPercorso);
+                    percorso = Calcola(temp, percorso, dati, prezzo, ref sol);
                 }
             }
             if (percorso.Count == dati.Count)
@@ -118,16 +123,14 @@ namespace algoritmo_ordinamento
                                     break;
                                 }
                             }
-                            if (minPrezzo > prezzo)
+                            if (sol.Prezzo > prezzo)
                             {
-                                minPrezzo = prezzo;
-                                foreach(int e in percorso)
+                                sol.Prezzo = prezzo;
+                                sol.Percorso.Clear();
+                                foreach (int g in percorso)
                                 {
-                                    minPercorso.Add(e);
+                                    sol.Percorso.Add(g);
                                 }
-                                Console.Clear();
-                                minPercorso.ForEach(r => Console.Write("{0}\t", r));
-                                Console.WriteLine("\n");
                             }
                             break;
                         }
@@ -156,3 +159,4 @@ namespace algoritmo_ordinamento
         }
     }
 }
+
