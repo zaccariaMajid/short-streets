@@ -1,0 +1,7 @@
+C:\Users\Asus\source\repos\Demo percorso-minimo\Demo percorso minimo\bin\Debug\Demo percorso minimo.exe.config
+C:\Users\Asus\source\repos\Demo percorso-minimo\Demo percorso minimo\bin\Debug\Demo percorso minimo.exe
+C:\Users\Asus\source\repos\Demo percorso-minimo\Demo percorso minimo\bin\Debug\Demo percorso minimo.pdb
+C:\Users\Asus\source\repos\Demo percorso-minimo\Demo percorso minimo\obj\Debug\Demo percorso minimo.csprojAssemblyReference.cache
+C:\Users\Asus\source\repos\Demo percorso-minimo\Demo percorso minimo\obj\Debug\Demo percorso minimo.csproj.CoreCompileInputs.cache
+C:\Users\Asus\source\repos\Demo percorso-minimo\Demo percorso minimo\obj\Debug\Demo percorso minimo.exe
+C:\Users\Asus\source\repos\Demo percorso-minimo\Demo percorso minimo\obj\Debug\Demo percorso minimo.pdb
