@@ -14,10 +14,10 @@ namespace PCTO
     {
         public Place(string number="29", string road="Via Mauro Gavazzeni", string town="Bergamo", string province="BG")
         {
-            this.Number = number;
-            this.Road = road;
-            this.Town = town;
-            this.Province = province;
+            this._number = number;
+            this._road = road;
+            this._town = town;
+            this._province = province;
         }
         public override string ToString()
         {
@@ -36,17 +36,17 @@ namespace PCTO
         string _province;
         public string Province { get { return _province; } set { _province = PropertyControl.Province(value); } }
 
-        void a()
-        {
-            string jsonString = string.Empty;
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://positionstack.com/");
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-            using (Stream stream = response.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream))
-                jsonString = reader.ReadToEnd();
-            dynamic stuff = JsonConvert.DeserializeObject(jsonString);
+        //void a()
+        //{
+        //    string jsonString = string.Empty;
+        //    HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://positionstack.com/");
+        //    using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+        //    using (Stream stream = response.GetResponseStream())
+        //    using (StreamReader reader = new StreamReader(stream))
+        //        jsonString = reader.ReadToEnd();
+        //    dynamic stuff = JsonConvert.DeserializeObject(jsonString);
 
-        }
+        //}
         
 
         public string Latitude { get; set; }

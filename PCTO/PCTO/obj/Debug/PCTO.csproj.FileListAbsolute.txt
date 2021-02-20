@@ -112,3 +112,5 @@ C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\obj\Debug\PCTO.csproj.CoreCo
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\obj\Debug\PCTO.csproj.CopyComplete
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\obj\Debug\PCTO.exe
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\obj\Debug\PCTO.pdb
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\obj\Debug\PCTO.FormShortStreets.resources
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\obj\Debug\PCTO.FormRiderSpace.resources

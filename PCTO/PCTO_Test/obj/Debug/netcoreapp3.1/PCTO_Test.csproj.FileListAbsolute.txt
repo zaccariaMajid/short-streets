@@ -8,6 +8,7 @@ C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1\PCTO_Test.runtimeconfig.dev.json
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1\PCTO_Test.dll
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1\PCTO_Test.pdb
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1\FluentAssertions.dll
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.CodeCoverage.Shim.dll
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1\Microsoft.TestPlatform.CoreUtilities.dll
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1\Microsoft.TestPlatform.PlatformAbstractions.dll
@@ -18,6 +19,8 @@ C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.Common.dll
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1\NuGet.Frameworks.dll
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1\xunit.abstractions.dll
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1\xunit.assert.dll
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1\xunit.core.dll
@@ -87,6 +90,7 @@ C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\obj\Debug\netcoreapp3.1\PCTO_Test.csprojAssemblyReference.cache
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\obj\Debug\netcoreapp3.1\PCTO_Test.AssemblyInfoInputs.cache
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\obj\Debug\netcoreapp3.1\PCTO_Test.AssemblyInfo.cs

@@ -59,17 +59,17 @@ namespace PCTO
 
         private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.SelectedCells.Count < 1)
-                return;
-            currentPackage = Package.GetPackages()
-                .Where(x => x.Id.ToString() == dataGridView1.SelectedCells[0].OwningRow.Cells[0].Value.ToString())
-                .SingleOrDefault();
-            MessageBox.Show($"{currentPackage.Id}, {currentPackage.Volume}, {currentPackage.Weight}");
+            //if (dataGridView1.SelectedCells.Count < 1)
+            //    return;
+            //currentPackage = Package.GetPackages()
+            //    .Where(x => x.Id.ToString() == dataGridView1.SelectedCells[0].OwningRow.Cells[0].Value.ToString())
+            //    .SingleOrDefault();
+            //MessageBox.Show($"{currentPackage.Id}, {currentPackage.Volume}, {currentPackage.Weight}");
         }
 
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            FormsElaboration.ChangePackageProperties(currentPackage, dataGridView1);
+            //FormsElaboration.ChangePackageProperties(currentPackage, dataGridView1);
         }
 
         
