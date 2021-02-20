@@ -13,9 +13,9 @@ using Newtonsoft.Json.Linq;
 
 namespace PCTO
 {
-    public partial class Form2 : Form
+    public partial class FormMap : Form
     {
-        public Form2()
+        public FormMap()
         {
             InitializeComponent();
 
@@ -31,11 +31,11 @@ namespace PCTO
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
 
-            var form1 = new Form1();
+            //var form1 = new FormRiderSpace();
 
-            form1.Show();
+            //form1.Show();
         }
     }
 }
