@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mbiss\\source\\repos\\Shorts Street\\Short Street_Test\\Short Street_Test.csproj": {}
+    "C:\\Users\\mbiss\\source\\repos\\short-streets\\Shorts Street\\Short Street_Test\\Short Street_Test.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mbiss\\source\\repos\\Shorts Street\\Short Street_Test\\Short Street_Test.csproj": {
+    "C:\\Users\\mbiss\\source\\repos\\short-streets\\Shorts Street\\Short Street_Test\\Short Street_Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mbiss\\source\\repos\\Shorts Street\\Short Street_Test\\Short Street_Test.csproj",
+        "projectUniqueName": "C:\\Users\\mbiss\\source\\repos\\short-streets\\Shorts Street\\Short Street_Test\\Short Street_Test.csproj",
         "projectName": "Short Street_Test",
-        "projectPath": "C:\\Users\\mbiss\\source\\repos\\Shorts Street\\Short Street_Test\\Short Street_Test.csproj",
+        "projectPath": "C:\\Users\\mbiss\\source\\repos\\short-streets\\Shorts Street\\Short Street_Test\\Short Street_Test.csproj",
         "packagesPath": "C:\\Users\\mbiss\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mbiss\\source\\repos\\Shorts Street\\Short Street_Test\\obj\\",
+        "outputPath": "C:\\Users\\mbiss\\source\\repos\\short-streets\\Shorts Street\\Short Street_Test\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mbiss\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -27,7 +27,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\mbiss\\source\\repos\\short-streets\\Shorts Street\\Shorts Street\\Shorts Street.csproj": {
+                "projectPath": "C:\\Users\\mbiss\\source\\repos\\short-streets\\Shorts Street\\Shorts Street\\Shorts Street.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -40,6 +44,10 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[5.10.3, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[16.7.1, )"
@@ -78,6 +86,16 @@
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
+      }
+    },
+    "C:\\Users\\mbiss\\source\\repos\\short-streets\\Shorts Street\\Shorts Street\\Shorts Street.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\mbiss\\source\\repos\\short-streets\\Shorts Street\\Shorts Street\\Shorts Street.csproj",
+        "projectName": "Shorts Street",
+        "projectPath": "C:\\Users\\mbiss\\source\\repos\\short-streets\\Shorts Street\\Shorts Street\\Shorts Street.csproj"
+      },
+      "frameworks": {
+        "net472": {}
       }
     }
   }
