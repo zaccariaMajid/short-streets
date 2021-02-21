@@ -8,7 +8,7 @@ namespace PCTO
 {
     class Package
     {
-        public Package(Place destination, int volume = 1, int weight = 1)
+        public Package(Address destination, int volume = 1, int weight = 1)
         {
             this.Id = _listId.LastOrDefault() + 1;
             _listId.Add(this.Id);
@@ -16,18 +16,30 @@ namespace PCTO
             this._weight = weight;
             this.Destination = destination;
             _packages.Add(this);
+            IsValid = false;
         }
-        public int Id { get;  }
+
+        public bool IsValid { get; set; }
+        public int Id { get; }
         static IList<int> _listId = new List<int>() { 0 };
 
         int _volume;
-        public int Volume { get { return _volume; } set { _volume = PropertyControl.PositiveNumber(value); } }
+        public int Volume
+        {
+            get { return _volume; }
+            set { _volume = PropertyControl.PositiveNumber(value); }
+        }
 
         int _weight;
-        public int Weight { get { return _weight; } set { _weight = PropertyControl.PositiveNumber(value); } }
-        public Place Destination { get; set; }
+        public int Weight
+        {
+            get { return _weight; }
+            set { _weight = PropertyControl.PositiveNumber(value); }
+        }
+        public Address Destination { get; set; }
 
         static IList<Package> _packages = new List<Package>();
+
         /// <summary>
         /// Returns the package identified by the parameter
         /// </summary>
@@ -54,7 +66,8 @@ namespace PCTO
         /// <returns></returns>
         public PackDTO ToDTO()
         {
-            return new PackDTO(this.Id, this.Volume, this.Weight, this.Destination.Number, this.Destination.Road, this.Destination.Town, this.Destination.Province);
+            return new PackDTO(this.Id, this.Volume, this.Weight, this.Destination.Number,
+                this.Destination.Road, this.Destination.Town, this.Destination.Province);
         }
 
         /// <summary>
@@ -65,6 +78,7 @@ namespace PCTO
         {
             return new PackDTO(this.Id);
         }
+
         //public PackDTO GetPresetDTO(int x)
         //{
         //    return;

@@ -18,6 +18,7 @@ namespace PCTO
             InitializeComponent();
             fShortStreets = f;
         }
+
         Package currentPackage;
         IList<PackDTO> packages = new List<PackDTO>();
 

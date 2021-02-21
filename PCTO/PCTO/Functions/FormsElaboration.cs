@@ -137,7 +137,7 @@ namespace PCTO
                 return;
             }
             for (int x = 0; x < n; x++)
-                packages.Add(new Package(new Place("", "", "", ""), 0, 0).ToDTO());
+                packages.Add(new Package(new Address("", "", "", ""), 0, 0).ToDTO());
             PopulateDgv(dgv, packages);
             dgv.Columns[0].ReadOnly = true;
         }

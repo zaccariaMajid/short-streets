@@ -10,9 +10,9 @@ using System.IO;
 
 namespace PCTO
 {
-    class Place
+    class Address
     {
-        public Place(string number="29", string road="Via Mauro Gavazzeni", string town="Bergamo", string province="BG")
+        public Address(string number = "29", string road = "Via Mauro Gavazzeni", string town = "Bergamo", string province = "BG")
         {
             this._number = number;
             this._road = road;
@@ -25,16 +25,32 @@ namespace PCTO
         }
 
         string _number;
-        public string Number { get { return _number; } set { _number = PropertyControl.ValidString(value); } }
+        public string Number
+        {
+            get { return _number; }
+            set { _number = PropertyControl.ValidString(value); }
+        }
 
         string _road;
-        public string Road { get { return _road; } set { _road = PropertyControl.ValidString(value); } }
+        public string Road
+        {
+            get { return _road; }
+            set { _road = PropertyControl.ValidString(value); }
+        }
 
         string _town;
-        public string Town { get { return _town; } set { _town = PropertyControl.ValidString(value); } }
+        public string Town
+        {
+            get { return _town; }
+            set { _town = PropertyControl.ValidString(value); }
+        }
 
         string _province;
-        public string Province { get { return _province; } set { _province = PropertyControl.Province(value); } }
+        public string Province
+        {
+            get { return _province; }
+            set { _province = PropertyControl.Province(value); }
+        }
 
         //void a()
         //{
@@ -47,7 +63,7 @@ namespace PCTO
         //    dynamic stuff = JsonConvert.DeserializeObject(jsonString);
 
         //}
-        
+
 
         public string Latitude { get; set; }
         public string Longitude { get; set; }
