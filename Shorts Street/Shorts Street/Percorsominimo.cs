@@ -6,6 +6,18 @@ using System.Threading.Tasks;
 
 namespace Shorts_Street
 {
+    public class pacco
+    {
+        public int peso;
+        public int volume;
+        public bool usato;
+        public pacco(int Peso, int Volume ,bool Usato)
+        {
+            peso = Peso;
+            volume = Volume;
+            usato = Usato;
+        }
+    }
     public class vertici
     {
         public int Vertice;
@@ -32,6 +44,34 @@ namespace Shorts_Street
     }
     public class Funzioni
     {
+        public static int calcoloPeso(pacco[] pesi, List<int> numeri)
+        {
+            int peso = 0;
+            foreach (int i in numeri)
+            {
+                peso = peso + pesi[i].peso;
+            }
+            return peso;
+        }
+        public static int calcoloVolume(pacco[] volumi, List<int> numeri)
+        {
+            int volume = 0;
+            foreach (int i in numeri)
+            {
+                volume = volume + volumi[i].volume;
+            }
+            return volume;
+        }
+        //scrittura viaggio 
+        public static string scrittura(List<int> numeri)
+        {
+            string viaggio = "";
+            foreach (int i in numeri)
+            {
+                viaggio = viaggio + i.ToString() + " "; ;
+            }
+            return viaggio;
+        }
         public static soluzione CalcoloPercorso(List<vertici> dati)
         {
             List<int> minPercorso = new List<int>();
