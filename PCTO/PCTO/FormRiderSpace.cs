@@ -79,7 +79,7 @@ namespace PCTO
         
         private void btnConfirmPackages_Click(object sender, EventArgs e)
         {
-            var fMap = new Form2() { TopLevel = false, TopMost = true };
+            var fMap = new Form2(fShortStreets) { TopLevel = false, TopMost = true };
             fMap.FormBorderStyle = FormBorderStyle.None;
             fShortStreets.pnlHome.Controls.Add(fMap);
             this.Hide();

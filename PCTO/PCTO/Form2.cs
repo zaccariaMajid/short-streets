@@ -15,9 +15,12 @@ namespace PCTO
 {
     public partial class Form2 : Form
     {
-        public Form2()
+        FormShortStreets fShortStreets;
+        public Form2(FormShortStreets f)
         {
             InitializeComponent();
+
+            fShortStreets = f;
 
             gMapControl1.ShowCenter = false;
             gMapControl1.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;
@@ -30,8 +33,11 @@ namespace PCTO
 
         private void button1_Click(object sender, EventArgs e)
         {
+            var fRiderSpace = new FormRiderSpace(fShortStreets) { TopLevel = false, TopMost = true };
+            fRiderSpace.FormBorderStyle = FormBorderStyle.None;
+            fShortStreets.pnlHome.Controls.Add(fRiderSpace);
             this.Hide();
-
+            fRiderSpace.Show();
         }
     }
 }

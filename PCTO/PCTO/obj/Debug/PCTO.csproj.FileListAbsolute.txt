@@ -104,7 +104,6 @@ C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\bin\Debug\Microsoft.Scriptin
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\bin\Debug\Newtonsoft.Json.xml
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\bin\Debug\System.Data.SQLite.xml
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\obj\Debug\PCTO.csprojAssemblyReference.cache
-C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\obj\Debug\PCTO.Form1.resources
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\obj\Debug\PCTO.Form2.resources
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\obj\Debug\PCTO.Properties.Resources.resources
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\obj\Debug\PCTO.csproj.GenerateResource.cache
