@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace Shorts_Street
         {
             InitializeComponent();
         }
+
 
         private void btnpercorsominimo_Click(object sender, EventArgs e)
         {
@@ -53,6 +55,92 @@ namespace Shorts_Street
 
             Console.ReadKey();
         }
-       
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            List<int> eleViaggio = new List<int>();
+            pacco[] elePacchi = new pacco[1000];
+            int numPacchi = 0;
+            int maxPeso = 1000;
+            int maxVolume = 1000;
+            bool verifica = true;
+
+            int x = 0;
+            int y = 0;
+            StreamReader mioFile = new StreamReader("peso.txt");
+            //caricamento dati peso
+            x = 0;
+            while (mioFile.EndOfStream == false)
+            {
+                elePacchi[x].peso = int.Parse(mioFile.ReadLine());
+                x++;
+                numPacchi++;
+            }
+            mioFile.Close();
+            //caricamento dati volume
+            mioFile = new StreamReader("volume.txt");
+            x = 0;
+            while (mioFile.EndOfStream == false)
+            {
+                elePacchi[x].volume = int.Parse(mioFile.ReadLine());
+                x++;
+            }
+            mioFile.Close();
+            //controllo pacchi sopra limite peso
+            x = 0;
+            while (x < numPacchi)
+            {
+                if (elePacchi[x].peso > maxPeso)
+                {
+                    Console.WriteLine($"pacco {x} non idoneo per il peso");
+                    verifica = false;
+                }
+                x++;
+            }
+            //controllo pacchi sopra limite peso
+            x = 0;
+            while (x < numPacchi)
+            {
+                if (elePacchi[x].volume > maxVolume)
+                {
+                    Console.WriteLine($"pacco {x} non idoneo per il volume");
+                    verifica = false;
+                }
+                x++;
+            }
+            //creazione dei viaggi e scrittura in output
+            x = 0;
+            if (verifica == true)
+            {
+                while (y < numPacchi)
+                {
+                    x = 0;
+                    while (x < numPacchi)
+                    {
+                        if (elePacchi[x].usato != true)
+                        {
+                            if (Funzioni.calcoloPeso(elePacchi, eleViaggio) + elePacchi[x].peso < maxPeso && Funzioni.calcoloPeso(elePacchi, eleViaggio) + elePacchi[x].volume < maxVolume)
+                            {
+                                elePacchi[x].usato = true;
+                                eleViaggio.Add(x);
+                                y++;
+                            }
+                            if (x == numPacchi - 1)
+                            {
+                                Console.WriteLine(Funzioni.scrittura(eleViaggio));
+                                eleViaggio.Clear();
+                            }
+                        }
+                        x++;
+                    }
+                }
+            }
+            else
+                Console.WriteLine("\nNon tutti i pacchi sono idonei al trasporto controllare e riprovare.");
+
+
+            Console.WriteLine("Fine.");
+            Console.ReadKey();
+        }
     }
 }
