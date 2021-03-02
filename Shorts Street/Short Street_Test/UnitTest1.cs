@@ -68,14 +68,11 @@ namespace Short_Street_Test
             dati.Add(new vertici(19, new List<int>() { 2, 12 }, new List<int>() { 3, 1 }));
             dati.Add(new vertici(20, new List<int>() { 1, 3 }, new List<int>() { 3, 2 }));
 
-
-
             //act
             var sol = Funzioni.CalcoloPercorso(dati);
 
             //assert
             sol.Prezzo.Should().Be(50);
-
         }
     }
 }
