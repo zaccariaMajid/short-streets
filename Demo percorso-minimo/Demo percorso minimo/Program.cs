@@ -24,12 +24,12 @@ namespace algoritmo_ordinamento
             List<int> coll = new List<int>();
             List<int> cost = new List<int>();
             List<vertici> dati = new List<vertici>();
-            dati.Add(new vertici(1, new List<int>() { 2, 4, 5 }, new List<int>() { 2, 2, 1 }));
-            dati.Add(new vertici(2, new List<int>() { 1, 3, 5 }, new List<int>() { 2, 2, 1 }));
-            dati.Add(new vertici(3, new List<int>() { 2, 4, 5 }, new List<int>() { 2, 2, 1 }));
-            dati.Add(new vertici(4, new List<int>() { 1, 3, 5 }, new List<int>() { 2, 2, 1 }));
-            dati.Add(new vertici(5, new List<int>() { 1, 2, 3, 4 }, new List<int>() { 1, 1, 1, 1 }));
-            /*
+            //dati.Add(new vertici(1, new List<int>() { 2, 4, 5 }, new List<int>() { 2, 2, 1 }));
+            //dati.Add(new vertici(2, new List<int>() { 1, 3, 5 }, new List<int>() { 2, 2, 1 }));
+            //dati.Add(new vertici(3, new List<int>() { 2, 4, 5 }, new List<int>() { 2, 2, 1 }));
+            //dati.Add(new vertici(4, new List<int>() { 1, 3, 5 }, new List<int>() { 2, 2, 1 }));
+            //dati.Add(new vertici(5, new List<int>() { 1, 2, 3, 4 }, new List<int>() { 1, 1, 1, 1 }));
+            
                         dati.Add(new vertici(1, new List<int>() {6,12,17,20 }, new List<int>() {4,2,3,3 }));
                         dati.Add(new vertici(2, new List<int>() {3,10,15,19 }, new List<int>() {4,2,2,3 }));
                         dati.Add(new vertici(3, new List<int>() {2,10,12,14,20 }, new List<int>() {4,3,2,3,2 }));
@@ -50,7 +50,7 @@ namespace algoritmo_ordinamento
                         dati.Add(new vertici(18, new List<int>() {11,13 }, new List<int>() {1,1 }));
                         dati.Add(new vertici(19, new List<int>() {2,12 }, new List<int>() {3,1 }));
                         dati.Add(new vertici(20, new List<int>() {1,3 }, new List<int>() {3,2 }));
-            */
+            
             List<int> percorso = new List<int>();
             int minPrezzo = int.MaxValue;
             List<int> minPercorso = new List<int>();
