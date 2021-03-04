@@ -16,10 +16,15 @@ namespace PCTO
             this._weight = weight;
             this.Destination = destination;
             _packages.Add(this);
-            IsValid = false;
         }
 
-        public bool IsValid { get; set; }
+        public bool IsValid 
+        { get {return this.Volume>0 && 
+                    this.Weight>0 && 
+                    !string.IsNullOrWhiteSpace(this.Destination.Number) &&
+                    !string.IsNullOrWhiteSpace(this.Destination.Road) &&
+                    !string.IsNullOrWhiteSpace(this.Destination.Town) &&
+                    !string.IsNullOrWhiteSpace(this.Destination.Province); } }
         public int Id { get; }
         static IList<int> _listId = new List<int>() { 0 };
 

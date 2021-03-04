@@ -114,16 +114,16 @@ namespace PCTO
             this.gpbEdit.Controls.Add(this.label1);
             this.gpbEdit.Controls.Add(this.lblId);
             this.gpbEdit.Enabled = false;
-            this.gpbEdit.Location = new System.Drawing.Point(262, 339);
+            this.gpbEdit.Location = new System.Drawing.Point(213, 339);
             this.gpbEdit.Name = "gpbEdit";
-            this.gpbEdit.Size = new System.Drawing.Size(439, 210);
+            this.gpbEdit.Size = new System.Drawing.Size(488, 210);
             this.gpbEdit.TabIndex = 2;
             this.gpbEdit.TabStop = false;
             this.gpbEdit.Text = "Edit package\'s properties";
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(187, 172);
+            this.btnEdit.Location = new System.Drawing.Point(210, 172);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(88, 32);
             this.btnEdit.TabIndex = 13;
@@ -133,7 +133,7 @@ namespace PCTO
             // 
             // txbNumber
             // 
-            this.txbNumber.Location = new System.Drawing.Point(304, 134);
+            this.txbNumber.Location = new System.Drawing.Point(343, 131);
             this.txbNumber.Name = "txbNumber";
             this.txbNumber.Size = new System.Drawing.Size(100, 22);
             this.txbNumber.TabIndex = 12;
@@ -142,41 +142,41 @@ namespace PCTO
             // 
             this.txbRoad.Location = new System.Drawing.Point(77, 131);
             this.txbRoad.Name = "txbRoad";
-            this.txbRoad.Size = new System.Drawing.Size(148, 22);
+            this.txbRoad.Size = new System.Drawing.Size(172, 22);
             this.txbRoad.TabIndex = 11;
             // 
             // txbProvince
             // 
-            this.txbProvince.Location = new System.Drawing.Point(304, 91);
+            this.txbProvince.Location = new System.Drawing.Point(343, 93);
             this.txbProvince.Name = "txbProvince";
             this.txbProvince.Size = new System.Drawing.Size(100, 22);
             this.txbProvince.TabIndex = 10;
             // 
             // txbTown
             // 
-            this.txbTown.Location = new System.Drawing.Point(77, 91);
+            this.txbTown.Location = new System.Drawing.Point(77, 93);
             this.txbTown.Name = "txbTown";
-            this.txbTown.Size = new System.Drawing.Size(148, 22);
+            this.txbTown.Size = new System.Drawing.Size(172, 22);
             this.txbTown.TabIndex = 9;
             // 
             // txbWeight
             // 
-            this.txbWeight.Location = new System.Drawing.Point(268, 56);
+            this.txbWeight.Location = new System.Drawing.Point(343, 59);
             this.txbWeight.Name = "txbWeight";
-            this.txbWeight.Size = new System.Drawing.Size(100, 22);
+            this.txbWeight.Size = new System.Drawing.Size(87, 22);
             this.txbWeight.TabIndex = 8;
             // 
             // txbVolume
             // 
             this.txbVolume.Location = new System.Drawing.Point(77, 59);
             this.txbVolume.Name = "txbVolume";
-            this.txbVolume.Size = new System.Drawing.Size(100, 22);
+            this.txbVolume.Size = new System.Drawing.Size(87, 22);
             this.txbVolume.TabIndex = 7;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(231, 137);
+            this.label6.Location = new System.Drawing.Point(270, 134);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 17);
             this.label6.TabIndex = 6;
@@ -194,7 +194,7 @@ namespace PCTO
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(231, 94);
+            this.label4.Location = new System.Drawing.Point(270, 96);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 17);
             this.label4.TabIndex = 4;
@@ -212,7 +212,7 @@ namespace PCTO
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(206, 59);
+            this.label2.Location = new System.Drawing.Point(270, 59);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 17);
             this.label2.TabIndex = 2;
@@ -230,7 +230,7 @@ namespace PCTO
             // lblId
             // 
             this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(6, 31);
+            this.lblId.Location = new System.Drawing.Point(12, 30);
             this.lblId.Name = "lblId";
             this.lblId.Size = new System.Drawing.Size(23, 17);
             this.lblId.TabIndex = 0;
@@ -238,7 +238,7 @@ namespace PCTO
             // 
             // btnConfirmPackages
             // 
-            this.btnConfirmPackages.Location = new System.Drawing.Point(875, 317);
+            this.btnConfirmPackages.Location = new System.Drawing.Point(875, 328);
             this.btnConfirmPackages.Name = "btnConfirmPackages";
             this.btnConfirmPackages.Size = new System.Drawing.Size(143, 31);
             this.btnConfirmPackages.TabIndex = 3;

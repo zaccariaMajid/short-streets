@@ -30,7 +30,7 @@ namespace PCTO
 
         private void dgvSetPackages_SelectionChanged(object sender, EventArgs e)
         {
-            if (dgvSetPackages.SelectedRows.Count < 1)
+            if (dgvSetPackages.SelectedRows.Count != 1)
             {
                 ClearEditGpb();
                 return;
@@ -79,6 +79,14 @@ namespace PCTO
         
         private void btnConfirmPackages_Click(object sender, EventArgs e)
         {
+            IList<Package> confirmedPackages = new List<Package>();
+            foreach(var p in packages)
+                confirmedPackages.Add(p.ToPackage());
+            if(confirmedPackages.Where(x=> x.IsValid == false).ToList().Count != 0)
+            {
+                MessageBox.Show("Convalid all packages to continue");
+                return;
+            }
             var fMap = new Form2(fShortStreets) { TopLevel = false, TopMost = true };
             fMap.FormBorderStyle = FormBorderStyle.None;
             fShortStreets.pnlHome.Controls.Add(fMap);

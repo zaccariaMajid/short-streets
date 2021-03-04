@@ -143,7 +143,7 @@ namespace PCTO
         }
 
         /// <summary>
-        /// Set labelId's text
+        /// Returns package's Id by dataGridView and cell
         /// </summary>
         /// <param name="l"></param>
         /// <param name="dgv"></param>
