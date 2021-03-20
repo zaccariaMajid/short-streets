@@ -24,7 +24,7 @@ namespace PCTO
 
         private void btnConfirmNumPackages_Click(object sender, EventArgs e)
         {
-            FormsElaboration.SetDgvRows((int)nudPackages.Value, dgvSetPackages, packages);
+            FormsElaboration.SetDgvRows((int)nudPackages.Value, dgvSetPackages, packages, true);
             nudPackages.Value = 0;
         }
 
@@ -87,11 +87,7 @@ namespace PCTO
                 MessageBox.Show("Convalid all packages to continue");
                 return;
             }
-            var fMap = new Form2(fShortStreets) { TopLevel = false, TopMost = true };
-            fMap.FormBorderStyle = FormBorderStyle.None;
-            fShortStreets.pnlHome.Controls.Add(fMap);
-            this.Hide();
-            fMap.Show();
+            fShortStreets.ShowFormMap();
         }
 
         private void dgvSetPackages_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -123,6 +119,7 @@ namespace PCTO
             txbProvince.Text = currentPackage.Destination.Province;
             txbRoad.Text = currentPackage.Destination.Road;
             txbNumber.Text = currentPackage.Destination.Number;
+            btnConfirmPackages.Enabled = false;
         }
         void ClearEditGpb()
         {
@@ -134,6 +131,18 @@ namespace PCTO
             txbProvince.Text = string.Empty;
             txbRoad.Text = string.Empty;
             txbNumber.Text = string.Empty;
+            btnConfirmPackages.Enabled = true;
+        }
+
+        private void btnClearPackages_Click(object sender, EventArgs e)
+        {
+            packages.Clear();
+            FormsElaboration.PopulateDgv(dgvSetPackages, packages);
+        }
+
+        private void btnGetPresetPackages_Click(object sender, EventArgs e)
+        {
+            FormsElaboration.SetDgvRows((int)nudPresetQuantity.Value, dgvSetPackages, packages, false);
         }
     }
 }

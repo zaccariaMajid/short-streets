@@ -8,12 +8,12 @@ namespace PCTO
 {
     class PackDTO
     {
-        public PackDTO (int id = 0, int volume = 0, int weight = 0, string number = "", string road = "", string town = "", string province = "")
+        public PackDTO (Guid id = default, int volume = 0, int weight = 0, string number = "", string road = "", string town = "", string province = "")
         {
-            if (id != 0)
+            if (id != default)
                 this.Id = id;
             else
-                this.Id = Package.GetPackagesQuantity() + 1;
+                this.Id = Guid.NewGuid();
             this.Volume = volume;
             this.Weight = weight;
             this.Number = number;
@@ -25,7 +25,7 @@ namespace PCTO
         {
             return $"{this.Id} - {this.Volume} m³ - {this.Weight} Kg - {this.Road} {this.Number}, {this.Town} ({this.Province})";
         }
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public int Volume { get; set; }
         public int Weight { get; set; }
         public string Number { get; set; }
@@ -39,7 +39,7 @@ namespace PCTO
         /// <returns></returns>
         public Package ToPackage()
         {
-            var binded = Package.GetPackageById(this.Id);
+            var binded = Package.GetPackageById(this.Id.ToString());
             if (binded != default)
                 return binded;
             else

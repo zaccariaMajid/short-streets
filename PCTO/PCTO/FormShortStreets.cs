@@ -12,16 +12,35 @@ namespace PCTO
 {
     public partial class FormShortStreets : Form
     {
+        FormRiderSpace formRiderSpace;
+        FormMap formMap;
         public FormShortStreets()
         {
             InitializeComponent();
+
+            formRiderSpace = new FormRiderSpace(this) { TopLevel = false, TopMost = true };
+            formRiderSpace.FormBorderStyle = FormBorderStyle.None;
+            pnlHome.Controls.Add(formRiderSpace);
+
+            formMap = new FormMap(this) { TopLevel = false, TopMost = true };
+            formMap.FormBorderStyle = FormBorderStyle.None;
+            pnlHome.Controls.Add(formMap);
         }
         private void riderSpaceToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            var fRiderSpace = new FormRiderSpace(this) { TopLevel = false, TopMost = true };
-            fRiderSpace.FormBorderStyle = FormBorderStyle.None;
-            this.pnlHome.Controls.Add(fRiderSpace);
-            fRiderSpace.Show();
+            ShowFormRiderSpace();
+        }
+
+        public void ShowFormRiderSpace()
+        {
+            formMap.Hide();
+            formRiderSpace.Show();
+        }
+
+        public void ShowFormMap()
+        {
+            formRiderSpace.Hide();
+            formMap.Show();
         }
     }
 }

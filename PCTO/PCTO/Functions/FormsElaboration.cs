@@ -12,8 +12,6 @@ namespace PCTO
         /// <summary>
         /// Modifies a package's property with the content of DataGridView cell
         /// </summary>
-        /// <param name="currentPackage"></param>
-        /// <param name="dgv"></param>
         public static void ChangePackagePropertyFromDgv(Package currentPackage, DataGridView dgv)
         {
             string value;
@@ -116,28 +114,50 @@ namespace PCTO
         /// <summary>
         /// Identifies the package by the DataGridView selected row
         /// </summary>
-        /// <param name="dgv"></param>
-        /// <returns></returns>
         public static Package GetPackageByDgvRow(DataGridView dgv)
         {
-            return Package.GetPackageById((int)GetIdFromDgvRow(dgv));
+            return Package.GetPackageById(GetIdFromDgvRow(dgv).ToString());
         }
 
 
         /// <summary>
         /// Set as many empty PackDTO in the dataGridView as the int paramenter
         /// </summary>
-        /// <param name="n"></param>
-        /// <param name="dgv"></param>
-        public static void SetDgvRows(int n, DataGridView dgv, IList<PackDTO> packages)
+        /// <param name="NewPackages">True to create new packages; False to import preset packages</param>
+        public static void SetDgvRows(int n, DataGridView dgv, IList<PackDTO> packages, bool NewPackages)
         {
             if (n < 1)
             {
                 MessageBox.Show("Invalid packages quantity");
                 return;
             }
-            for (int x = 0; x < n; x++)
-                packages.Add(new Package(new Address("", "", "", ""), 0, 0).ToDTO());
+            switch (NewPackages)
+            {
+                case true:
+                    {
+                        for (int x = 0; x < n; x++)
+                            packages.Add(new Package(new Address("", "", "", ""), 0, 0).ToDTO());
+                        break;
+                    }
+                case false:
+                    {
+                        try
+                        {
+                            packages = Package.GetPresetDTO(n);
+                        }
+                        catch (ArgumentException argEx)
+                        {
+                            MessageBox.Show(argEx.Message);
+                            return;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Generic error: {ex.Message}");
+                            return;
+                        }
+                        break;
+                    }
+            }
             PopulateDgv(dgv, packages);
             dgv.Columns[0].ReadOnly = true;
         }
@@ -145,8 +165,6 @@ namespace PCTO
         /// <summary>
         /// Returns package's Id by dataGridView and cell
         /// </summary>
-        /// <param name="l"></param>
-        /// <param name="dgv"></param>
         public static object GetIdFromDgvRow(DataGridView dgv)
         {
             return dgv.SelectedRows[0].Cells[0].Value;
@@ -155,8 +173,6 @@ namespace PCTO
         /// <summary>
         /// Set DataGridView's DataSource by a DTO list
         /// </summary>
-        /// <param name="dgv"></param>
-        /// <param name="packages"></param>
         public static void PopulateDgv(DataGridView dgv, IList<PackDTO> packages)
         {
             dgv.DataSource = null;

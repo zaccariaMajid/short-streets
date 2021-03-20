@@ -98,11 +98,11 @@
     <Compile Include="Class\PackDTO.cs" />
     <Compile Include="Class\Address.cs" />
     <Compile Include="Class\Package.cs" />
-    <Compile Include="Form2.cs">
+    <Compile Include="FormMap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="FormMap.Designer.cs">
+      <DependentUpon>FormMap.cs</DependentUpon>
     </Compile>
     <Compile Include="FormRiderSpace.cs">
       <SubType>Form</SubType>
@@ -120,8 +120,8 @@
     <Compile Include="Functions\PropertyControl.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="FormMap.resx">
+      <DependentUpon>FormMap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRiderSpace.resx">
       <DependentUpon>FormRiderSpace.cs</DependentUpon>

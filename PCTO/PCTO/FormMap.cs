@@ -13,10 +13,10 @@ using Newtonsoft.Json.Linq;
 
 namespace PCTO
 {
-    public partial class Form2 : Form
+    public partial class FormMap : Form
     {
         FormShortStreets fShortStreets;
-        public Form2(FormShortStreets f)
+        public FormMap(FormShortStreets f)
         {
             InitializeComponent();
 
@@ -30,14 +30,9 @@ namespace PCTO
             gMapControl1.MaxZoom = 17;
             gMapControl1.Zoom = 5;
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void CloseMapToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var fRiderSpace = new FormRiderSpace(fShortStreets) { TopLevel = false, TopMost = true };
-            fRiderSpace.FormBorderStyle = FormBorderStyle.None;
-            fShortStreets.pnlHome.Controls.Add(fRiderSpace);
-            this.Hide();
-            fRiderSpace.Show();
+            fShortStreets.ShowFormRiderSpace();
         }
     }
 }

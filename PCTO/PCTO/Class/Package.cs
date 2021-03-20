@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace PCTO
 {
@@ -10,23 +12,27 @@ namespace PCTO
     {
         public Package(Address destination, int volume = 1, int weight = 1)
         {
-            this.Id = _listId.LastOrDefault() + 1;
-            _listId.Add(this.Id);
+            this.Id = Guid.NewGuid();
             this._volume = volume;
             this._weight = weight;
             this.Destination = destination;
             _packages.Add(this);
         }
 
-        public bool IsValid 
-        { get {return this.Volume>0 && 
-                    this.Weight>0 && 
-                    !string.IsNullOrWhiteSpace(this.Destination.Number) &&
-                    !string.IsNullOrWhiteSpace(this.Destination.Road) &&
-                    !string.IsNullOrWhiteSpace(this.Destination.Town) &&
-                    !string.IsNullOrWhiteSpace(this.Destination.Province); } }
-        public int Id { get; }
-        static IList<int> _listId = new List<int>() { 0 };
+        public bool IsValid
+        {
+            get
+            {
+                return this.Volume > 0 &&
+                     this.Weight > 0 &&
+                     !string.IsNullOrWhiteSpace(this.Destination.Number) &&
+                     !string.IsNullOrWhiteSpace(this.Destination.Road) &&
+                     !string.IsNullOrWhiteSpace(this.Destination.Town) &&
+                     !string.IsNullOrWhiteSpace(this.Destination.Province);
+            }
+        }
+
+        public Guid Id { get; }
 
         int _volume;
         public int Volume
@@ -50,9 +56,9 @@ namespace PCTO
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public static Package GetPackageById(int id)
+        public static Package GetPackageById(string id)
         {
-            return _packages.Where(x => x.Id == id)
+            return _packages.Where(x => x.Id.ToString() == id)
                 .SingleOrDefault();
         }
 
@@ -84,9 +90,23 @@ namespace PCTO
             return new PackDTO(this.Id);
         }
 
-        //public PackDTO GetPresetDTO(int x)
-        //{
-        //    return;
-        //}
+        public static List<PackDTO> GetPresetDTO(int x)
+        {
+            if (x < 1)
+                throw new ArgumentException("Parameter must be a positive int value");
+            List<Package> resultPackages = GetPackagesFromJson();
+            if (x > resultPackages.Count())
+                throw new ArgumentException("Parameter too high");
+            List<PackDTO> resultPackDTO = new List<PackDTO>();
+            foreach (var package in resultPackages.GetRange(0, x))
+                resultPackDTO.Add(package.ToDTO());
+            return resultPackDTO;
+        }
+        static List<Package> GetPackagesFromJson()
+        {
+            StreamReader r = new StreamReader("file.json");
+            string json = r.ReadToEnd();
+            return JsonConvert.DeserializeObject<List<Package>>(json);
+        }
     }
 }

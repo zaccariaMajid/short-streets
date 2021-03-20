@@ -84,6 +84,8 @@ namespace PCTO
             this.Controls.Add(this.pnlHome);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1076, 644);
             this.Name = "FormShortStreets";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Short Streets";

@@ -50,10 +50,16 @@ namespace PCTO
             this.lblId = new System.Windows.Forms.Label();
             this.btnConfirmPackages = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnClearPackages = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnGetPresetPackages = new System.Windows.Forms.Button();
+            this.nudPresetQuantity = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSetPackages)).BeginInit();
             this.gpbQuantity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPackages)).BeginInit();
             this.gpbEdit.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPresetQuantity)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvSetPackages
@@ -71,11 +77,12 @@ namespace PCTO
             // 
             // gpbQuantity
             // 
+            this.gpbQuantity.Controls.Add(this.btnClearPackages);
             this.gpbQuantity.Controls.Add(this.btnConfirmNumPackages);
             this.gpbQuantity.Controls.Add(this.nudPackages);
-            this.gpbQuantity.Location = new System.Drawing.Point(12, 59);
+            this.gpbQuantity.Location = new System.Drawing.Point(12, 54);
             this.gpbQuantity.Name = "gpbQuantity";
-            this.gpbQuantity.Size = new System.Drawing.Size(287, 64);
+            this.gpbQuantity.Size = new System.Drawing.Size(390, 69);
             this.gpbQuantity.TabIndex = 1;
             this.gpbQuantity.TabStop = false;
             this.gpbQuantity.Text = "Set packages quantity";
@@ -114,16 +121,16 @@ namespace PCTO
             this.gpbEdit.Controls.Add(this.label1);
             this.gpbEdit.Controls.Add(this.lblId);
             this.gpbEdit.Enabled = false;
-            this.gpbEdit.Location = new System.Drawing.Point(213, 339);
+            this.gpbEdit.Location = new System.Drawing.Point(227, 328);
             this.gpbEdit.Name = "gpbEdit";
-            this.gpbEdit.Size = new System.Drawing.Size(488, 210);
+            this.gpbEdit.Size = new System.Drawing.Size(488, 221);
             this.gpbEdit.TabIndex = 2;
             this.gpbEdit.TabStop = false;
             this.gpbEdit.Text = "Edit package\'s properties";
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(210, 172);
+            this.btnEdit.Location = new System.Drawing.Point(200, 172);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(88, 32);
             this.btnEdit.TabIndex = 13;
@@ -240,7 +247,7 @@ namespace PCTO
             // 
             this.btnConfirmPackages.Location = new System.Drawing.Point(875, 328);
             this.btnConfirmPackages.Name = "btnConfirmPackages";
-            this.btnConfirmPackages.Size = new System.Drawing.Size(143, 31);
+            this.btnConfirmPackages.Size = new System.Drawing.Size(143, 33);
             this.btnConfirmPackages.TabIndex = 3;
             this.btnConfirmPackages.Text = "CONFIRM";
             this.btnConfirmPackages.UseVisualStyleBackColor = true;
@@ -256,11 +263,50 @@ namespace PCTO
             this.label7.TabIndex = 4;
             this.label7.Text = "RIDER SPACE";
             // 
+            // btnClearPackages
+            // 
+            this.btnClearPackages.Location = new System.Drawing.Point(269, 30);
+            this.btnClearPackages.Name = "btnClearPackages";
+            this.btnClearPackages.Size = new System.Drawing.Size(89, 23);
+            this.btnClearPackages.TabIndex = 2;
+            this.btnClearPackages.Text = "CLEAR";
+            this.btnClearPackages.UseVisualStyleBackColor = true;
+            this.btnClearPackages.Click += new System.EventHandler(this.btnClearPackages_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.nudPresetQuantity);
+            this.groupBox1.Controls.Add(this.btnGetPresetPackages);
+            this.groupBox1.Location = new System.Drawing.Point(747, 54);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(271, 69);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Get pre-set packages";
+            // 
+            // btnGetPresetPackages
+            // 
+            this.btnGetPresetPackages.Location = new System.Drawing.Point(162, 31);
+            this.btnGetPresetPackages.Name = "btnGetPresetPackages";
+            this.btnGetPresetPackages.Size = new System.Drawing.Size(89, 23);
+            this.btnGetPresetPackages.TabIndex = 0;
+            this.btnGetPresetPackages.Text = "GET";
+            this.btnGetPresetPackages.UseVisualStyleBackColor = true;
+            this.btnGetPresetPackages.Click += new System.EventHandler(this.btnGetPresetPackages_Click);
+            // 
+            // nudPresetQuantity
+            // 
+            this.nudPresetQuantity.Location = new System.Drawing.Point(38, 32);
+            this.nudPresetQuantity.Name = "nudPresetQuantity";
+            this.nudPresetQuantity.Size = new System.Drawing.Size(106, 22);
+            this.nudPresetQuantity.TabIndex = 6;
+            // 
             // FormRiderSpace
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1030, 561);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnConfirmPackages);
             this.Controls.Add(this.gpbEdit);
@@ -274,6 +320,8 @@ namespace PCTO
             ((System.ComponentModel.ISupportInitialize)(this.nudPackages)).EndInit();
             this.gpbEdit.ResumeLayout(false);
             this.gpbEdit.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.nudPresetQuantity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -302,5 +350,9 @@ namespace PCTO
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.Button btnConfirmPackages;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnClearPackages;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.NumericUpDown nudPresetQuantity;
+        private System.Windows.Forms.Button btnGetPresetPackages;
     }
 }
