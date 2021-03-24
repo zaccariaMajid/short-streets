@@ -99,3 +99,10 @@ C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\obj\Debug\netcoreapp3.1
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\obj\Debug\netcoreapp3.1\PCTO_Test.dll
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\obj\Debug\netcoreapp3.1\PCTO_Test.pdb
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\obj\Debug\netcoreapp3.1\PCTO_Test.genruntimeconfig.cache
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1\PCTO.exe
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1\GMap.NET.WindowsForms.dll
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1\GMap.NET.Core.dll
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1\PCTO.pdb
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1\PCTO.exe.config
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1\Castle.Core.dll
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1\Moq.dll
