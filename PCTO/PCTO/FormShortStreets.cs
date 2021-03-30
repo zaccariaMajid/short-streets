@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace PCTO
 {
-    public partial class FormShortStreets : Form
+    partial class FormShortStreets : Form
     {
         FormRiderSpace formRiderSpace;
         FormMap formMap;
@@ -37,10 +37,13 @@ namespace PCTO
             formRiderSpace.Show();
         }
 
-        public void ShowFormMap()
+        public void ShowFormMap(IList<Package> packages)
         {
             formRiderSpace.Hide();
             formMap.Show();
+            OnShowingFormMap(packages);
         }
+        public event EventHandler<ShowingFormMapEventArgs> ShowingFormMap;
+        protected virtual void OnShowingFormMap(IList<Package> packages) => ShowingFormMap?.Invoke(this, new ShowingFormMapEventArgs(packages));
     }
 }

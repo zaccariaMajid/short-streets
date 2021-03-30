@@ -90,6 +90,11 @@ namespace PCTO
             return new PackDTO(this.Id);
         }
 
+        /// <summary>
+        /// Returns a preset packages DTO List
+        /// </summary>
+        /// <param name="x">Quantity of required packages</param>
+        /// <returns></returns>
         public static List<PackDTO> GetPresetDTO(int x)
         {
             if (x < 1)

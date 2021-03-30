@@ -108,6 +108,7 @@
     <Compile Include="Class\PackDTO.cs" />
     <Compile Include="Class\Address.cs" />
     <Compile Include="Class\Package.cs" />
+    <Compile Include="Class\ShowingFormMapEventArgs.cs" />
     <Compile Include="FormMap.cs">
       <SubType>Form</SubType>
     </Compile>

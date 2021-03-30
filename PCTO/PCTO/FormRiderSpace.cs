@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace PCTO
 {
-    public partial class FormRiderSpace : Form
+    partial class FormRiderSpace : Form
     {
         FormShortStreets fShortStreets;
         public FormRiderSpace(FormShortStreets f)
@@ -87,7 +87,7 @@ namespace PCTO
                 MessageBox.Show("Convalid all packages to continue");
                 return;
             }
-            fShortStreets.ShowFormMap();
+            fShortStreets.ShowFormMap(confirmedPackages);
         }
 
         private void dgvSetPackages_CellValueChanged(object sender, DataGridViewCellEventArgs e)
