@@ -63,7 +63,7 @@ namespace PCTO
 
     public interface IApiCaller
     {
-        ResultApi GetApiResult(String completeAddress);
+        ResultApi GetApiResult(string completeAddress);
     }
 
     public class ApiCaller : IApiCaller
