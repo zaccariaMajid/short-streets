@@ -1,33 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\giugg\\source\\repos\\short-streets\\PCTO\\PCTO_Test\\PCTO_Test.csproj": {}
+    "C:\\Users\\bissola.17117\\Documents\\GitHub\\short-streets\\PCTO\\PCTO_Test\\PCTO_Test.csproj": {}
   },
   "projects": {
-    "C:\\Users\\giugg\\source\\repos\\short-streets\\PCTO\\PCTO\\PCTO.csproj": {
+    "C:\\Users\\bissola.17117\\Documents\\GitHub\\short-streets\\PCTO\\PCTO\\PCTO.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\giugg\\source\\repos\\short-streets\\PCTO\\PCTO\\PCTO.csproj",
+        "projectUniqueName": "C:\\Users\\bissola.17117\\Documents\\GitHub\\short-streets\\PCTO\\PCTO\\PCTO.csproj",
         "projectName": "PCTO",
-        "projectPath": "C:\\Users\\giugg\\source\\repos\\short-streets\\PCTO\\PCTO\\PCTO.csproj"
+        "projectPath": "C:\\Users\\bissola.17117\\Documents\\GitHub\\short-streets\\PCTO\\PCTO\\PCTO.csproj"
       },
       "frameworks": {
         "net472": {}
       }
     },
-    "C:\\Users\\giugg\\source\\repos\\short-streets\\PCTO\\PCTO_Test\\PCTO_Test.csproj": {
+    "C:\\Users\\bissola.17117\\Documents\\GitHub\\short-streets\\PCTO\\PCTO_Test\\PCTO_Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\giugg\\source\\repos\\short-streets\\PCTO\\PCTO_Test\\PCTO_Test.csproj",
+        "projectUniqueName": "C:\\Users\\bissola.17117\\Documents\\GitHub\\short-streets\\PCTO\\PCTO_Test\\PCTO_Test.csproj",
         "projectName": "PCTO_Test",
-        "projectPath": "C:\\Users\\giugg\\source\\repos\\short-streets\\PCTO\\PCTO_Test\\PCTO_Test.csproj",
-        "packagesPath": "C:\\Users\\giugg\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\giugg\\source\\repos\\short-streets\\PCTO\\PCTO_Test\\obj\\",
+        "projectPath": "C:\\Users\\bissola.17117\\Documents\\GitHub\\short-streets\\PCTO\\PCTO_Test\\PCTO_Test.csproj",
+        "packagesPath": "C:\\Users\\bissola.17117\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bissola.17117\\Documents\\GitHub\\short-streets\\PCTO\\PCTO_Test\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\giugg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\bissola.17117\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -41,8 +38,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\giugg\\source\\repos\\short-streets\\PCTO\\PCTO\\PCTO.csproj": {
-                "projectPath": "C:\\Users\\giugg\\source\\repos\\short-streets\\PCTO\\PCTO\\PCTO.csproj"
+              "C:\\Users\\bissola.17117\\Documents\\GitHub\\short-streets\\PCTO\\PCTO\\PCTO.csproj": {
+                "projectPath": "C:\\Users\\bissola.17117\\Documents\\GitHub\\short-streets\\PCTO\\PCTO\\PCTO.csproj"
               }
             }
           }
@@ -101,7 +98,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
