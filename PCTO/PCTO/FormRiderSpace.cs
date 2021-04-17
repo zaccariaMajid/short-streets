@@ -21,6 +21,8 @@ namespace PCTO
 
         Package currentPackage;
         IList<PackDTO> packages = new List<PackDTO>();
+        static IApiCaller caller = new ApiCaller();
+        CoordinateHelper helper = new CoordinateHelper(caller);
 
         private void btnConfirmNumPackages_Click(object sender, EventArgs e)
         {
@@ -59,6 +61,7 @@ namespace PCTO
                 currentPackage.Destination.Province = txbProvince.Text;
                 currentPackage.Destination.Number = txbNumber.Text;
                 currentPackage.Destination.Road = txbRoad.Text;
+                helper.SetCoordinates(currentPackage.Destination);
                 packages[packages.IndexOf(packages
                     .Where(x => x.Id == currentPackage.Id)
                     .Single())] = currentPackage.ToDTO();

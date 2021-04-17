@@ -71,7 +71,12 @@ namespace PCTO
             public ResultApi GetApiResult(string completeAddress)
             {
                 var apiUrl = $"http://api.positionstack.com/v1/forward?access_key=1555307b64886ccfe7546a7037046834&query={completeAddress}&output=json";
-                string jsonString = string.Empty;
+
+            //link https://api.opencagedata.com/geocode/v1/json?key=6c0f85275a664fc7b6ac665d2e40df0a&q=Via%20Europa,%2023%20Costa%20Serina&pretty=1
+
+            //new key = 6c0f85275a664fc7b6ac665d2e40df0a
+
+            string jsonString = string.Empty;
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(apiUrl);
                 using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                 using (Stream stream = response.GetResponseStream())

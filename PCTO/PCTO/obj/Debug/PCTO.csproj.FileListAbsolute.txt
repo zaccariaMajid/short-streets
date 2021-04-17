@@ -66,8 +66,6 @@ C:\Users\giuggioli.17210\Documents\GitHub\short-streets\PCTO\PCTO\bin\Debug\Micr
 C:\Users\giuggioli.17210\Documents\GitHub\short-streets\PCTO\PCTO\bin\Debug\Newtonsoft.Json.xml
 C:\Users\giuggioli.17210\Documents\GitHub\short-streets\PCTO\PCTO\bin\Debug\System.Data.SQLite.xml
 C:\Users\giuggioli.17210\Documents\GitHub\short-streets\PCTO\PCTO\obj\Debug\PCTO.csprojAssemblyReference.cache
-C:\Users\giuggioli.17210\Documents\GitHub\short-streets\PCTO\PCTO\obj\Debug\PCTO.Form1.resources
-C:\Users\giuggioli.17210\Documents\GitHub\short-streets\PCTO\PCTO\obj\Debug\PCTO.Form2.resources
 C:\Users\giuggioli.17210\Documents\GitHub\short-streets\PCTO\PCTO\obj\Debug\PCTO.Properties.Resources.resources
 C:\Users\giuggioli.17210\Documents\GitHub\short-streets\PCTO\PCTO\obj\Debug\PCTO.csproj.GenerateResource.cache
 C:\Users\giuggioli.17210\Documents\GitHub\short-streets\PCTO\PCTO\obj\Debug\PCTO.csproj.CoreCompileInputs.cache
@@ -164,3 +162,12 @@ C:\Users\bissola.17117\Documents\GitHub\short-streets\PCTO\PCTO\obj\Debug\PCTO.c
 C:\Users\bissola.17117\Documents\GitHub\short-streets\PCTO\PCTO\obj\Debug\PCTO.csproj.CopyComplete
 C:\Users\bissola.17117\Documents\GitHub\short-streets\PCTO\PCTO\obj\Debug\PCTO.exe
 C:\Users\bissola.17117\Documents\GitHub\short-streets\PCTO\PCTO\obj\Debug\PCTO.pdb
+C:\Users\giuggioli.17210\Documents\GitHub\short-streets\PCTO\PCTO\bin\Debug\Castle.Core.dll
+C:\Users\giuggioli.17210\Documents\GitHub\short-streets\PCTO\PCTO\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\giuggioli.17210\Documents\GitHub\short-streets\PCTO\PCTO\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\giuggioli.17210\Documents\GitHub\short-streets\PCTO\PCTO\bin\Debug\Castle.Core.xml
+C:\Users\giuggioli.17210\Documents\GitHub\short-streets\PCTO\PCTO\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\giuggioli.17210\Documents\GitHub\short-streets\PCTO\PCTO\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\giuggioli.17210\Documents\GitHub\short-streets\PCTO\PCTO\obj\Debug\PCTO.FormMap.resources
+C:\Users\giuggioli.17210\Documents\GitHub\short-streets\PCTO\PCTO\obj\Debug\PCTO.FormRiderSpace.resources
+C:\Users\giuggioli.17210\Documents\GitHub\short-streets\PCTO\PCTO\obj\Debug\PCTO.FormShortStreets.resources
