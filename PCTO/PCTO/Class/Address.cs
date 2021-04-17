@@ -76,7 +76,7 @@ namespace PCTO
                 using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                 using (Stream stream = response.GetResponseStream())
                 using (StreamReader reader = new StreamReader(stream))
-                    jsonString = reader.ReadToEnd();
+                jsonString = reader.ReadToEnd();
 
                 return JsonConvert.DeserializeObject<ResultApi>(jsonString);
             }
