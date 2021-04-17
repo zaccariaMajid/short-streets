@@ -48,6 +48,20 @@ namespace PCTO_Test
             a.Latitude.Should().BeInRange(39.2M, 39.3M);
             a.Longitude.Should().BeInRange(9.1M, 9.2M);
         }
+        //[Fact]
+        //public void Controlprovince()
+        //{
+        //    string province = "bg";
+            
+        //}
 
+        [Fact]
+        public void ControlAddress()
+        {
+            var Address = new Address("30a", "Via Manzoni", "Milano", "MI");
+            Address.ToCompleteAddress();
+        }
+        
+       
     }
 }
