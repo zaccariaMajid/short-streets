@@ -43,8 +43,8 @@ namespace PCTO
             foreach (var p in packages)
                 markers.Markers.Add(new GMarkerGoogle
                     (new PointLatLng
-                        (double.Parse(p.Destination.Latitude.ToString()),
-                         double.Parse(p.Destination.Longitude.ToString())),
+                        (double.Parse(p.Destination.Coordinates.Lat.ToString()),
+                         double.Parse(p.Destination.Coordinates.Lng.ToString())),
                          GMarkerGoogleType.red));
             var marker1 = new GMarkerGoogle(new PointLatLng(45.690494, 9.681876), GMarkerGoogleType.red);
             markers.Markers.Add(marker1);

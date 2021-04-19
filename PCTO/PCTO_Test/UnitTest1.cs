@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using FluentAssertions;
 using PCTO;
 using Moq;
-using static PCTO.ResultApi;
+using static PCTO.ApiResult;
 
 namespace PCTO_Test
 {
@@ -18,12 +18,12 @@ namespace PCTO_Test
 
             var mock = new Mock<IApiCaller>();
             mock.Setup(foo => foo.GetApiResult(It.IsAny<string>()))
-                .Returns(new ResultApi() { Data = new List<ApiData>() { new ApiData() { Latitude = 45.690494M, Longitude = 9.681876M } }.ToArray() });
+                .Returns(new ApiResult() { Data = new List<Coordinates>() { new Coordinates() { Lat = 45.690494M, Lng = 9.681876M } }.ToArray() });
 
             CoordinateHelper h = new CoordinateHelper(mock.Object);
             h.SetCoordinates(a);
-            a.Latitude.Should().Be(45.690494M);
-            a.Longitude.Should().Be(9.681876M);
+            a.Coordinates.Lat.Should().Be(45.690494M);
+            a.Coordinates.Lng.Should().Be(9.681876M);
         }
 
       
@@ -35,8 +35,8 @@ namespace PCTO_Test
             IApiCaller caller = new ApiCaller();
             CoordinateHelper helper = new CoordinateHelper(caller);
             helper.SetCoordinates(a);
-            a.Latitude.Should().BeInRange(45.6M,45.7M);
-            a.Longitude.Should().BeInRange(9.4M,9.5M);
+            a.Coordinates.Lat.Should().BeInRange(45.6M,45.7M);
+            a.Coordinates.Lng.Should().BeInRange(9.4M,9.5M);
         }
         [Fact]
         public void Correttezzacoordinate2()
@@ -45,8 +45,8 @@ namespace PCTO_Test
             IApiCaller caller = new ApiCaller();
             CoordinateHelper helper = new CoordinateHelper(caller);
             helper.SetCoordinates(a);
-            a.Latitude.Should().BeInRange(39.2M, 39.3M);
-            a.Longitude.Should().BeInRange(9.1M, 9.2M);
+            a.Coordinates.Lat.Should().BeInRange(39.2M, 39.3M);
+            a.Coordinates.Lng.Should().BeInRange(9.1M, 9.2M);
         }
         //[Fact]
         //public void Controlprovince()
@@ -62,6 +62,40 @@ namespace PCTO_Test
             Address.ToCompleteAddress();
         }
         
-       
+       [Fact]
+       public void FirstControlCoordinates()
+        {
+            Address a = new Address("32", "Via Giacomo Manzù", "Terno d'Isola", "BG");
+            IApiCaller caller = new ApiCaller();
+            CoordinateHelper helper = new CoordinateHelper(caller);
+            helper.SetCoordinates(a);
+            a.Coordinates.Confidence.Should().BeInRange(0,10);
+            a.Coordinates.Lat.Should().BeInRange(45.6825M, 45.6833M);
+            a.Coordinates.Lng.Should().BeInRange(9.5362M, 9.540M);
+        }
+
+        [Fact]
+        public void SecondControlCoordinates()
+        {
+            Address a = new Address("3c", "Via Largo del Roccolo", "Terno d'Isola", "BG");
+            IApiCaller caller = new ApiCaller();
+            CoordinateHelper helper = new CoordinateHelper(caller);
+            helper.SetCoordinates(a);
+            a.Coordinates.Confidence.Should().BeInRange(0, 10);
+            a.Coordinates.Lat.Should().BeInRange(45.6878M, 45.6891M);
+            a.Coordinates.Lng.Should().BeInRange(9.5240M, 9.5297M);
+        }
+
+        [Fact]
+        public void ThirdControlCoordinates()
+        {
+            Address a = new Address("18", "Viale Giulio Cesare", "Bergamo", "BG");
+            IApiCaller caller = new ApiCaller();
+            CoordinateHelper helper = new CoordinateHelper(caller);
+            helper.SetCoordinates(a);
+            a.Coordinates.Confidence.Should().BeInRange(0, 10);
+            a.Coordinates.Lat.Should().BeInRange(45.7074M, 45.7105M);
+            a.Coordinates.Lng.Should().BeInRange(9.6787M, 9.6826M);
+        }
     }
 }
