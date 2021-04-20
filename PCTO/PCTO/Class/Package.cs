@@ -10,9 +10,12 @@ namespace PCTO
 {
     class Package
     {
-        public Package(Address destination, int volume = 1, int weight = 1)
+        public Package(Address destination, string id = default, int volume = 1, int weight = 1)
         {
-            this.Id = Guid.NewGuid();
+            if (id != default)
+                this.Id = id;
+            else
+                this.Id = Guid.NewGuid().ToString();
             this._volume = volume;
             this._weight = weight;
             this.Destination = destination;
@@ -26,13 +29,13 @@ namespace PCTO
                 return this.Volume > 0 &&
                      this.Weight > 0 &&
                      !string.IsNullOrWhiteSpace(this.Destination.Number) &&
-                     !string.IsNullOrWhiteSpace(this.Destination.Road) &&
+                     !string.IsNullOrWhiteSpace(this.Destination.Street) &&
                      !string.IsNullOrWhiteSpace(this.Destination.Town) &&
                      !string.IsNullOrWhiteSpace(this.Destination.Province);
             }
         }
 
-        public Guid Id { get; }
+        public string Id { get; }
 
         int _volume;
         public int Volume
@@ -78,7 +81,8 @@ namespace PCTO
         public PackDTO ToDTO()
         {
             return new PackDTO(this.Id, this.Volume, this.Weight, this.Destination.Number,
-                this.Destination.Road, this.Destination.Town, this.Destination.Province);
+                this.Destination.Street, this.Destination.Town, this.Destination.Province,
+                this.Destination.Coordinates.Lat, this.Destination.Coordinates.Lng, this.Destination.Coordinates.Confidence);
         }
 
         /// <summary>

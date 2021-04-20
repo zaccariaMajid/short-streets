@@ -8,30 +8,37 @@ namespace PCTO
 {
     class PackDTO
     {
-        public PackDTO (Guid id = default, int volume = 0, int weight = 0, string number = "", string road = "", string town = "", string province = "")
+        public PackDTO(string id = default, int volume = 0, int weight = 0, string number = "", string road = "", string town = "",
+                string province = "", decimal lat = default, decimal lng = default, int confidence = default)
         {
             if (id != default)
                 this.Id = id;
             else
-                this.Id = Guid.NewGuid();
+                this.Id = Guid.NewGuid().ToString();
             this.Volume = volume;
             this.Weight = weight;
             this.Number = number;
-            this.Road = road;
+            this.Street = road;
             this.Town = town;
             this.Province = province;
+            this.Lat = lat;
+            this.Lng = lng;
+            this.Confidence = confidence;
         }
         public override string ToString()
         {
-            return $"{this.Id} - {this.Volume} m³ - {this.Weight} Kg - {this.Road} {this.Number}, {this.Town} ({this.Province})";
+            return $"{this.Id} - {this.Volume} m³ - {this.Weight} Kg - {this.Street} {this.Number}, {this.Town} ({this.Province})";
         }
-        public Guid Id { get; set; }
+        public string Id { get; set; }
         public int Volume { get; set; }
         public int Weight { get; set; }
         public string Number { get; set; }
-        public string Road { get; set; }
+        public string Street { get; set; }
         public string Town { get; set; }
         public string Province { get; set; }
+        public decimal Lat { get; set; }
+        public decimal Lng { get; set; }
+        public int Confidence { get; set; }
 
         /// <summary>
         /// Returns a package with all DTO's data
@@ -43,7 +50,7 @@ namespace PCTO
             if (binded != default)
                 return binded;
             else
-                return new Package(new Address(this.Number, this.Road, this.Town, this.Province), this.Volume, this.Weight);
+                return new Package(new Address(this.Number, this.Street, this.Town, this.Province), this.Id, this.Volume, this.Weight);
         }
     }
 }

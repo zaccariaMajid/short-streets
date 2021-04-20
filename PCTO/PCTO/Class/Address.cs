@@ -9,18 +9,18 @@ namespace PCTO
         public Address(string number = "29a", string road = "Via Gavazzeni", string town = "Bergamo", string province = "BG")
         {
             this._number = number;
-            this._road = road;
+            this._street = road;
             this._town = town;
             this._province = province;
         }
         public override string ToString()
         {
-            return $"{this.Road} {this.Number}, {this.Town} ({this.Province})";
+            return $"{this.Street} {this.Number}, {this.Town} ({this.Province})";
         }
         public string ToCompleteAddress()
         {
             //return $"{this.Number} {this.Road}, {this.Town}";
-            return $"{Road} {Number} {Town}";
+            return $"{Street} {Number} {Town}";
         }
 
         string _number;
@@ -30,11 +30,11 @@ namespace PCTO
             set { _number = PropertyControl.ValidString(value); }
         }
 
-        string _road;
-        public string Road
+        string _street;
+        public string Street
         {
-            get { return _road; }
-            set { _road = PropertyControl.ValidString(value); }
+            get { return _street; }
+            set { _street = PropertyControl.ValidString(value); }
         }
 
         string _town;

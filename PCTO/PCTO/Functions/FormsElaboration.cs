@@ -73,7 +73,7 @@ namespace PCTO
                     {
                         try
                         {
-                            currentPackage.Destination.Road = value;
+                            currentPackage.Destination.Street = value;
                         }
                         catch (ArgumentException argEx)
                         {
@@ -136,14 +136,16 @@ namespace PCTO
                 case true:
                     {
                         for (int x = 0; x < n; x++)
-                            packages.Add(new Package(new Address("", "", "", ""), 0, 0).ToDTO());
+                            packages.Add(new Package(new Address("", "", "", ""), default, 0, 0).ToDTO());
                         break;
                     }
                 case false:
                     {
                         try
                         {
-                            packages = Package.GetPresetDTO(n);
+                            var presetPackages = Package.GetPresetDTO(n);
+                            foreach(var p in presetPackages)
+                            packages.Add(p);
                         }
                         catch (ArgumentException argEx)
                         {

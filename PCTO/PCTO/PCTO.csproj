@@ -108,7 +108,7 @@
     <Compile Include="Class\Api\ApiCaller.cs" />
     <Compile Include="Class\Api\ApiResult.cs" />
     <Compile Include="Class\Api\CoordinateHelper.cs" />
-    <Compile Include="Class\Api\Coordinates.cs" />
+    <Compile Include="Class\Coordinates.cs" />
     <Compile Include="Class\Api\IApiCaller.cs" />
     <Compile Include="Class\PackDTO.cs" />
     <Compile Include="Class\Address.cs" />

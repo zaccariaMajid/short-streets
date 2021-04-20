@@ -60,7 +60,7 @@ namespace PCTO
                 currentPackage.Destination.Town = txbTown.Text;
                 currentPackage.Destination.Province = txbProvince.Text;
                 currentPackage.Destination.Number = txbNumber.Text;
-                currentPackage.Destination.Road = txbRoad.Text;
+                currentPackage.Destination.Street = txbRoad.Text;
                 helper.SetCoordinates(currentPackage.Destination);
                 packages[packages.IndexOf(packages
                     .Where(x => x.Id == currentPackage.Id)
@@ -120,7 +120,7 @@ namespace PCTO
             txbWeight.Text = currentPackage.Weight.ToString();
             txbTown.Text = currentPackage.Destination.Town;
             txbProvince.Text = currentPackage.Destination.Province;
-            txbRoad.Text = currentPackage.Destination.Road;
+            txbRoad.Text = currentPackage.Destination.Street;
             txbNumber.Text = currentPackage.Destination.Number;
             btnConfirmPackages.Enabled = false;
         }
