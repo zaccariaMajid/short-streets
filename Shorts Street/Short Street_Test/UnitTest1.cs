@@ -3,10 +3,14 @@ using System;
 using System.Collections.Generic;
 using Xunit;
 using FluentAssertions;
-
+using Moq;
 
 namespace Short_Street_Test
 {
+    public interface IPercorso
+    {
+        public List<int> Percorso(int vertice, int peso, int volume, int[] costi);
+    }
     public class UnitTest1
     {
         [Fact]
@@ -42,6 +46,7 @@ namespace Short_Street_Test
             sol.Percorso.Should().NotHaveCount(0);
             sol.Prezzo.Should().NotBe(null);
         }
+
         [Fact]
         public void Test2()
         {
@@ -73,6 +78,21 @@ namespace Short_Street_Test
 
             //assert
             sol.Prezzo.Should().Be(50);
+        }
+
+        [Fact]
+        public void PercorsoMinimoTestMocking()
+        {
+            //arrange
+            var mock = new Mock<IPercorso>();
+
+            //act
+            mock.Setup(x => x.Percorso(It.IsAny<int>(), It.IsAny<int>(), It.IsAny<int>(), It.IsAny<int[]>())).Returns(new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9 });
+            var result = mock.Object.Percorso(1, 2, 3, new int[2] { 1, 2 });
+
+            //assert
+
+            Assert.Equal(new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, result);
         }
     }
 }

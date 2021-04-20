@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mbiss\\source\\repos\\short-streets\\Shorts Street\\Short Street_Test\\Short Street_Test.csproj": {}
+    "C:\\Users\\Asus\\Documents\\GitHub\\short-streets\\Shorts Street\\Short Street_Test\\Short Street_Test.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mbiss\\source\\repos\\short-streets\\Shorts Street\\Short Street_Test\\Short Street_Test.csproj": {
+    "C:\\Users\\Asus\\Documents\\GitHub\\short-streets\\Shorts Street\\Short Street_Test\\Short Street_Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mbiss\\source\\repos\\short-streets\\Shorts Street\\Short Street_Test\\Short Street_Test.csproj",
+        "projectUniqueName": "C:\\Users\\Asus\\Documents\\GitHub\\short-streets\\Shorts Street\\Short Street_Test\\Short Street_Test.csproj",
         "projectName": "Short Street_Test",
-        "projectPath": "C:\\Users\\mbiss\\source\\repos\\short-streets\\Shorts Street\\Short Street_Test\\Short Street_Test.csproj",
-        "packagesPath": "C:\\Users\\mbiss\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mbiss\\source\\repos\\short-streets\\Shorts Street\\Short Street_Test\\obj\\",
+        "projectPath": "C:\\Users\\Asus\\Documents\\GitHub\\short-streets\\Shorts Street\\Short Street_Test\\Short Street_Test.csproj",
+        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Asus\\Documents\\GitHub\\short-streets\\Shorts Street\\Short Street_Test\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mbiss\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\mbiss\\source\\repos\\short-streets\\Shorts Street\\Shorts Street\\Shorts Street.csproj": {
-                "projectPath": "C:\\Users\\mbiss\\source\\repos\\short-streets\\Shorts Street\\Shorts Street\\Shorts Street.csproj"
+              "C:\\Users\\Asus\\Documents\\GitHub\\short-streets\\Shorts Street\\Shorts Street\\Shorts Street.csproj": {
+                "projectPath": "C:\\Users\\Asus\\Documents\\GitHub\\short-streets\\Shorts Street\\Shorts Street\\Shorts Street.csproj"
               }
             }
           }
@@ -51,6 +51,10 @@
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[16.9.1, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.16.1, )"
             },
             "coverlet.collector": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -84,15 +88,15 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\mbiss\\source\\repos\\short-streets\\Shorts Street\\Shorts Street\\Shorts Street.csproj": {
+    "C:\\Users\\Asus\\Documents\\GitHub\\short-streets\\Shorts Street\\Shorts Street\\Shorts Street.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\mbiss\\source\\repos\\short-streets\\Shorts Street\\Shorts Street\\Shorts Street.csproj",
+        "projectUniqueName": "C:\\Users\\Asus\\Documents\\GitHub\\short-streets\\Shorts Street\\Shorts Street\\Shorts Street.csproj",
         "projectName": "Shorts Street",
-        "projectPath": "C:\\Users\\mbiss\\source\\repos\\short-streets\\Shorts Street\\Shorts Street\\Shorts Street.csproj"
+        "projectPath": "C:\\Users\\Asus\\Documents\\GitHub\\short-streets\\Shorts Street\\Shorts Street\\Shorts Street.csproj"
       },
       "frameworks": {
         "net472": {}
