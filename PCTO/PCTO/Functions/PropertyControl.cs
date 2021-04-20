@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PCTO
 {
-    static class PropertyControl
+    public static class PropertyControl
     {
         /// <summary>
         /// The string is taken if it's a 2 upper chars string
