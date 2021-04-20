@@ -3,6 +3,7 @@ using Xunit;
 using System.Collections.Generic;
 using FluentAssertions;
 using PCTO;
+using PCTO.Address;
 using Moq;
 using System.Text;
 using static PCTO.ApiResult;
@@ -37,9 +38,11 @@ namespace PCTO_Test
         {
             //Arrange
             Address a = new Address("25a", "Via San Rocco", "Solza", "BG");
+            //Act
             IApiCaller caller = new ApiCaller();
             CoordinateHelper helper = new CoordinateHelper(caller);
             helper.SetCoordinates(a);
+            //Assert
             a.Coordinates.Confidence.Should().BeInRange(0, 10);
             a.Coordinates.Lat.Should().BeInRange(45.6M, 45.7M);
             a.Coordinates.Lng.Should().BeInRange(9.4M, 9.5M);           
@@ -47,11 +50,13 @@ namespace PCTO_Test
         [Fact]
         public void Correttezzacoordinate2()
         {
-
+            //Arrange
             Address a = new Address("58", "Via Dante Alighieri", "Cagliari", "CA");
+            //Act
             IApiCaller caller = new ApiCaller();
             CoordinateHelper helper = new CoordinateHelper(caller);
             helper.SetCoordinates(a);
+            //Assert
             a.Coordinates.Confidence.Should().BeInRange(0, 10);
             a.Coordinates.Lat.Should().BeInRange(39.2M,39.3M);
             a.Coordinates.Lng.Should().BeInRange(9.1M, 9.2M);          
@@ -59,19 +64,21 @@ namespace PCTO_Test
         [Fact]
         public void Controlprovince1()
         {
+            //Arrange
             string province = "BG";
-            Province(province);
+            //Act
+            var result=Province(province);
+            //Assert
+            result.Should().Be(province);
 
         }
         [Fact]
         public void Controlprovince2()
         {
-            string province = "mi";          
-            
-            var result = Province(province);
+            var provincia = "mi";
+            var result = Province(provincia);
+            result.Should().Be(null);
             Assert.Throws<ArgumentException>(() => result);
-            
-
         }
         [Fact]
         public void NegativeNumber1()
