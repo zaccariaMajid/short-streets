@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PCTO
 {
-    class PackDTO
+   public class PackDTO
     {
         public PackDTO(string id = default, int volume = 0, int weight = 0, string number = "",
             string road = "", string town = "", string province = "")

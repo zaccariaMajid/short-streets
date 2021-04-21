@@ -8,8 +8,8 @@ using Newtonsoft.Json;
 
 namespace PCTO
 {
-    class Package
-    {
+   public class Package
+   {
         public Package(Address destination, string id = default, int volume = 1, int weight = 1)
         {
             if (id != default)
@@ -110,7 +110,7 @@ namespace PCTO
                 resultPackDTO.Add(package.ToDTO());
             return resultPackDTO;
         }
-        static List<Package> GetPackagesFromJson()
+        public static List<Package> GetPackagesFromJson()
         {
             StreamReader r = new StreamReader("file.json");
             string json = r.ReadToEnd();

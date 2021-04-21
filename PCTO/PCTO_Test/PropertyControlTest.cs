@@ -3,7 +3,6 @@ using Xunit;
 using System.Collections.Generic;
 using FluentAssertions;
 using PCTO;
-//using PCTO.Address;
 using Moq;
 using System.Text;
 using static PCTO.ApiResult;
@@ -12,7 +11,7 @@ using static PCTO.PropertyControl;
 
 namespace PCTO_Test
 {
-    public class UnitTest1
+    public class PropertyControlTest
     {
         #region Coordinates
         [Fact]
