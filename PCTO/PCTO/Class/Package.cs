@@ -116,16 +116,23 @@ namespace PCTO
             string json = r.ReadToEnd();
             return JsonConvert.DeserializeObject<List<Package>>(json);
         }
-        static void ControlValue(int x, IList<Package> list)
+        public static void ControlValue(int x, IList<Package> list)
         {
-            foreach (var p in list)
-                _packages.Remove(p);
             if (x < 1)
+            {
+                foreach (var p in list)
+                    _packages.Remove(p);
                 throw new ArgumentException("Parameter must be a positive int value");
+            }                
             if (x > list.Count)
+            {
+                foreach (var p in list)
+                    _packages.Remove(p);
                 throw new ArgumentException($"Parameter too high ({list.Count} results)");
+            }
+                
         }
-        static IList<Package> RandomizeResult(IList<Package> list)
+        public static IList<Package> RandomizeResult(IList<Package> list)
         {
             for (int n = list.Count - 1; n > 0; n--)
             {
@@ -136,5 +143,5 @@ namespace PCTO
             }
             return list;
         }
-    }
+   }
 }
