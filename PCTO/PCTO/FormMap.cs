@@ -29,9 +29,9 @@ namespace PCTO
             gMap.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;
             GMaps.Instance.Mode = AccessMode.ServerOnly;
             gMap.Position = new PointLatLng(45.6982642, 9.6772698);
-            gMap.MinZoom = 10;
+            gMap.MinZoom = 5;
             gMap.MaxZoom = 17;
-            gMap.Zoom = 5;
+            gMap.Zoom = 10;
         }
         private void CloseMapToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -39,14 +39,14 @@ namespace PCTO
         }
         void SetMarkers(IList<Package> packages)
         {
+            gMap.Overlays.Clear();
             var markers = new GMapOverlay("markers");
             foreach (var p in packages)
-                markers.Markers.Add(new GMarkerGoogle
-                    (new PointLatLng(double.Parse(p.Destination.Coordinates.Lat.ToString()),
-                                     double.Parse(p.Destination.Coordinates.Lng.ToString())),
-                                     GMarkerGoogleType.red));
-            var marker1 = new GMarkerGoogle(new PointLatLng(45.690494, 9.681876), GMarkerGoogleType.red);
-            markers.Markers.Add(marker1);
+                markers.Markers.Add(new GMarkerGoogle(new PointLatLng(double.Parse(p.Destination.Coordinates.Lat.ToString()),
+                                                                      double.Parse(p.Destination.Coordinates.Lng.ToString())),
+                                                                      GMarkerGoogleType.red));
+            //var marker1 = new GMarkerGoogle(new PointLatLng(45.690494, 9.681876), GMarkerGoogleType.red);
+            //markers.Markers.Add(marker1);
             gMap.Overlays.Add(markers);
         }
     }

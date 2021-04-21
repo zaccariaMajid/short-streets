@@ -79,13 +79,13 @@ namespace PCTO
                 return;
             }
         }
-        
+
         private void btnConfirmPackages_Click(object sender, EventArgs e)
         {
             IList<Package> confirmedPackages = new List<Package>();
-            foreach(var p in packages)
+            foreach (var p in packages)
                 confirmedPackages.Add(p.ToPackage());
-            if(confirmedPackages.Where(x=> x.IsValid == false).ToList().Count != 0)
+            if (confirmedPackages.Where(x => x.IsValid == false).ToList().Count != 0)
             {
                 MessageBox.Show("Convalid all packages to continue");
                 return;
@@ -147,7 +147,5 @@ namespace PCTO
         {
             FormsElaboration.SetDgvRows((int)nudPresetQuantity.Value, dgvSetPackages, packages, false);
         }
-
-    
     }
 }

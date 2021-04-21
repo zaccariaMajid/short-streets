@@ -80,9 +80,10 @@ namespace PCTO
         /// <returns></returns>
         public PackDTO ToDTO()
         {
-            return new PackDTO(this.Id, this.Volume, this.Weight, this.Destination.Number,
-                this.Destination.Street, this.Destination.Town, this.Destination.Province,
-                this.Destination.Coordinates.Lat, this.Destination.Coordinates.Lng, this.Destination.Coordinates.Confidence);
+            PackDTO pack = new PackDTO(this.Id, this.Volume, this.Weight, this.Destination.Number,
+                this.Destination.Street, this.Destination.Town, this.Destination.Province)
+            { Lat = this.Destination.Coordinates.Lat, Lng = this.Destination.Coordinates.Lng, Confidence = this.Destination.Coordinates.Confidence };
+            return pack;
         }
 
         /// <summary>
@@ -101,11 +102,9 @@ namespace PCTO
         /// <returns></returns>
         public static List<PackDTO> GetPresetDTO(int x)
         {
-            if (x < 1)
-                throw new ArgumentException("Parameter must be a positive int value");
             List<Package> resultPackages = GetPackagesFromJson();
-            if (x > resultPackages.Count())
-                throw new ArgumentException("Parameter too high");
+            ControlValue(x, resultPackages);
+            RandomizeResult(resultPackages);
             List<PackDTO> resultPackDTO = new List<PackDTO>();
             foreach (var package in resultPackages.GetRange(0, x))
                 resultPackDTO.Add(package.ToDTO());
@@ -116,6 +115,26 @@ namespace PCTO
             StreamReader r = new StreamReader("file.json");
             string json = r.ReadToEnd();
             return JsonConvert.DeserializeObject<List<Package>>(json);
+        }
+        static void ControlValue(int x, IList<Package> list)
+        {
+            foreach (var p in list)
+                _packages.Remove(p);
+            if (x < 1)
+                throw new ArgumentException("Parameter must be a positive int value");
+            if (x > list.Count)
+                throw new ArgumentException($"Parameter too high ({list.Count} results)");
+        }
+        static IList<Package> RandomizeResult(IList<Package> list)
+        {
+            for (int n = list.Count - 1; n > 0; n--)
+            {
+                int k = new Random(n * (int)DateTime.Now.Ticks).Next(n + 1);
+                Package value = list[k];
+                list[k] = list[n];
+                list[n] = value;
+            }
+            return list;
         }
     }
 }

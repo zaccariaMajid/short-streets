@@ -8,8 +8,8 @@ namespace PCTO
 {
     class PackDTO
     {
-        public PackDTO(string id = default, int volume = 0, int weight = 0, string number = "", string road = "", string town = "",
-                string province = "", decimal lat = default, decimal lng = default, int confidence = default)
+        public PackDTO(string id = default, int volume = 0, int weight = 0, string number = "",
+            string road = "", string town = "", string province = "")
         {
             if (id != default)
                 this.Id = id;
@@ -21,9 +21,6 @@ namespace PCTO
             this.Street = road;
             this.Town = town;
             this.Province = province;
-            this.Lat = lat;
-            this.Lng = lng;
-            this.Confidence = confidence;
         }
         public override string ToString()
         {

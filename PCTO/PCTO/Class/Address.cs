@@ -12,6 +12,7 @@ namespace PCTO
             this._street = road;
             this._town = town;
             this._province = province;
+            this.Coordinates = new Coordinates();
         }
         public override string ToString()
         {
