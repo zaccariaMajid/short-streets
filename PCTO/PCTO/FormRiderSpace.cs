@@ -27,6 +27,7 @@ namespace PCTO
         private void btnConfirmNumPackages_Click(object sender, EventArgs e)
         {
             FormsElaboration.SetDgvRows((int)nudPackages.Value, dgvSetPackages, packages, true);
+            AvoidToAdd();
             nudPackages.Value = 0;
         }
 
@@ -137,15 +138,26 @@ namespace PCTO
             btnConfirmPackages.Enabled = true;
         }
 
+        void AvoidToAdd()
+        {
+            btnConfirmNumPackages.Enabled = false;
+            btnGetPresetPackages.Enabled = false;
+        }
         private void btnClearPackages_Click(object sender, EventArgs e)
         {
             packages.Clear();
             FormsElaboration.PopulateDgv(dgvSetPackages, packages);
+            btnConfirmNumPackages.Enabled = true;
+            btnGetPresetPackages.Enabled = true;
+            dgvSetPackages.RowHeadersVisible = true;
         }
 
         private void btnGetPresetPackages_Click(object sender, EventArgs e)
         {
             FormsElaboration.SetDgvRows((int)nudPresetQuantity.Value, dgvSetPackages, packages, false);
+            AvoidToAdd();
+            dgvSetPackages.RowHeadersVisible = false;
+            nudPresetQuantity.Value = 0;
         }
     }
 }

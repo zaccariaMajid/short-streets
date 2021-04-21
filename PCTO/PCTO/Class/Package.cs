@@ -10,18 +10,21 @@ namespace PCTO
 {
    public class Package
    {
-        public Package(Address destination, string id = default, int volume = 1, int weight = 1)
+        public Package(Address destination, Guid id = default, int volume = 1, int weight = 1)
         {
             if (id != default)
                 this.Id = id;
             else
-                this.Id = Guid.NewGuid().ToString();
+                this.Id = Guid.NewGuid();
             this._volume = volume;
             this._weight = weight;
             this.Destination = destination;
             _packages.Add(this);
         }
-
+        public override string ToString()
+        {
+            return $"{Destination} {Volume} m³ {Weight} Kg";
+        }
         public bool IsValid
         {
             get
@@ -35,7 +38,7 @@ namespace PCTO
             }
         }
 
-        public string Id { get; }
+        public Guid Id { get; }
 
         int _volume;
         public int Volume
