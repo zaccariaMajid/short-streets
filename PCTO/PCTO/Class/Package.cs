@@ -10,12 +10,12 @@ namespace PCTO
 {
    public class Package
    {
-        public Package(Address destination, Guid id = default, int volume = 1, int weight = 1)
+        public Package(Address destination, string id = default, int volume = 1, int weight = 1)
         {
             if (id != default)
                 this.Id = id;
             else
-                this.Id = Guid.NewGuid();
+                this.Id = Guid.NewGuid().ToString();
             this._volume = volume;
             this._weight = weight;
             this.Destination = destination;
@@ -38,7 +38,7 @@ namespace PCTO
             }
         }
 
-        public Guid Id { get; }
+        public string Id { get; }
 
         int _volume;
         public int Volume
