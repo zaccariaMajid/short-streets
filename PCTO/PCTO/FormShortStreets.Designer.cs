@@ -55,6 +55,7 @@ namespace PCTO
             this.shortestStreetToolStripMenuItem.Name = "shortestStreetToolStripMenuItem";
             this.shortestStreetToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
             this.shortestStreetToolStripMenuItem.Text = "Home";
+            this.shortestStreetToolStripMenuItem.Click += new System.EventHandler(this.shortestStreetToolStripMenuItem_Click);
             // 
             // riderSpaceToolStripMenuItem
             // 

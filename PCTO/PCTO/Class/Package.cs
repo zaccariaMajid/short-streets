@@ -34,7 +34,8 @@ namespace PCTO
                      !string.IsNullOrWhiteSpace(this.Destination.Number) &&
                      !string.IsNullOrWhiteSpace(this.Destination.Street) &&
                      !string.IsNullOrWhiteSpace(this.Destination.Town) &&
-                     !string.IsNullOrWhiteSpace(this.Destination.Province);
+                     !string.IsNullOrWhiteSpace(this.Destination.Province) &&
+                     this.Destination.Coordinates != null;
             }
         }
 

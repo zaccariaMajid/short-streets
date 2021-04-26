@@ -12,6 +12,10 @@ namespace PCTO
         public decimal Lat { get; set; }
         public decimal Lng { get; set; }
         public int Confidence { get; set; }
+        public override string ToString()
+        {
+            return $"{Lat}, {Lng} (Confidence: {Confidence}";
+        }
     }
     public static class Confidences
     {

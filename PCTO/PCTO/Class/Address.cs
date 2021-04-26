@@ -9,13 +9,25 @@ namespace PCTO
 {
     public class Address
     {
-        public Address(string number = "29a", string road = "Via Gavazzeni", string town = "Bergamo", string province = "BG")
+        public Address(string number = "29a", string street = "Via Gavazzeni", string town = "Bergamo", string province = "BG")
         {
-            this._number = number;
-            this._street = road;
-            this._town = town;
-            this._province = province;
-            this.Coordinates = new Coordinates();
+            if (number == "")
+                _number = number;
+            else
+                Number = number;
+            if (street == "")
+                _street = street;
+            else
+                Street = street;
+            if (town == "")
+                _town = town;
+            else
+                Town = town;
+            if (province == "")
+                _province = province;
+            else
+                Province = province;
+            Coordinates = new Coordinates();
         }
         public override string ToString()
         {
