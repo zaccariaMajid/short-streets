@@ -30,6 +30,7 @@ namespace PCTO
         private void InitializeComponent()
         {
             this.gpbSetCurAddress = new System.Windows.Forms.GroupBox();
+            this.btnSimulatePrevious = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbPrevious = new System.Windows.Forms.ComboBox();
             this.btnConfirm = new System.Windows.Forms.Button();
@@ -50,6 +51,7 @@ namespace PCTO
             // 
             // gpbSetCurAddress
             // 
+            this.gpbSetCurAddress.Controls.Add(this.btnSimulatePrevious);
             this.gpbSetCurAddress.Controls.Add(this.label5);
             this.gpbSetCurAddress.Controls.Add(this.cmbPrevious);
             this.gpbSetCurAddress.Controls.Add(this.btnConfirm);
@@ -68,6 +70,16 @@ namespace PCTO
             this.gpbSetCurAddress.TabStop = false;
             this.gpbSetCurAddress.Text = "Set your current address";
             // 
+            // btnSimulatePrevious
+            // 
+            this.btnSimulatePrevious.Location = new System.Drawing.Point(418, 105);
+            this.btnSimulatePrevious.Name = "btnSimulatePrevious";
+            this.btnSimulatePrevious.Size = new System.Drawing.Size(144, 30);
+            this.btnSimulatePrevious.TabIndex = 9;
+            this.btnSimulatePrevious.Text = "Simulate previous";
+            this.btnSimulatePrevious.UseVisualStyleBackColor = true;
+            this.btnSimulatePrevious.Click += new System.EventHandler(this.btnSimulatePrevious_Click);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -82,7 +94,7 @@ namespace PCTO
             this.cmbPrevious.FormattingEnabled = true;
             this.cmbPrevious.Location = new System.Drawing.Point(9, 109);
             this.cmbPrevious.Name = "cmbPrevious";
-            this.cmbPrevious.Size = new System.Drawing.Size(376, 24);
+            this.cmbPrevious.Size = new System.Drawing.Size(403, 24);
             this.cmbPrevious.TabIndex = 7;
             this.cmbPrevious.SelectedIndexChanged += new System.EventHandler(this.cmbPrevious_SelectedIndexChanged);
             // 
@@ -223,5 +235,6 @@ namespace PCTO
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cmbPrevious;
         private System.Windows.Forms.GroupBox gpbCurrentAddress;
+        private System.Windows.Forms.Button btnSimulatePrevious;
     }
 }

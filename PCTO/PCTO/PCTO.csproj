@@ -138,6 +138,7 @@
     <Compile Include="FormShortStreets.Designer.cs">
       <DependentUpon>FormShortStreets.cs</DependentUpon>
     </Compile>
+    <Compile Include="Functions\Demo.cs" />
     <Compile Include="Functions\FormsElaboration.cs" />
     <Compile Include="Functions\PropertyControl.cs" />
     <Compile Include="Program.cs" />

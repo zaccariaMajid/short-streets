@@ -93,5 +93,14 @@ namespace PCTO
             gpbSetCurAddress.Enabled = true;
             gpbCurrentAddress.Enabled = false;
         }
+
+        private void btnSimulatePrevious_Click(object sender, EventArgs e)
+        {
+            foreach (Address a in Demo.SimulatePreviousAddresses())
+                previousAddresses.Add(a);
+            RefreshCmbItems();
+            btnSimulatePrevious.Enabled = false;
+
+        }
     }
 }

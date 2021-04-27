@@ -66,7 +66,7 @@ namespace PCTO
         public static Package GetPackageById(string id)
         {
             return _packages.Where(x => x.Id.ToString() == id)
-                .SingleOrDefault();
+                .FirstOrDefault();
         }
 
         /// <summary>

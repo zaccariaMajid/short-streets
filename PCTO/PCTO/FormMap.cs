@@ -24,14 +24,16 @@ namespace PCTO
             InitializeComponent();
 
             fShortStreets = f;
-            f.ShowingFormMap += (o, e) => { SetPosition(e.CurrentAddress); SetMarkers(e.Packages); SetConfidenceMessage(e.CurrentAddress, e.Packages); };
+            f.ShowingFormMap += (o, e) => { MarkersOverlay = new GMapOverlay("markers"); ;
+                SetPosition(e.CurrentAddress); SetMarkers(e.Packages); 
+                SetConfidenceMessage(e.CurrentAddress, e.Packages); };
             gMap.ShowCenter = false;
             gMap.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;
             GMaps.Instance.Mode = AccessMode.ServerOnly;
             gMap.MinZoom = 4;
             gMap.MaxZoom = 18;
             gMap.Zoom = 10;
-            MarkersOverlay = new GMapOverlay("markers");
+            gMap.Zoom = 10;
         }
         GMapOverlay MarkersOverlay;
         string ConfidenceMessage;
