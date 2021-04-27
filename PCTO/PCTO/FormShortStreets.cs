@@ -15,11 +15,12 @@ namespace PCTO
         FormHome formHome;
         FormRiderSpace formRiderSpace;
         FormMap formMap;
+        public Address currentAddress;
         public FormShortStreets()
         {
             InitializeComponent();
 
-            formHome = new FormHome() { TopLevel = false, TopMost = true };
+            formHome = new FormHome(this) { TopLevel = false, TopMost = true };
             formHome.FormBorderStyle = FormBorderStyle.None;
             pnlHome.Controls.Add(formHome);
 
@@ -56,10 +57,10 @@ namespace PCTO
             formHome.Hide();
             formRiderSpace.Hide();
             formMap.Show();
-            OnShowingFormMap(packages);
+            OnShowingFormMap(currentAddress, packages);
         }
         public event EventHandler<ShowingFormMapEventArgs> ShowingFormMap;
-        protected virtual void OnShowingFormMap(IList<Package> packages) => ShowingFormMap?.Invoke(this, new ShowingFormMapEventArgs(packages));
+        protected virtual void OnShowingFormMap(Address address, IList<Package> packages) => ShowingFormMap?.Invoke(this, new ShowingFormMapEventArgs(address, packages));
 
         private void shortestStreetToolStripMenuItem_Click(object sender, EventArgs e)
         {

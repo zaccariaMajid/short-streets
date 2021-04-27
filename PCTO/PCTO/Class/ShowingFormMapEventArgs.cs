@@ -8,7 +8,12 @@ namespace PCTO
 {
     class ShowingFormMapEventArgs : EventArgs
     {
-        public ShowingFormMapEventArgs(IList<Package> list) => packages = list;
-        public IList<Package> packages { get; set; }
+        public ShowingFormMapEventArgs(Address address, IList<Package> list)
+        {
+            CurrentAddress = address;
+            Packages = list;
+        }
+        public Address CurrentAddress { get; set; }
+        public IList<Package> Packages { get; set; }
     }
 }

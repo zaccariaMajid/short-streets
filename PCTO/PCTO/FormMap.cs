@@ -24,7 +24,7 @@ namespace PCTO
             InitializeComponent();
 
             fShortStreets = f;
-            f.ShowingFormMap += (o, e) => { SetPosition(e.packages); SetMarkers(e.packages); SetConfidenceMessage(e.packages); };
+            f.ShowingFormMap += (o, e) => { SetPosition(e.CurrentAddress); SetMarkers(e.Packages); SetConfidenceMessage(e.CurrentAddress, e.Packages); };
             gMap.ShowCenter = false;
             gMap.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;
             GMaps.Instance.Mode = AccessMode.ServerOnly;
@@ -39,20 +39,16 @@ namespace PCTO
         {
             fShortStreets.ShowFormRiderSpace();
         }
-        void SetPosition(IList<Package> packages)
+        void SetPosition(Address address)
         {
-            var p = packages.FirstOrDefault();
-            if (p == default)
-                gMap.Position = new PointLatLng(45.690494, 9.681876);
-            else
-                gMap.Position = new PointLatLng(double.Parse(p.Destination.Coordinates.Lat.ToString()),
-                                                double.Parse(p.Destination.Coordinates.Lng.ToString()));
+            gMap.Position = new PointLatLng(double.Parse(address.Coordinates.Lat.ToString()),
+                                            double.Parse(address.Coordinates.Lng.ToString()));
         }
         void SetMarkers(IList<Package> packages)
         {
-
             gMap.Overlays.Clear();
             gMap.Overlays.Add(MarkersOverlay);
+            MarkersOverlay.Markers.Add(new GMarkerGoogle(gMap.Position, GMarkerGoogleType.blue));
             foreach (var p in packages)
                 MarkersOverlay.Markers.Add(new GMarkerGoogle(new PointLatLng(double.Parse(p.Destination.Coordinates.Lat.ToString()),
                                                                       double.Parse(p.Destination.Coordinates.Lng.ToString())),
@@ -60,9 +56,9 @@ namespace PCTO
             //var marker1 = new GMarkerGoogle(new PointLatLng(45.690494, 9.681876), GMarkerGoogleType.red);
             //markers.Markers.Add(marker1);
         }
-        private void SetConfidenceMessage(IList<Package> packages)
+        private void SetConfidenceMessage(Address address, IList<Package> packages)
         {
-            ConfidenceMessage = string.Empty;
+            ConfidenceMessage = $"{address} - Confidence: {Confidences.List[address.Coordinates.Confidence]}\n";
             foreach (var p in packages)
                 ConfidenceMessage = ConfidenceMessage + $"{p} - Confidence: {Confidences.List[p.Destination.Coordinates.Confidence]}\n";
             if (string.IsNullOrEmpty(ConfidenceMessage))

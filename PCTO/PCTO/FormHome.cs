@@ -10,20 +10,22 @@ using System.Windows.Forms;
 
 namespace PCTO
 {
-    public partial class FormHome : Form
+    partial class FormHome : Form
     {
-        public FormHome()
+        FormShortStreets fShortStreets;
+        public FormHome(FormShortStreets f)
         {
             InitializeComponent();
+            fShortStreets = f;
         }
-        Address currentAddress;
         static ApiCaller caller = new ApiCaller();
         CoordinateHelper helper = new CoordinateHelper(caller);
+        static IList<Address> previousAddresses = new List<Address>();
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(txbCurNumber.Text)||
+            if (string.IsNullOrEmpty(txbCurNumber.Text) ||
                 string.IsNullOrEmpty(txbCurStreet.Text) ||
-                string.IsNullOrEmpty(txbCurStreet.Text) ||
+                string.IsNullOrEmpty(txbCurTown.Text) ||
                 string.IsNullOrEmpty(txbCurProvince.Text))
             {
                 MessageBox.Show("Empty string");
@@ -31,19 +33,65 @@ namespace PCTO
             }
             try
             {
-                currentAddress = new Address(txbCurNumber.Text, txbCurStreet.Text, txbCurStreet.Text, txbCurProvince.Text);
-                helper.SetCoordinates(currentAddress);
+                SetCurrentAddress();
+                cmbPrevious.Text = string.Empty;
+                gpbSetCurAddress.Enabled = false;
+                gpbCurrentAddress.Enabled = true;
+                lblCurrentAddress.Text = $"{fShortStreets.currentAddress} - {fShortStreets.currentAddress.Coordinates}";
             }
-            catch(ArgumentException argEx)
+            catch (ArgumentException argEx)
             {
                 MessageBox.Show(argEx.Message);
                 return;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show($"Generic error: {ex.Message}");
                 return;
             }
+        }
+
+        void SetCurrentAddress()
+        {
+            fShortStreets.currentAddress = new Address(txbCurNumber.Text, txbCurStreet.Text, txbCurTown.Text, txbCurProvince.Text);
+            SetCoordinates();
+            AddCurrentAddress();
+        }
+        void SetCoordinates()
+        {
+            Address a = previousAddresses.SingleOrDefault(x => x.ToString() == fShortStreets.currentAddress.ToString());
+            if (a != default)
+            {
+                fShortStreets.currentAddress.Coordinates = a.Coordinates;
+                previousAddresses.Remove(a);
+            }
+            else
+                helper.SetCoordinates(fShortStreets.currentAddress);
+        }
+        void AddCurrentAddress()
+        {
+            previousAddresses.Insert(0, fShortStreets.currentAddress);
+            RefreshCmbItems();
+        }
+        void RefreshCmbItems()
+        {
+            cmbPrevious.Items.Clear();
+            cmbPrevious.Items.AddRange(previousAddresses.ToArray());
+        }
+
+        private void cmbPrevious_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Address previous = FormsElaboration.GetAddressFromCmb(cmbPrevious, previousAddresses);
+            txbCurTown.Text = previous.Town;
+            txbCurProvince.Text = previous.Province;
+            txbCurStreet.Text = previous.Street;
+            txbCurNumber.Text = previous.Number;
+        }
+
+        private void btnChange_Click(object sender, EventArgs e)
+        {
+            gpbSetCurAddress.Enabled = true;
+            gpbCurrentAddress.Enabled = false;
         }
     }
 }

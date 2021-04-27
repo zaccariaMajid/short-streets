@@ -29,115 +29,66 @@ namespace PCTO
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.gpbSetActPosition = new System.Windows.Forms.GroupBox();
-            this.txbCurTown = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txbCurProvince = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txbCurStreet = new System.Windows.Forms.TextBox();
-            this.txbCurNumber = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.gpbSetCurAddress = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cmbPrevious = new System.Windows.Forms.ComboBox();
             this.btnConfirm = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            this.gpbSetActPosition.SuspendLayout();
+            this.txbCurProvince = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txbCurNumber = new System.Windows.Forms.TextBox();
+            this.txbCurStreet = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txbCurTown = new System.Windows.Forms.TextBox();
+            this.btnChange = new System.Windows.Forms.Button();
+            this.lblCurrentAddress = new System.Windows.Forms.Label();
+            this.gpbCurrentAddress = new System.Windows.Forms.GroupBox();
+            this.gpbSetCurAddress.SuspendLayout();
+            this.gpbCurrentAddress.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gpbSetCurAddress
             // 
-            this.groupBox1.Controls.Add(this.gpbSetActPosition);
-            this.groupBox1.Location = new System.Drawing.Point(35, 136);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(949, 117);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Your current position";
+            this.gpbSetCurAddress.Controls.Add(this.label5);
+            this.gpbSetCurAddress.Controls.Add(this.cmbPrevious);
+            this.gpbSetCurAddress.Controls.Add(this.btnConfirm);
+            this.gpbSetCurAddress.Controls.Add(this.txbCurProvince);
+            this.gpbSetCurAddress.Controls.Add(this.label4);
+            this.gpbSetCurAddress.Controls.Add(this.label3);
+            this.gpbSetCurAddress.Controls.Add(this.txbCurNumber);
+            this.gpbSetCurAddress.Controls.Add(this.txbCurStreet);
+            this.gpbSetCurAddress.Controls.Add(this.label2);
+            this.gpbSetCurAddress.Controls.Add(this.label1);
+            this.gpbSetCurAddress.Controls.Add(this.txbCurTown);
+            this.gpbSetCurAddress.Location = new System.Drawing.Point(97, 130);
+            this.gpbSetCurAddress.Name = "gpbSetCurAddress";
+            this.gpbSetCurAddress.Size = new System.Drawing.Size(831, 144);
+            this.gpbSetCurAddress.TabIndex = 0;
+            this.gpbSetCurAddress.TabStop = false;
+            this.gpbSetCurAddress.Text = "Set your current address";
             // 
-            // gpbSetActPosition
+            // label5
             // 
-            this.gpbSetActPosition.Controls.Add(this.btnConfirm);
-            this.gpbSetActPosition.Controls.Add(this.txbCurProvince);
-            this.gpbSetActPosition.Controls.Add(this.label4);
-            this.gpbSetActPosition.Controls.Add(this.label3);
-            this.gpbSetActPosition.Controls.Add(this.txbCurNumber);
-            this.gpbSetActPosition.Controls.Add(this.txbCurStreet);
-            this.gpbSetActPosition.Controls.Add(this.label2);
-            this.gpbSetActPosition.Controls.Add(this.label1);
-            this.gpbSetActPosition.Controls.Add(this.txbCurTown);
-            this.gpbSetActPosition.Location = new System.Drawing.Point(6, 21);
-            this.gpbSetActPosition.Name = "gpbSetActPosition";
-            this.gpbSetActPosition.Size = new System.Drawing.Size(937, 90);
-            this.gpbSetActPosition.TabIndex = 0;
-            this.gpbSetActPosition.TabStop = false;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 89);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(63, 17);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Previous";
             // 
-            // txbCurTown
+            // cmbPrevious
             // 
-            this.txbCurTown.Location = new System.Drawing.Point(6, 49);
-            this.txbCurTown.Name = "txbCurTown";
-            this.txbCurTown.Size = new System.Drawing.Size(165, 22);
-            this.txbCurTown.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 17);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Town";
-            // 
-            // txbCurProvince
-            // 
-            this.txbCurProvince.Location = new System.Drawing.Point(221, 49);
-            this.txbCurProvince.Name = "txbCurProvince";
-            this.txbCurProvince.Size = new System.Drawing.Size(83, 22);
-            this.txbCurProvince.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(218, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 17);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Province";
-            // 
-            // txbCurStreet
-            // 
-            this.txbCurStreet.Location = new System.Drawing.Point(364, 49);
-            this.txbCurStreet.Name = "txbCurStreet";
-            this.txbCurStreet.Size = new System.Drawing.Size(165, 22);
-            this.txbCurStreet.TabIndex = 1;
-            // 
-            // txbCurNumber
-            // 
-            this.txbCurNumber.Location = new System.Drawing.Point(573, 49);
-            this.txbCurNumber.Name = "txbCurNumber";
-            this.txbCurNumber.Size = new System.Drawing.Size(83, 22);
-            this.txbCurNumber.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(361, 26);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 17);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Street";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(570, 26);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 17);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Number";
+            this.cmbPrevious.FormattingEnabled = true;
+            this.cmbPrevious.Location = new System.Drawing.Point(9, 109);
+            this.cmbPrevious.Name = "cmbPrevious";
+            this.cmbPrevious.Size = new System.Drawing.Size(376, 24);
+            this.cmbPrevious.TabIndex = 7;
+            this.cmbPrevious.SelectedIndexChanged += new System.EventHandler(this.cmbPrevious_SelectedIndexChanged);
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(761, 32);
+            this.btnConfirm.Location = new System.Drawing.Point(686, 42);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(137, 39);
             this.btnConfirm.TabIndex = 6;
@@ -145,25 +96,119 @@ namespace PCTO
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
+            // txbCurProvince
+            // 
+            this.txbCurProvince.Location = new System.Drawing.Point(192, 50);
+            this.txbCurProvince.Name = "txbCurProvince";
+            this.txbCurProvince.Size = new System.Drawing.Size(83, 22);
+            this.txbCurProvince.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(461, 30);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(58, 17);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Number";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(278, 30);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 17);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Street";
+            // 
+            // txbCurNumber
+            // 
+            this.txbCurNumber.Location = new System.Drawing.Point(464, 50);
+            this.txbCurNumber.Name = "txbCurNumber";
+            this.txbCurNumber.Size = new System.Drawing.Size(83, 22);
+            this.txbCurNumber.TabIndex = 1;
+            // 
+            // txbCurStreet
+            // 
+            this.txbCurStreet.Location = new System.Drawing.Point(281, 50);
+            this.txbCurStreet.Name = "txbCurStreet";
+            this.txbCurStreet.Size = new System.Drawing.Size(177, 22);
+            this.txbCurStreet.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(189, 30);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 17);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Province";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 17);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Town";
+            // 
+            // txbCurTown
+            // 
+            this.txbCurTown.Location = new System.Drawing.Point(9, 50);
+            this.txbCurTown.Name = "txbCurTown";
+            this.txbCurTown.Size = new System.Drawing.Size(177, 22);
+            this.txbCurTown.TabIndex = 0;
+            // 
+            // btnChange
+            // 
+            this.btnChange.Location = new System.Drawing.Point(686, 31);
+            this.btnChange.Name = "btnChange";
+            this.btnChange.Size = new System.Drawing.Size(137, 28);
+            this.btnChange.TabIndex = 2;
+            this.btnChange.Text = "CHANGE";
+            this.btnChange.UseVisualStyleBackColor = true;
+            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
+            // 
+            // lblCurrentAddress
+            // 
+            this.lblCurrentAddress.AutoSize = true;
+            this.lblCurrentAddress.Location = new System.Drawing.Point(18, 37);
+            this.lblCurrentAddress.Name = "lblCurrentAddress";
+            this.lblCurrentAddress.Size = new System.Drawing.Size(8, 17);
+            this.lblCurrentAddress.TabIndex = 1;
+            this.lblCurrentAddress.Text = "\r\n";
+            // 
+            // gpbCurrentAddress
+            // 
+            this.gpbCurrentAddress.Controls.Add(this.lblCurrentAddress);
+            this.gpbCurrentAddress.Controls.Add(this.btnChange);
+            this.gpbCurrentAddress.Enabled = false;
+            this.gpbCurrentAddress.Location = new System.Drawing.Point(97, 280);
+            this.gpbCurrentAddress.Name = "gpbCurrentAddress";
+            this.gpbCurrentAddress.Size = new System.Drawing.Size(831, 76);
+            this.gpbCurrentAddress.TabIndex = 3;
+            this.gpbCurrentAddress.TabStop = false;
+            // 
             // FormHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1029, 561);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gpbCurrentAddress);
+            this.Controls.Add(this.gpbSetCurAddress);
             this.Name = "FormHome";
             this.Text = "FormHome";
-            this.groupBox1.ResumeLayout(false);
-            this.gpbSetActPosition.ResumeLayout(false);
-            this.gpbSetActPosition.PerformLayout();
+            this.gpbSetCurAddress.ResumeLayout(false);
+            this.gpbSetCurAddress.PerformLayout();
+            this.gpbCurrentAddress.ResumeLayout(false);
+            this.gpbCurrentAddress.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox gpbSetActPosition;
+        private System.Windows.Forms.GroupBox gpbSetCurAddress;
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -173,5 +218,10 @@ namespace PCTO
         private System.Windows.Forms.TextBox txbCurProvince;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txbCurTown;
+        private System.Windows.Forms.Label lblCurrentAddress;
+        private System.Windows.Forms.Button btnChange;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cmbPrevious;
+        private System.Windows.Forms.GroupBox gpbCurrentAddress;
     }
 }

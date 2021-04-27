@@ -78,5 +78,16 @@ namespace PCTO
             dgv.DataSource = null;
             dgv.DataSource = packages;
         }
+
+        /// <summary>
+        /// Returns an address that is in a ComboBox
+        /// </summary>
+        /// <param name="cmb">ComboBox to analyze</param>
+        /// <param name="list">List that contains the wanted address</param>
+        /// <returns></returns>
+        public static Address GetAddressFromCmb(ComboBox cmb, IList<Address> list)
+        {
+            return list.Single(x => x.ToString() == cmb.SelectedItem.ToString());
+        }
     }
 }

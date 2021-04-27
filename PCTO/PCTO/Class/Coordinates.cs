@@ -14,7 +14,7 @@ namespace PCTO
         public int Confidence { get; set; }
         public override string ToString()
         {
-            return $"{Lat}, {Lng} (Confidence: {Confidence}";
+            return $"{Lat}, {Lng} (Confidence: {Confidence})";
         }
     }
     public static class Confidences
