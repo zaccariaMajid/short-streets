@@ -32,8 +32,7 @@ namespace PCTO
             GMaps.Instance.Mode = AccessMode.ServerOnly;
             gMap.MinZoom = 4;
             gMap.MaxZoom = 18;
-            gMap.Zoom = 10;
-            gMap.Zoom = 10;
+            gMap.Zoom = 13;
         }
         GMapOverlay MarkersOverlay;
         string ConfidenceMessage;

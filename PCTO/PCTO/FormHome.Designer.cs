@@ -45,6 +45,7 @@ namespace PCTO
             this.btnChange = new System.Windows.Forms.Button();
             this.lblCurrentAddress = new System.Windows.Forms.Label();
             this.gpbCurrentAddress = new System.Windows.Forms.GroupBox();
+            this.btnRiderSpace = new System.Windows.Forms.Button();
             this.gpbSetCurAddress.SuspendLayout();
             this.gpbCurrentAddress.SuspendLayout();
             this.SuspendLayout();
@@ -63,9 +64,9 @@ namespace PCTO
             this.gpbSetCurAddress.Controls.Add(this.label2);
             this.gpbSetCurAddress.Controls.Add(this.label1);
             this.gpbSetCurAddress.Controls.Add(this.txbCurTown);
-            this.gpbSetCurAddress.Location = new System.Drawing.Point(97, 130);
+            this.gpbSetCurAddress.Location = new System.Drawing.Point(12, 12);
             this.gpbSetCurAddress.Name = "gpbSetCurAddress";
-            this.gpbSetCurAddress.Size = new System.Drawing.Size(831, 144);
+            this.gpbSetCurAddress.Size = new System.Drawing.Size(1005, 144);
             this.gpbSetCurAddress.TabIndex = 0;
             this.gpbSetCurAddress.TabStop = false;
             this.gpbSetCurAddress.Text = "Set your current address";
@@ -100,9 +101,9 @@ namespace PCTO
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(686, 42);
+            this.btnConfirm.Location = new System.Drawing.Point(862, 89);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(137, 39);
+            this.btnConfirm.Size = new System.Drawing.Size(137, 46);
             this.btnConfirm.TabIndex = 6;
             this.btnConfirm.Text = "CONFIRM";
             this.btnConfirm.UseVisualStyleBackColor = true;
@@ -174,7 +175,7 @@ namespace PCTO
             // 
             // btnChange
             // 
-            this.btnChange.Location = new System.Drawing.Point(686, 31);
+            this.btnChange.Location = new System.Drawing.Point(862, 106);
             this.btnChange.Name = "btnChange";
             this.btnChange.Size = new System.Drawing.Size(137, 28);
             this.btnChange.TabIndex = 2;
@@ -185,22 +186,34 @@ namespace PCTO
             // lblCurrentAddress
             // 
             this.lblCurrentAddress.AutoSize = true;
-            this.lblCurrentAddress.Location = new System.Drawing.Point(18, 37);
+            this.lblCurrentAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentAddress.Location = new System.Drawing.Point(19, 60);
             this.lblCurrentAddress.Name = "lblCurrentAddress";
-            this.lblCurrentAddress.Size = new System.Drawing.Size(8, 17);
+            this.lblCurrentAddress.Size = new System.Drawing.Size(9, 20);
             this.lblCurrentAddress.TabIndex = 1;
             this.lblCurrentAddress.Text = "\r\n";
             // 
             // gpbCurrentAddress
             // 
+            this.gpbCurrentAddress.Controls.Add(this.btnRiderSpace);
             this.gpbCurrentAddress.Controls.Add(this.lblCurrentAddress);
             this.gpbCurrentAddress.Controls.Add(this.btnChange);
             this.gpbCurrentAddress.Enabled = false;
-            this.gpbCurrentAddress.Location = new System.Drawing.Point(97, 280);
+            this.gpbCurrentAddress.Location = new System.Drawing.Point(12, 173);
             this.gpbCurrentAddress.Name = "gpbCurrentAddress";
-            this.gpbCurrentAddress.Size = new System.Drawing.Size(831, 76);
+            this.gpbCurrentAddress.Size = new System.Drawing.Size(1005, 140);
             this.gpbCurrentAddress.TabIndex = 3;
             this.gpbCurrentAddress.TabStop = false;
+            // 
+            // btnRiderSpace
+            // 
+            this.btnRiderSpace.Location = new System.Drawing.Point(862, 54);
+            this.btnRiderSpace.Name = "btnRiderSpace";
+            this.btnRiderSpace.Size = new System.Drawing.Size(137, 46);
+            this.btnRiderSpace.TabIndex = 3;
+            this.btnRiderSpace.Text = "RIDER SPACE";
+            this.btnRiderSpace.UseVisualStyleBackColor = true;
+            this.btnRiderSpace.Click += new System.EventHandler(this.btnRiderSpace_Click);
             // 
             // FormHome
             // 
@@ -236,5 +249,6 @@ namespace PCTO
         private System.Windows.Forms.ComboBox cmbPrevious;
         private System.Windows.Forms.GroupBox gpbCurrentAddress;
         private System.Windows.Forms.Button btnSimulatePrevious;
+        private System.Windows.Forms.Button btnRiderSpace;
     }
 }

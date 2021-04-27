@@ -81,6 +81,11 @@ namespace PCTO
 
         private void cmbPrevious_SelectedIndexChanged(object sender, EventArgs e)
         {
+            IndexChanged();
+        }
+
+        private void IndexChanged()
+        {
             Address previous = FormsElaboration.GetAddressFromCmb(cmbPrevious, previousAddresses);
             txbCurTown.Text = previous.Town;
             txbCurProvince.Text = previous.Province;
@@ -100,7 +105,13 @@ namespace PCTO
                 previousAddresses.Add(a);
             RefreshCmbItems();
             btnSimulatePrevious.Enabled = false;
+            cmbPrevious.SelectedIndex = 0;
+            IndexChanged();
+        }
 
+        private void btnRiderSpace_Click(object sender, EventArgs e)
+        {
+            fShortStreets.ShowFormRiderSpace();
         }
     }
 }

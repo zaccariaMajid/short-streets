@@ -35,6 +35,8 @@ namespace PCTO
             this.btnConfirmNumPackages = new System.Windows.Forms.Button();
             this.nudPackages = new System.Windows.Forms.NumericUpDown();
             this.gpbEdit = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.btnEdit = new System.Windows.Forms.Button();
             this.txbNumber = new System.Windows.Forms.TextBox();
             this.txbRoad = new System.Windows.Forms.TextBox();
@@ -50,12 +52,9 @@ namespace PCTO
             this.label1 = new System.Windows.Forms.Label();
             this.lblId = new System.Windows.Forms.Label();
             this.btnConfirmPackages = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.nudPresetQuantity = new System.Windows.Forms.NumericUpDown();
             this.btnGetPresetPackages = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSetPackages)).BeginInit();
             this.gpbQuantity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPackages)).BeginInit();
@@ -67,12 +66,12 @@ namespace PCTO
             // dgvSetPackages
             // 
             this.dgvSetPackages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSetPackages.Location = new System.Drawing.Point(12, 129);
+            this.dgvSetPackages.Location = new System.Drawing.Point(12, 87);
             this.dgvSetPackages.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvSetPackages.Name = "dgvSetPackages";
             this.dgvSetPackages.RowHeadersWidth = 51;
             this.dgvSetPackages.RowTemplate.Height = 24;
-            this.dgvSetPackages.Size = new System.Drawing.Size(1005, 182);
+            this.dgvSetPackages.Size = new System.Drawing.Size(1005, 237);
             this.dgvSetPackages.TabIndex = 0;
             this.dgvSetPackages.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSetPackages_CellEnter);
             this.dgvSetPackages.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSetPackages_CellValueChanged);
@@ -83,7 +82,7 @@ namespace PCTO
             this.gpbQuantity.Controls.Add(this.btnClearPackages);
             this.gpbQuantity.Controls.Add(this.btnConfirmNumPackages);
             this.gpbQuantity.Controls.Add(this.nudPackages);
-            this.gpbQuantity.Location = new System.Drawing.Point(12, 54);
+            this.gpbQuantity.Location = new System.Drawing.Point(12, 12);
             this.gpbQuantity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gpbQuantity.Name = "gpbQuantity";
             this.gpbQuantity.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -145,14 +144,32 @@ namespace PCTO
             this.gpbEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gpbEdit.Name = "gpbEdit";
             this.gpbEdit.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gpbEdit.Size = new System.Drawing.Size(519, 222);
+            this.gpbEdit.Size = new System.Drawing.Size(650, 222);
             this.gpbEdit.TabIndex = 2;
             this.gpbEdit.TabStop = false;
             this.gpbEdit.Text = "Edit package\'s properties";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(447, 62);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(25, 17);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Kg";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(180, 62);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(24, 17);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "m³";
+            // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(200, 172);
+            this.btnEdit.Location = new System.Drawing.Point(556, 186);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(88, 32);
@@ -274,7 +291,7 @@ namespace PCTO
             // 
             // btnConfirmPackages
             // 
-            this.btnConfirmPackages.Location = new System.Drawing.Point(746, 372);
+            this.btnConfirmPackages.Location = new System.Drawing.Point(831, 498);
             this.btnConfirmPackages.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnConfirmPackages.Name = "btnConfirmPackages";
             this.btnConfirmPackages.Size = new System.Drawing.Size(186, 52);
@@ -283,21 +300,11 @@ namespace PCTO
             this.btnConfirmPackages.UseVisualStyleBackColor = true;
             this.btnConfirmPackages.Click += new System.EventHandler(this.btnConfirmPackages_Click);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(7, 9);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(144, 25);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "RIDER SPACE";
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.nudPresetQuantity);
             this.groupBox1.Controls.Add(this.btnGetPresetPackages);
-            this.groupBox1.Location = new System.Drawing.Point(746, 54);
+            this.groupBox1.Location = new System.Drawing.Point(746, 12);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -325,31 +332,12 @@ namespace PCTO
             this.btnGetPresetPackages.UseVisualStyleBackColor = true;
             this.btnGetPresetPackages.Click += new System.EventHandler(this.btnGetPresetPackages_Click);
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(180, 62);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(24, 17);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "m³";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(447, 62);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(25, 17);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "Kg";
-            // 
             // FormRiderSpace
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1029, 561);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.btnConfirmPackages);
             this.Controls.Add(this.gpbEdit);
             this.Controls.Add(this.gpbQuantity);
@@ -366,7 +354,6 @@ namespace PCTO
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nudPresetQuantity)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -392,7 +379,6 @@ namespace PCTO
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.Button btnConfirmPackages;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnClearPackages;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.NumericUpDown nudPresetQuantity;
