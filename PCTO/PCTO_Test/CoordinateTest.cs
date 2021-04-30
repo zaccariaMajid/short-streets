@@ -10,6 +10,7 @@ namespace PCTO_Test
 {
     public class CoordinateTest
     {
+        #region dictionaryTest
         [Fact]
         public void DictionaryTest1()
         {
@@ -38,5 +39,6 @@ namespace PCTO_Test
             //Assert
             Assert.Throws<System.Collections.Generic.KeyNotFoundException>(() => List[-12]);
         }
+        #endregion
     }
 }
