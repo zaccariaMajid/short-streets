@@ -81,6 +81,29 @@ namespace PCTO_Test
             paccodto.Lng.Should().Be(pacco.Destination.Coordinates.Lng);
             paccodto.Confidence.Should().Be(pacco.Destination.Coordinates.Confidence);
         }
+        [Fact]
+        public void Topackage()
+        {
+            //Arrange
+            PackDTO pacco = new PackDTO("123", 2, 3, "12", "Via Giacomo Leopardi", "Calusco D'Adda", "BG");
+            
+
+            //Act          
+            var package=pacco.ToPackage();
+
+
+            //Assert
+            package.Id.Should().Be(pacco.Id);
+            package.Volume.Should().Be(pacco.Volume);
+            package.Weight.Should().Be(pacco.Weight);
+            package.Destination.Number.Should().Be(pacco.Number);
+            package.Destination.Street.Should().Be(pacco.Street);
+            package.Destination.Town.Should().Be(pacco.Town);
+            package.Destination.Province.Should().Be(pacco.Province);
+            package.Destination.Coordinates.Lat.Should().Be(pacco.Lat);
+            package.Destination.Coordinates.Lng.Should().Be(pacco.Lng);
+            package.Destination.Coordinates.Confidence.Should().Be(pacco.Confidence);
+        }
 
         #region Isvalid
         [Fact]
@@ -175,6 +198,20 @@ namespace PCTO_Test
         }
         [Fact]
         public void IsvalidtestProvince()
+        {
+            //Arrange
+
+            Address address1 = new Address("20a", "Via Dante Alighieri", "Bergamo", "");
+            Package pacco = new Package(address1, "alfa", 2, -3);
+
+            //Act
+            var valido = pacco.IsValid;
+
+            //Assert
+            valido.Should().Be(false);
+        }
+        [Fact]
+        public void IsvalidtestCoordinates()
         {
             //Arrange
 

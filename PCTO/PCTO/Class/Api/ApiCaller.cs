@@ -39,14 +39,14 @@ namespace PCTO
             return result;
         }
 
-        class Result
-        {
+       public class Result
+       {
             public Results[] Results { get; set; }
-        }
-        class Results
-        {
+       }
+      public  class Results
+      {
             public Coordinates Geometry { get; set; }
             public int Confidence { get; set; }
-        }
+      }
     }
 }
