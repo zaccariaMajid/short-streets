@@ -74,12 +74,18 @@ namespace PCTO
         }
         void SetRoute(Address startPosition, IList<Package> list)
         {
+            IList<PointLatLng> points = list.Select(x => new PointLatLng(double.Parse(x.Destination.Coordinates.Lat.ToString()), 
+                                                                         double.Parse(x.Destination.Coordinates.Lng.ToString())))
+                                            .ToList();
 
-            var route = GoogleMapProvider.Instance.GetRoute(new PointLatLng(double.Parse(startPosition.Coordinates.Lat.ToString()), double.Parse(startPosition.Coordinates.Lng.ToString())),
-                                                            new PointLatLng(double.Parse(list[0].Destination.Coordinates.Lat.ToString()), double.Parse(list[0].Destination.Coordinates.Lng.ToString())),
-                                                            false, false, 13);
-            var r = new GMapRoute(route.Points, "Route");
+            GMapProviders.GoogleMap.ApiKey = "";
+            var route = GMapProviders.GoogleMap.GetDirections(out GDirections myDirections, points[0], points[1], false, false, true, false, false);
+            //MapRoute route = GoogleMapProvider.Instance.GetRoute(new PointLatLng(double.Parse(startPosition.Coordinates.Lat.ToString()), double.Parse(startPosition.Coordinates.Lng.ToString())),
+            //                                                new PointLatLng(double.Parse(list[0].Destination.Coordinates.Lat.ToString()), double.Parse(list[0].Destination.Coordinates.Lng.ToString())),
+            //                                                false, true, 14);
+            var r = new GMapRoute(myDirections.Route, "Route");
             var RoutesOverlay = new GMapOverlay("Routes");
+            RoutesOverlay.Routes.Add(r);
             gMap.Overlays.Add(RoutesOverlay);
 
         }
