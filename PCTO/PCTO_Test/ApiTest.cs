@@ -5,7 +5,7 @@ using Xunit;
 using FluentAssertions;
 using Moq;
 using PCTO;
-using static PCTO.ApiResult
+using static PCTO.ApiResult;
 
 
 namespace PCTO_Test
@@ -59,12 +59,12 @@ namespace PCTO_Test
             a.Coordinates.Lat.Should().BeInRange(39.2M, 39.3M);
             a.Coordinates.Lng.Should().BeInRange(9.1M, 9.2M);
         }
-        [Fact]
+        //[Fact]
         //public void Correttezzacoordinate3()
         //{
         //    //Arrange
         //    ApiCaller.Result Result = new ApiCaller.Result();
-        //    Result.Results[0] = new ApiCaller.Results(){  "45.690494","9.681876","9" };
+        //    Result.Results[0] = new ApiCaller.Results() { "45.690494", "9.681876", "9" };
         //    //Act
         //    IApiCaller caller = new ApiCaller();
         //    CoordinateHelper helper = new CoordinateHelper(caller);
@@ -76,4 +76,5 @@ namespace PCTO_Test
         //}
         #endregion
     }
+
 }
