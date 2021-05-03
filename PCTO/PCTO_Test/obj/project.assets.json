@@ -6120,19 +6120,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\bissola.17117\\.nuget\\packages\\": {}
+    "C:\\Users\\giuggioli.17210\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bissola.17117\\Documents\\GitHub\\short-streets\\PCTO\\PCTO_Test\\PCTO_Test.csproj",
+      "projectUniqueName": "C:\\Users\\giuggioli.17210\\Documents\\GitHub\\short-streets\\PCTO\\PCTO_Test\\PCTO_Test.csproj",
       "projectName": "PCTO_Test",
-      "projectPath": "C:\\Users\\bissola.17117\\Documents\\GitHub\\short-streets\\PCTO\\PCTO_Test\\PCTO_Test.csproj",
-      "packagesPath": "C:\\Users\\bissola.17117\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bissola.17117\\Documents\\GitHub\\short-streets\\PCTO\\PCTO_Test\\obj\\",
+      "projectPath": "C:\\Users\\giuggioli.17210\\Documents\\GitHub\\short-streets\\PCTO\\PCTO_Test\\PCTO_Test.csproj",
+      "packagesPath": "C:\\Users\\giuggioli.17210\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\giuggioli.17210\\Documents\\GitHub\\short-streets\\PCTO\\PCTO_Test\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\bissola.17117\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\giuggioli.17210\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6146,8 +6146,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\bissola.17117\\Documents\\GitHub\\short-streets\\PCTO\\PCTO\\PCTO.csproj": {
-              "projectPath": "C:\\Users\\bissola.17117\\Documents\\GitHub\\short-streets\\PCTO\\PCTO\\PCTO.csproj"
+            "C:\\Users\\giuggioli.17210\\Documents\\GitHub\\short-streets\\PCTO\\PCTO\\PCTO.csproj": {
+              "projectPath": "C:\\Users\\giuggioli.17210\\Documents\\GitHub\\short-streets\\PCTO\\PCTO\\PCTO.csproj"
             }
           }
         }

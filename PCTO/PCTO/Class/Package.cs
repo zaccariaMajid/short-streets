@@ -39,7 +39,7 @@ namespace PCTO
             }
         }
 
-        public string Id { get; }
+        public string Id { get; set; }
 
         int _volume;
         public int Volume

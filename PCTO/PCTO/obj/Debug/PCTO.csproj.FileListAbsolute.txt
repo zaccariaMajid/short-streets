@@ -262,3 +262,4 @@ C:\Users\zacca\OneDrive\Documenti\GitHub\short-streets\PCTO\PCTO\obj\Debug\PCTO.
 C:\Users\zacca\OneDrive\Documenti\GitHub\short-streets\PCTO\PCTO\obj\Debug\PCTO.exe
 C:\Users\zacca\OneDrive\Documenti\GitHub\short-streets\PCTO\PCTO\obj\Debug\PCTO.pdb
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\obj\Debug\PCTO.FormHome.resources
+C:\Users\giuggioli.17210\Documents\GitHub\short-streets\PCTO\PCTO\obj\Debug\PCTO.FormHome.resources

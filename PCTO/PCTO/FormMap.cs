@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using GMap.NET;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
+using GMap.NET.MapProviders;
 using Newtonsoft;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -26,7 +27,8 @@ namespace PCTO
             fShortStreets = f;
             f.ShowingFormMap += (o, e) => { MarkersOverlay = new GMapOverlay("markers"); ;
                 SetPosition(e.CurrentAddress); SetMarkers(e.Packages); 
-                SetConfidenceMessage(e.CurrentAddress, e.Packages); };
+                SetConfidenceMessage(e.CurrentAddress, e.Packages); SetRoute(e.CurrentAddress, e.Packages);
+            };
             gMap.ShowCenter = false;
             gMap.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;
             GMaps.Instance.Mode = AccessMode.ServerOnly;
@@ -69,6 +71,17 @@ namespace PCTO
         private void confidenceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show(ConfidenceMessage);
+        }
+        void SetRoute(Address startPosition, IList<Package> list)
+        {
+
+            var route = GoogleMapProvider.Instance.GetRoute(new PointLatLng(double.Parse(startPosition.Coordinates.Lat.ToString()), double.Parse(startPosition.Coordinates.Lng.ToString())),
+                                                            new PointLatLng(double.Parse(list[0].Destination.Coordinates.Lat.ToString()), double.Parse(list[0].Destination.Coordinates.Lng.ToString())),
+                                                            false, false, 13);
+            var r = new GMapRoute(route.Points, "Route");
+            var RoutesOverlay = new GMapOverlay("Routes");
+            gMap.Overlays.Add(RoutesOverlay);
+
         }
     }
 }
