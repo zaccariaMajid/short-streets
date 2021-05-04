@@ -86,6 +86,11 @@ namespace PCTO
             IList<Package> confirmedPackages = new List<Package>();
             foreach (var p in packages)
                 confirmedPackages.Add(p.ToPackage());
+            if (fShortStreets.currentAddress == null)
+            {
+                MessageBox.Show("Set your current position to access to the map (home)");
+                return;
+            }
             if (confirmedPackages.Where(x => x.IsValid == false).ToList().Count != 0)
             {
                 MessageBox.Show("Convalid all packages to continue");
