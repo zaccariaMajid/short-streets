@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PCTO
 {
-    class CoordinatesRange
+    public class CoordinatesRange
     {
         public CoordinatesRange()
         {
@@ -27,7 +27,7 @@ namespace PCTO
             get => _maxCoordinates;
             set => _maxCoordinates = ControlLogic(_minCoordinates, value)[1];
         }
-        static IList<Coordinates> ControlLogic(Coordinates min, Coordinates max)
+        public static IList<Coordinates> ControlLogic(Coordinates min, Coordinates max)
         {
             if (min.Lat > max.Lat)
                 throw new ArgumentException("Min latitude must be lower than max latitude");

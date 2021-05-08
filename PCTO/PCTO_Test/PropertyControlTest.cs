@@ -221,8 +221,11 @@ namespace PCTO_Test
         [Fact]
         public void ValidString1()
         {
+            //Arrange
             string word1 = "Abc";
+            //Act
             var result = ValidString(word1);
+            //Assert
             result.Should().Be(word1);
         }
         [Fact]

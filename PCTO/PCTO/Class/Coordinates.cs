@@ -27,7 +27,7 @@ namespace PCTO
         {
             return $"{Lat}, {Lng} (Confidence: {Confidence})";
         }
-        static decimal ControlLatitude(decimal lat)
+        public static decimal ControlLatitude(decimal lat)
         {
             if (lat < -90.0M)
                 return -90.0M;
@@ -36,7 +36,7 @@ namespace PCTO
             else
                 return lat;
         }
-        static decimal ControlLongitude(decimal lng)
+        public static decimal ControlLongitude(decimal lng)
         {
             if (lng < -180.0M)
                 return -180.0M;
