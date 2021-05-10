@@ -4,16 +4,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using GMap.NET;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using GMap.NET.MapProviders;
-using Newtonsoft;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using Itinero;
+using Itinero.Osm.Vehicles;
 
 namespace PCTO
 {
@@ -91,6 +88,19 @@ namespace PCTO
                                              double.Parse(startPosition.Coordinates.Lng.ToString())));
             points.Add(new PointLatLng(double.Parse(startPosition.Coordinates.Lat.ToString()),
                                        double.Parse(startPosition.Coordinates.Lng.ToString())));
+
+            var routerDb = new RouterDb();
+            routerDb.AddSupportedVehicle(Vehicle.Pedestrian);
+            routerDb.LocationOnNetwork();
+            routerDb.RemoveRestrictions(Vehicle.Pedestrian.Name);
+            //routerDb.LoadOsmData(stream, Vehicle.Car);
+            var router = new Router(routerDb);
+            var profile = Vehicle.Pedestrian.Fastest();
+            var start = router.Resolve(profile, float.Parse(points[0].Lat.ToString()), float.Parse(points[0].Lng.ToString()));
+            var end = router.Resolve(profile, float.Parse(points[1].Lat.ToString()), float.Parse(points[1].Lng.ToString()));
+            var route = router.Calculate(profile, start, end);
+            
+
             for (int x = 0; x < points.Count; x++)
             {
                 if (x + 1 < points.Count)

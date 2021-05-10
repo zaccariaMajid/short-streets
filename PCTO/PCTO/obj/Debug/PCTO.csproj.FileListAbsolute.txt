@@ -309,3 +309,11 @@ C:\Users\sonzogni.17133\Documents\GitHub\short-streets\PCTO\PCTO\obj\Debug\PCTO.
 C:\Users\sonzogni.17133\Documents\GitHub\short-streets\PCTO\PCTO\obj\Debug\PCTO.csproj.CopyComplete
 C:\Users\sonzogni.17133\Documents\GitHub\short-streets\PCTO\PCTO\obj\Debug\PCTO.exe
 C:\Users\sonzogni.17133\Documents\GitHub\short-streets\PCTO\PCTO\obj\Debug\PCTO.pdb
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\bin\Debug\Itinero.dll
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\bin\Debug\Reminiscence.dll
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\bin\Debug\System.Buffers.dll
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\bin\Debug\System.Memory.dll
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\bin\Debug\System.Buffers.xml
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\bin\Debug\System.Memory.xml
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\bin\Debug\System.Numerics.Vectors.xml
