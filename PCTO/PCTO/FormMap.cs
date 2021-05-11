@@ -11,6 +11,8 @@ using GMap.NET.WindowsForms.Markers;
 using GMap.NET.MapProviders;
 using Itinero;
 using Itinero.Osm.Vehicles;
+using System.IO;
+using Itinero.IO.Osm;
 
 namespace PCTO
 {
@@ -22,7 +24,12 @@ namespace PCTO
             InitializeComponent();
 
             fShortStreets = f;
-            f.ShowingFormMap += (o, e) =>
+            fShortStreets.StreamRead += (o, e) =>
+            {
+                RouterDb = new RouterDb();
+                RouterDb.LoadOsmData(f.stream, Vehicle.Pedestrian);
+            };
+            fShortStreets.ShowingFormMap += (o, e) =>
             {
                 MarkersOverlay = new GMapOverlay("markers");
                 RoutesOverlay = new GMapOverlay("routes");
@@ -39,6 +46,7 @@ namespace PCTO
 
         GMapOverlay MarkersOverlay;
         GMapOverlay RoutesOverlay;
+        RouterDb RouterDb;
         string ConfidenceMessage;
 
         private void CloseMapToolStripMenuItem_Click(object sender, EventArgs e)
@@ -89,29 +97,29 @@ namespace PCTO
             points.Add(new PointLatLng(double.Parse(startPosition.Coordinates.Lat.ToString()),
                                        double.Parse(startPosition.Coordinates.Lng.ToString())));
 
-            var routerDb = new RouterDb();
-            routerDb.AddSupportedVehicle(Vehicle.Pedestrian);
-            routerDb.LocationOnNetwork();
-            routerDb.RemoveRestrictions(Vehicle.Pedestrian.Name);
-            //routerDb.LoadOsmData(stream, Vehicle.Car);
-            var router = new Router(routerDb);
+
+            var router = new Router(RouterDb);
             var profile = Vehicle.Pedestrian.Fastest();
             var start = router.Resolve(profile, float.Parse(points[0].Lat.ToString()), float.Parse(points[0].Lng.ToString()));
             var end = router.Resolve(profile, float.Parse(points[1].Lat.ToString()), float.Parse(points[1].Lng.ToString()));
             var route = router.Calculate(profile, start, end);
-            
-
-            for (int x = 0; x < points.Count; x++)
+            int x = 0;
+            foreach(var shape in route)
             {
-                if (x + 1 < points.Count)
-                {
-                    var p = new List<PointLatLng>() { points[x], points[x + 1] };
-                    var r = new GMapRoute(p, "route");
-                    r.Stroke.Color = Color.Red;
-                    r.Stroke.EndCap = System.Drawing.Drawing2D.LineCap.ArrowAnchor;
-                    RoutesOverlay.Routes.Add(r);
-                }
             }
+
+
+            //for (int x = 0; x < points.Count; x++)
+            //{
+            //    if (x + 1 < points.Count)
+            //    {
+            //        var p = new List<PointLatLng>() { points[x], points[x + 1] };
+            //        var r = new GMapRoute(p, "route");
+            //        r.Stroke.Color = Color.Red;
+            //        r.Stroke.EndCap = System.Drawing.Drawing2D.LineCap.ArrowAnchor;
+            //        RoutesOverlay.Routes.Add(r);
+            //    }
+            //}
             //var route = GMapProviders.GoogleMap.GetDirections(out GDirections myDirections, points[0], points[1], false, false, true, false, false);
             //var r = new GMapRoute(myDirections.Route, "Route");
 

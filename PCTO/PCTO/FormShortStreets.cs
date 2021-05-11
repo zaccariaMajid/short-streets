@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace PCTO
 {
@@ -15,6 +16,7 @@ namespace PCTO
         FormHome formHome;
         FormRiderSpace formRiderSpace;
         FormMap formMap;
+        public Stream stream;
         public Address currentAddress;
         public FormShortStreets()
         {
@@ -28,12 +30,23 @@ namespace PCTO
             formRiderSpace.FormBorderStyle = FormBorderStyle.None;
             pnlHome.Controls.Add(formRiderSpace);
 
+            GetOsmFile();
             formMap = new FormMap(this) { TopLevel = false, TopMost = true };
             formMap.FormBorderStyle = FormBorderStyle.None;
             pnlHome.Controls.Add(formMap);
 
             ShowFormHome();
         }
+
+        private async void GetOsmFile()
+        {
+            Task<FileStream> s = LoadFile.GetStreamAsync("comune_bergamo.pbf");
+            stream = await s;
+            OnStreamRead();
+        }
+        public EventHandler StreamRead;
+        protected virtual void OnStreamRead() => StreamRead?.Invoke(this, new EventArgs());
+
         private void riderSpaceToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             ShowFormRiderSpace();
