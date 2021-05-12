@@ -334,3 +334,13 @@ C:\Users\giuggioli.17210\Documents\GitHub\short-streets\PCTO\PCTO\bin\Debug\prot
 C:\Users\giuggioli.17210\Documents\GitHub\short-streets\PCTO\PCTO\bin\Debug\System.Net.Http.Extensions.xml
 C:\Users\giuggioli.17210\Documents\GitHub\short-streets\PCTO\PCTO\bin\Debug\System.Net.Http.Primitives.xml
 C:\Users\giuggioli.17210\Documents\GitHub\short-streets\PCTO\PCTO\obj\Debug\PCTO.csproj.App.config
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\bin\Debug\Itinero.IO.Osm.dll
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\bin\Debug\OsmSharp.dll
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\bin\Debug\protobuf-net.dll
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\bin\Debug\protobuf-net.xml
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\obj\Debug\PCTO.csproj.App.config
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\obj\Debug\PCTO.LoadingForm.resources

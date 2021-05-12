@@ -13,6 +13,7 @@ namespace PCTO
 {
     partial class FormShortStreets : Form
     {
+        LoadingForm loadingForm;
         FormHome formHome;
         FormRiderSpace formRiderSpace;
         FormMap formMap;
@@ -21,7 +22,16 @@ namespace PCTO
         public FormShortStreets()
         {
             InitializeComponent();
+            Startup();
+        }
 
+        async void Startup()
+        {
+            loadingForm = new LoadingForm();
+            loadingForm.Show();
+            Task<FileStream> s = LoadFile.GetStreamAsync("comune_bergamo.pbf");
+            stream = await s;
+            
             formHome = new FormHome(this) { TopLevel = false, TopMost = true };
             formHome.FormBorderStyle = FormBorderStyle.None;
             pnlHome.Controls.Add(formHome);
@@ -30,21 +40,15 @@ namespace PCTO
             formRiderSpace.FormBorderStyle = FormBorderStyle.None;
             pnlHome.Controls.Add(formRiderSpace);
 
-            GetOsmFile();
             formMap = new FormMap(this) { TopLevel = false, TopMost = true };
             formMap.FormBorderStyle = FormBorderStyle.None;
             pnlHome.Controls.Add(formMap);
 
+            OnStreamRead();
+            loadingForm.Hide();
             ShowFormHome();
         }
-
-        private async void GetOsmFile()
-        {
-            Task<FileStream> s = LoadFile.GetStreamAsync("comune_bergamo.pbf");
-            stream = await s;
-            OnStreamRead();
-        }
-        public EventHandler StreamRead;
+        public event EventHandler StreamRead;
         protected virtual void OnStreamRead() => StreamRead?.Invoke(this, new EventArgs());
 
         private void riderSpaceToolStripMenuItem1_Click(object sender, EventArgs e)
