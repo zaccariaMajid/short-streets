@@ -19,19 +19,26 @@ namespace PCTO
         FormMap formMap;
         public Stream stream;
         public Address currentAddress;
+        public CoordinatesRange coordinatesRange = new CoordinatesRange()
+        {
+            MinCoordinates = new Coordinates() { Lat = 45.672642M, Lng = 9.655701M },
+            MaxCoordinates = new Coordinates() { Lat = 45.710610M, Lng = 9.687639M }
+        };
         public FormShortStreets()
         {
             InitializeComponent();
             Startup();
+            ShowFormHome();
         }
 
-        async void Startup()
+        void Startup()
         {
-            loadingForm = new LoadingForm();
-            loadingForm.Show();
-            Task<FileStream> s = LoadFile.GetStreamAsync("comune_bergamo.pbf");
-            stream = await s;
-            
+            //loadingForm = new LoadingForm() { TopLevel = true, TopMost = true };
+            //this.Hide();
+            //loadingForm.Show();
+            stream = LoadFile.GetStream("comune_bergamo.pbf");
+            //loadingForm.Hide();
+            //this.Show();
             formHome = new FormHome(this) { TopLevel = false, TopMost = true };
             formHome.FormBorderStyle = FormBorderStyle.None;
             pnlHome.Controls.Add(formHome);
@@ -43,10 +50,7 @@ namespace PCTO
             formMap = new FormMap(this) { TopLevel = false, TopMost = true };
             formMap.FormBorderStyle = FormBorderStyle.None;
             pnlHome.Controls.Add(formMap);
-
             OnStreamRead();
-            loadingForm.Hide();
-            ShowFormHome();
         }
         public event EventHandler StreamRead;
         protected virtual void OnStreamRead() => StreamRead?.Invoke(this, new EventArgs());

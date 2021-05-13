@@ -9,6 +9,6 @@ namespace PCTO
 {
     public static class LoadFile
     {
-        public static async Task<FileStream> GetStreamAsync(string pathfile) => await Task.Run(() => new FileInfo(pathfile).OpenRead());
+        public static FileStream GetStream(string pathfile) => new FileInfo(pathfile).OpenRead();
     }
 }

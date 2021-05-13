@@ -14,6 +14,7 @@ namespace PCTO
             _maxCoordinates = new Coordinates() { Lat = 90.0M, Lng = 180.0M, Confidence = 10 };
         }
 
+        public override string ToString() => $"{MinCoordinates.Lat}, {MinCoordinates.Lng}/ {MaxCoordinates.Lat}, {MaxCoordinates.Lng}";
         Coordinates _minCoordinates;
         public Coordinates MinCoordinates
         {
@@ -34,6 +35,19 @@ namespace PCTO
             if (min.Lng > max.Lng)
                 throw new ArgumentException("Min longitude must be lower than max longitude");
             return new List<Coordinates>() { min, max };
+        }
+    }
+    public static class CoordinatesRangeManager
+    {
+        public static bool BeInRange(CoordinatesRange range, Coordinates c)
+        {
+            if (c.Lat < range.MinCoordinates.Lat ||
+                c.Lng < range.MinCoordinates.Lng ||
+                c.Lat > range.MaxCoordinates.Lat ||
+                c.Lng > range.MaxCoordinates.Lng)
+                return false;
+            else
+                return true;
         }
     }
 }

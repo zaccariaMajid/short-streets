@@ -63,6 +63,11 @@ namespace PCTO
                 currentPackage.Destination.Number = txbNumber.Text;
                 currentPackage.Destination.Street = txbRoad.Text;
                 helper.SetCoordinates(currentPackage.Destination);
+                if(!CoordinatesRangeManager.BeInRange(fShortStreets.coordinatesRange, currentPackage.Destination.Coordinates))
+                {
+                    MessageBox.Show($"Packages coordinates are out of range ({fShortStreets.coordinatesRange})");
+                    return;
+                }
                 packages[packages.IndexOf(packages
                     .Where(x => x.Id == currentPackage.Id)
                     .Single())] = currentPackage.ToDTO();

@@ -3,13 +3,13 @@
 	"volume": 3,
 	"weight": 5,
 	"destination":{
-		"number": "32",
-		"street": "Via Giacomo Manzù",
-		"town": "Terno d'Isola",
+		"number": "24",
+		"street": "Via Bianzana",
+		"town": "Bergamo",
 		"province": "BG",
 		"coordinates":{
-			"lat": 45.68299, 
-			"lng": 9.53841,
+			"lat": 45.705811, 
+			"lng": 9.689833,
 			"confidence": 9
 		}
 	}
@@ -19,13 +19,13 @@
 	"volume": 1,
 	"weight": 2,
 	"destination":{
-		"number": "3c",
-		"street": "Via Largo del Roccolo",
-		"town": "Terno d'Isola",
+		"number": "60",
+		"street": "Via Giulio Crescenzi",
+		"town": "Bergamo",
 		"province": "BG",
 		"coordinates":{
-			"lat": 45.68834, 
-			"lng": 9.524232,
+			"lat": 45.709559, 
+			"lng": 9.676888,
 			"confidence": 9
 		}
 	}
@@ -35,13 +35,13 @@
 	"volume": 6,
 	"weight": 6,
 	"destination":{
-		"number": "7",
-		"street": "Via G. B. Vico",
-		"town": "Mozzo",
+		"number": "39",
+		"street": "Via Francesco Nullo",
+		"town": "Bergamo",
 		"province": "BG",
 		"coordinates":{
-			"lat": 45.69673, 
-			"lng": 9.62082,
+			"lat": 45.697727, 
+			"lng": 9.661007,
 			"confidence": 9
 		}
 	}
@@ -63,49 +63,17 @@
 	}
 },
 { 
-	"id": "fa77dba1-8ca5-4fcc-9796-1589a49c8df5",
-	"volume": 4,
-	"weight": 4,
-	"destination":{
-		"number": "29",
-		"street": "Via Ugo Foscolo",
-		"town": "Brembate di sopra",
-		"province": "BG",
-		"coordinates":{
-			"lat": 45.721106, 
-			"lng": 9.576754,
-			"confidence": 9
-		}
-	}
-},
-{ 
 	"id": "38ef9ff2-6be9-4bd6-ad97-57d40b2795a7",
 	"volume": 1,
 	"weight": 3,
 	"destination":{
-		"number": "10",
-		"street": "Via Isonzo",
-		"town": "Stezzano",
+		"number": "6b",
+		"street": "Via Giuseppe Greppi",
+		"town": "Bergamo",
 		"province": "BG",
 		"coordinates":{
-			"lat": 45.649249, 
-			"lng": 9.649197,
-			"confidence": 9
-		}
-	}
-},
-{ 
-	"id": "2c9d34c6-b6d4-4a12-8d2b-271d026a5913",
-	"volume": 4,
-	"weight": 6,
-	"destination":{
-		"number": "3",
-		"street": "Via Risorgimento",
-		"town": "Madone",
-		"province": "BG",
-		"coordinates":{
-			"lat": 45.647250, 
-			"lng": 9.548957,
+			"lat": 45.689926, 
+			"lng": 9.664701,
 			"confidence": 9
 		}
 	}
