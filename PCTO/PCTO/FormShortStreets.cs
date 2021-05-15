@@ -13,7 +13,6 @@ namespace PCTO
 {
     partial class FormShortStreets : Form
     {
-        LoadingForm loadingForm;
         FormHome formHome;
         FormRiderSpace formRiderSpace;
         FormMap formMap;

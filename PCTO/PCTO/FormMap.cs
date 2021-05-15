@@ -33,8 +33,10 @@ namespace PCTO
             {
                 MarkersOverlay = new GMapOverlay("markers");
                 RoutesOverlay = new GMapOverlay("routes");
-                SetPosition(e.CurrentAddress); SetMarkers(e.Packages);
-                SetConfidenceMessage(e.CurrentAddress, e.Packages); SetRoute(e.CurrentAddress, e.Packages);
+                SetPosition(e.CurrentAddress); 
+                SetMarkers(e.Packages);
+                SetConfidenceMessage(e.CurrentAddress, e.Packages); 
+                SetRoute(e.CurrentAddress, e.Packages);
             };
             gMap.ShowCenter = false;
             gMap.MapProvider = BingMapProvider.Instance;
@@ -91,6 +93,45 @@ namespace PCTO
         }
 
         void SetRoute(Address startPosition, IList<Package> list)
+        {
+            GetVertices(GetAllCoordinates(startPosition, list.ToList()));
+            GetRoutingPoints();
+            GetPath();
+            SetPath();
+        }
+
+        IList<Coordinates> GetAllCoordinates(Address startPosition, IList<Package> list)
+        {
+            IList<Coordinates> coordinates = new List<Coordinates>() { startPosition.Coordinates };
+            foreach (var p in list)
+                coordinates.Add(p.Destination.Coordinates);
+            return coordinates;
+        }
+        IList<Vertex> GetVertices(IList<Coordinates> coordinates)
+        {
+            IList<Coordinates> t_coordinates;
+            foreach(var c in coordinates)
+            {
+                t_coordinates = coordinates.ToList();
+                t_coordinates.Remove(c);
+                CoordinatesVertices.NewCoordinatesvertices(c, t_coordinates, RouterDb);
+            }
+                
+        }
+
+        IList<RoutingPoint> GetRoutingPoints()
+        {
+            int counter = 1;
+            RoutingPoint r = new RoutingPoint() { Id = counter, Volume = 0, Weight = 0, IsUsed = true, Vertices = };
+        }
+
+
+        void GetPath()
+        {
+
+        }
+
+        void SetPath()
         {
             gMap.Overlays.Add(RoutesOverlay);
             IList<PointLatLng> points = list.Select(x => new PointLatLng(double.Parse(x.Destination.Coordinates.Lat.ToString()), double.Parse(x.Destination.Coordinates.Lng.ToString())))

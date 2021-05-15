@@ -344,3 +344,4 @@ C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\bin\Debug\System.Net.Http.Ex
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\bin\Debug\System.Net.Http.Primitives.xml
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\obj\Debug\PCTO.csproj.App.config
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\obj\Debug\PCTO.LoadingForm.resources
+C:\Users\giuggioli.17210\Documents\GitHub\short-streets\PCTO\PCTO\obj\Debug\PCTO.LoadingForm.resources

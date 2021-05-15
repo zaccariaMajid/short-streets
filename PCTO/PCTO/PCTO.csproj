@@ -145,9 +145,11 @@
     <Compile Include="Class\Coordinates.cs" />
     <Compile Include="Class\Api\IApiCaller.cs" />
     <Compile Include="Class\CoordinatesRange.cs" />
+    <Compile Include="Class\CoordinatesVertices.cs" />
     <Compile Include="Class\PackDTO.cs" />
     <Compile Include="Class\Address.cs" />
     <Compile Include="Class\Package.cs" />
+    <Compile Include="Class\RoutingPoint.cs" />
     <Compile Include="Class\ShowingFormMapEventArgs.cs" />
     <Compile Include="FormHome.cs">
       <SubType>Form</SubType>
