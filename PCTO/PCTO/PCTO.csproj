@@ -146,6 +146,7 @@
     <Compile Include="Class\Api\IApiCaller.cs" />
     <Compile Include="Class\CoordinatesRange.cs" />
     <Compile Include="Class\CoordinatesVertices.cs" />
+    <Compile Include="Class\PackagesRoutingDictionary.cs" />
     <Compile Include="Class\PackDTO.cs" />
     <Compile Include="Class\Address.cs" />
     <Compile Include="Class\Package.cs" />

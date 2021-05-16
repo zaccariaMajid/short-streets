@@ -10,13 +10,17 @@ using Itinero.IO.Osm;
 
 namespace PCTO
 {
-    class CoordinatesVertices
+    public class CoordinatesVertices
     {
         public Dictionary<Coordinates, int> Coordinates { get; set; }
         public Coordinates CurrentPosition { get; set; }
 
+    }
+    public static class CoordinatesVerticesMaker
+    {
         public static CoordinatesVertices NewCoordinatesvertices(Coordinates c, IList<Coordinates> list, RouterDb rdb)
         {
+            Dictionary<Coordinates, int> dictionary = new Dictionary<Coordinates, int>();
             var router = new Router(rdb);
             var profile = Vehicle.Pedestrian.Fastest();
             var start = router.Resolve(profile, float.Parse(c.Lat.ToString()), float.Parse(c.Lng.ToString()));
@@ -25,7 +29,9 @@ namespace PCTO
                 var end = router.Resolve(profile, float.Parse(coordinates.Lat.ToString()), float.Parse(coordinates.Lng.ToString()));
                 var route = router.Calculate(profile, start, end);
                 int distance = int.Parse(route.TotalDistance.ToString());
+                dictionary.Add(coordinates, distance);
             }
+            return new CoordinatesVertices() { CurrentPosition = c, Coordinates = dictionary };
         }
     }
 }

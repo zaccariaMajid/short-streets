@@ -47,7 +47,7 @@ namespace PCTO
             if (binded != default)
                 return binded;
             else
-                return new Package(new Address(this.Number, this.Street, this.Town, this.Province), this.Id, this.Volume, this.Weight);
+                return new Package(new Address(this.Number, this.Street, this.Town, this.Province), this.Volume, this.Weight, this.Id);
         }
     }
 }

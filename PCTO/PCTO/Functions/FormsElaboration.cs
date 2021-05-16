@@ -34,7 +34,7 @@ namespace PCTO
                 case true:
                     {
                         for (int x = 0; x < n; x++)
-                            packages.Add(new Package(new Address("", "", "", ""), default, 0, 0).ToDTO());
+                            packages.Add(new Package(new Address("", "", "", ""),  0, 0, default).ToDTO());
                         break;
                     }
                 case false:

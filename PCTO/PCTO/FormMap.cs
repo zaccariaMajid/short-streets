@@ -33,9 +33,10 @@ namespace PCTO
             {
                 MarkersOverlay = new GMapOverlay("markers");
                 RoutesOverlay = new GMapOverlay("routes");
-                SetPosition(e.CurrentAddress); 
+                SetPosition(e.CurrentAddress);
                 SetMarkers(e.Packages);
-                SetConfidenceMessage(e.CurrentAddress, e.Packages); 
+                SetPackagesRoutingDictionary(e.CurrentAddress, e.Packages);
+                SetConfidenceMessage(e.CurrentAddress, e.Packages);
                 SetRoute(e.CurrentAddress, e.Packages);
             };
             gMap.ShowCenter = false;
@@ -46,9 +47,12 @@ namespace PCTO
             gMap.Zoom = 13;
         }
 
+
+
         GMapOverlay MarkersOverlay;
         GMapOverlay RoutesOverlay;
         RouterDb RouterDb;
+        PackagesRoutingDictionary Prd;
         string ConfidenceMessage;
 
         private void CloseMapToolStripMenuItem_Click(object sender, EventArgs e)
@@ -73,6 +77,19 @@ namespace PCTO
                                                                       GMarkerGoogleType.arrow));
         }
 
+        void SetPackagesRoutingDictionary(Address address, IList<Package> packages)
+        {
+            Prd = new PackagesRoutingDictionary();
+
+            Prd.Dictionary.Add(1, new Package(address, 0, 0));
+            int count = 2;
+            foreach (var p in packages)
+            {
+                Prd.Dictionary.Add(count, p);
+                count++;
+            }
+        }
+
         private void SetConfidenceMessage(Address address, IList<Package> packages)
         {
             ConfidenceMessage = $"START) {address} - Confidence: {Confidences.List[address.Coordinates.Confidence]}\n";
@@ -94,8 +111,7 @@ namespace PCTO
 
         void SetRoute(Address startPosition, IList<Package> list)
         {
-            GetVertices(GetAllCoordinates(startPosition, list.ToList()));
-            GetRoutingPoints();
+            GetRoutingPoints(GetAllCoordinates(startPosition, list.ToList()));
             GetPath();
             SetPath();
         }
@@ -107,22 +123,29 @@ namespace PCTO
                 coordinates.Add(p.Destination.Coordinates);
             return coordinates;
         }
-        IList<Vertex> GetVertices(IList<Coordinates> coordinates)
+        IList<RoutingPoint> GetRoutingPoints(IList<Coordinates> coordinates)
         {
-            IList<Coordinates> t_coordinates;
-            foreach(var c in coordinates)
+            IList<Coordinates> tCoordinates;
+            IList<RoutingPoint> routingPoints = new List<RoutingPoint>();
+            foreach (var c in coordinates)
             {
-                t_coordinates = coordinates.ToList();
-                t_coordinates.Remove(c);
-                CoordinatesVertices.NewCoordinatesvertices(c, t_coordinates, RouterDb);
+                tCoordinates = coordinates.ToList();
+                tCoordinates.Remove(c);
+                var coordinatesVertices = CoordinatesVerticesMaker.NewCoordinatesvertices(c, tCoordinates, RouterDb);
+                IList<Vertex> vertices = new List<Vertex>();
+                foreach (var dict in coordinatesVertices.Coordinates)
+                {
+                    Vertex v = default;
+                    v.Id = Prd.Dictionary.Where(x => x.Value.Destination.Coordinates == dict.Key).First().Key;
+                    v.Distance = dict.Value;
+                    vertices.Add(v);
+                }
+                var routingPoint = new RoutingPoint() { Id = Prd.Dictionary.Where(x => x.Value.Destination.Coordinates == c).First().Key };
+                routingPoint.Volume = Prd.Dictionary[routingPoint.Id].Volume;
+                routingPoint.Weight = Prd.Dictionary[routingPoint.Id].Weight;
+                routingPoint.Vertices = vertices;
             }
-                
-        }
-
-        IList<RoutingPoint> GetRoutingPoints()
-        {
-            int counter = 1;
-            RoutingPoint r = new RoutingPoint() { Id = counter, Volume = 0, Weight = 0, IsUsed = true, Vertices = };
+            return routingPoints;
         }
 
 

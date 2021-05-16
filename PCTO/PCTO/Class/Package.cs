@@ -10,7 +10,7 @@ namespace PCTO
 {
    public class Package
    {
-        public Package(Address destination, string id = default, int volume = 1, int weight = 1)
+        public Package(Address destination, int volume = 1, int weight = 1, string id = default)
         {
             if (id != default)
                 this.Id = id;
