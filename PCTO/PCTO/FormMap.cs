@@ -47,8 +47,6 @@ namespace PCTO
             gMap.Zoom = 13;
         }
 
-
-
         GMapOverlay MarkersOverlay;
         GMapOverlay RoutesOverlay;
         RouterDb RouterDb;
@@ -111,8 +109,10 @@ namespace PCTO
 
         void SetRoute(Address startPosition, IList<Package> list)
         {
-            GetRoutingPoints(GetAllCoordinates(startPosition, list.ToList()));
-            GetPath();
+            GetPath
+                (GetRoutingPoints
+                    (GetAllCoordinates
+                        (startPosition, list.ToList())));
             SetPath();
         }
 
@@ -144,12 +144,13 @@ namespace PCTO
                 routingPoint.Volume = Prd.Dictionary[routingPoint.Id].Volume;
                 routingPoint.Weight = Prd.Dictionary[routingPoint.Id].Weight;
                 routingPoint.Vertices = vertices;
+                routingPoints.Add(routingPoint);
             }
             return routingPoints;
         }
 
 
-        void GetPath()
+        void GetPath(IList<RoutingPoint> points)
         {
 
         }
@@ -157,30 +158,30 @@ namespace PCTO
         void SetPath()
         {
             gMap.Overlays.Add(RoutesOverlay);
-            IList<PointLatLng> points = list.Select(x => new PointLatLng(double.Parse(x.Destination.Coordinates.Lat.ToString()), double.Parse(x.Destination.Coordinates.Lng.ToString())))
-                                            .ToList();
-            points.Insert(0, new PointLatLng(double.Parse(startPosition.Coordinates.Lat.ToString()), double.Parse(startPosition.Coordinates.Lng.ToString())));
-            points.Add(new PointLatLng(double.Parse(startPosition.Coordinates.Lat.ToString()), double.Parse(startPosition.Coordinates.Lng.ToString())));
+            //IList<PointLatLng> points = list.Select(x => new PointLatLng(double.Parse(x.Destination.Coordinates.Lat.ToString()), double.Parse(x.Destination.Coordinates.Lng.ToString())))
+                                            //.ToList();
+            //points.Insert(0, new PointLatLng(double.Parse(startPosition.Coordinates.Lat.ToString()), double.Parse(startPosition.Coordinates.Lng.ToString())));
+            //points.Add(new PointLatLng(double.Parse(startPosition.Coordinates.Lat.ToString()), double.Parse(startPosition.Coordinates.Lng.ToString())));
 
             try
             {
-                for (int x = 0; x < points.Count; x++)
-                {
-                    if (x + 1 < points.Count)
-                    {
-                        var router = new Router(RouterDb);
-                        var profile = Vehicle.Pedestrian.Fastest();
-                        var start = router.Resolve(profile, float.Parse(points[x].Lat.ToString()), float.Parse(points[x].Lng.ToString()));
-                        var end = router.Resolve(profile, float.Parse(points[x + 1].Lat.ToString()), float.Parse(points[x + 1].Lng.ToString()));
-                        var route = router.Calculate(profile, start, end);
-                        IList<PointLatLng> allPoints = route.Shape.Select(s => new PointLatLng() { Lat = double.Parse(s.Latitude.ToString()), Lng = double.Parse(s.Longitude.ToString()) })
-                                                                  .ToList();
-                        var r = new GMapRoute(allPoints, "route");
-                        r.Stroke.Color = Color.Red;
-                        r.Stroke.EndCap = System.Drawing.Drawing2D.LineCap.ArrowAnchor;
-                        RoutesOverlay.Routes.Add(r);
-                    }
-                }
+                //for (int x = 0; x < points.Count; x++)
+                //{
+                    //if (x + 1 < points.Count)
+                    //{
+                        //var router = new Router(RouterDb);
+                        //var profile = Vehicle.Pedestrian.Fastest();
+                        //var start = router.Resolve(profile, float.Parse(points[x].Lat.ToString()), float.Parse(points[x].Lng.ToString()));
+                        //var end = router.Resolve(profile, float.Parse(points[x + 1].Lat.ToString()), float.Parse(points[x + 1].Lng.ToString()));
+                        //var route = router.Calculate(profile, start, end);
+                        //IList<PointLatLng> allPoints = route.Shape.Select(s => new PointLatLng() { Lat = double.Parse(s.Latitude.ToString()), Lng = double.Parse(s.Longitude.ToString()) })
+                        //                                          .ToList();
+                        //var r = new GMapRoute(allPoints, "route");
+                        //r.Stroke.Color = Color.Red;
+                        //r.Stroke.EndCap = System.Drawing.Drawing2D.LineCap.ArrowAnchor;
+                        //RoutesOverlay.Routes.Add(r);
+                    //}
+                //}
             }
             catch (Exception ex)
             {

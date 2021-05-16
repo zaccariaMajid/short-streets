@@ -28,7 +28,7 @@ namespace PCTO
             {
                 var end = router.Resolve(profile, float.Parse(coordinates.Lat.ToString()), float.Parse(coordinates.Lng.ToString()));
                 var route = router.Calculate(profile, start, end);
-                int distance = int.Parse(route.TotalDistance.ToString());
+                int distance = (int)route.TotalDistance;
                 dictionary.Add(coordinates, distance);
             }
             return new CoordinatesVertices() { CurrentPosition = c, Coordinates = dictionary };
