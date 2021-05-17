@@ -45,7 +45,7 @@ namespace PCTO
             GMaps.Instance.Mode = AccessMode.ServerOnly;
             gMap.DragButton = MouseButtons.Left;
             gMap.MinZoom = 4;
-            gMap.MaxZoom = 18;
+            gMap.MaxZoom = 19;
             gMap.Zoom = 13;
         }
 
@@ -72,10 +72,15 @@ namespace PCTO
             gMap.Overlays.Clear();
             gMap.Overlays.Add(MarkersOverlay);
             MarkersOverlay.Markers.Add(new GMarkerGoogle(gMap.Position, markersImg.Images[0]));
+            int count = 1;
             foreach (var p in packages)
+            {
                 MarkersOverlay.Markers.Add(new GMarkerGoogle(new PointLatLng(double.Parse(p.Destination.Coordinates.Lat.ToString()),
                                                                       double.Parse(p.Destination.Coordinates.Lng.ToString())),
-                                                                      GMarkerGoogleType.arrow));
+                                                                      markersImg.Images[count]));
+                count++;
+            }
+                
         }
 
         void SetPackagesRoutingDictionary(Address address, IList<Package> packages)
