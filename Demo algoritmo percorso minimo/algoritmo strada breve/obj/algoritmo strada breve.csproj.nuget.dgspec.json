@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Desktop\\pcto\\algoritmo strada breve\\algoritmo strada breve\\algoritmo strada breve.csproj": {}
+    "C:\\Users\\Asus\\Documents\\GitHub\\short-streets\\Demo algoritmo percorso minimo\\algoritmo strada breve\\algoritmo strada breve.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Desktop\\pcto\\algoritmo strada breve\\algoritmo strada breve\\algoritmo strada breve.csproj": {
+    "C:\\Users\\Asus\\Documents\\GitHub\\short-streets\\Demo algoritmo percorso minimo\\algoritmo strada breve\\algoritmo strada breve.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Desktop\\pcto\\algoritmo strada breve\\algoritmo strada breve\\algoritmo strada breve.csproj",
+        "projectUniqueName": "C:\\Users\\Asus\\Documents\\GitHub\\short-streets\\Demo algoritmo percorso minimo\\algoritmo strada breve\\algoritmo strada breve.csproj",
         "projectName": "algoritmo strada breve",
-        "projectPath": "C:\\Users\\user\\Desktop\\pcto\\algoritmo strada breve\\algoritmo strada breve\\algoritmo strada breve.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Desktop\\pcto\\algoritmo strada breve\\algoritmo strada breve\\obj\\",
+        "projectPath": "C:\\Users\\Asus\\Documents\\GitHub\\short-streets\\Demo algoritmo percorso minimo\\algoritmo strada breve\\algoritmo strada breve.csproj",
+        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Asus\\Documents\\GitHub\\short-streets\\Demo algoritmo percorso minimo\\algoritmo strada breve\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -54,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
