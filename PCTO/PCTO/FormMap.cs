@@ -23,6 +23,7 @@ namespace PCTO
         {
             InitializeComponent();
 
+            markersImg = new MarkersImg();
             fShortStreets = f;
             fShortStreets.StreamRead += (o, e) =>
             {
@@ -51,6 +52,7 @@ namespace PCTO
         GMapOverlay MarkersOverlay;
         GMapOverlay RoutesOverlay;
         RouterDb RouterDb;
+        MarkersImg markersImg;
         PackagesRoutingDictionary Prd;
         string ConfidenceMessage;
 
@@ -69,7 +71,7 @@ namespace PCTO
         {
             gMap.Overlays.Clear();
             gMap.Overlays.Add(MarkersOverlay);
-            MarkersOverlay.Markers.Add(new GMarkerGoogle(gMap.Position, GMarkerGoogleType.red));
+            MarkersOverlay.Markers.Add(new GMarkerGoogle(gMap.Position, markersImg.Images[0]));
             foreach (var p in packages)
                 MarkersOverlay.Markers.Add(new GMarkerGoogle(new PointLatLng(double.Parse(p.Destination.Coordinates.Lat.ToString()),
                                                                       double.Parse(p.Destination.Coordinates.Lng.ToString())),
