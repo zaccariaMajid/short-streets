@@ -345,3 +345,7 @@ C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\bin\Debug\System.Net.Http.Pr
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\obj\Debug\PCTO.csproj.App.config
 C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\obj\Debug\PCTO.LoadingForm.resources
 C:\Users\giuggioli.17210\Documents\GitHub\short-streets\PCTO\PCTO\obj\Debug\PCTO.LoadingForm.resources
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\bin\Debug\System.Data.SqlClient.dll
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\bin\Debug\System.Data.SqlClient.xml
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO\bin\Debug\System.Security.Principal.Windows.xml
