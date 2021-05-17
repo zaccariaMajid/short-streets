@@ -4,6 +4,16 @@
     "C:\\Users\\giugg\\source\\repos\\short-streets\\PCTO\\PCTO_Test\\PCTO_Test.csproj": {}
   },
   "projects": {
+    "C:\\Users\\giugg\\source\\repos\\short-streets\\PCTO\\PCTO\\PCTO.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\giugg\\source\\repos\\short-streets\\PCTO\\PCTO\\PCTO.csproj",
+        "projectName": "PCTO",
+        "projectPath": "C:\\Users\\giugg\\source\\repos\\short-streets\\PCTO\\PCTO\\PCTO.csproj"
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
     "C:\\Users\\giugg\\source\\repos\\short-streets\\PCTO\\PCTO_Test\\PCTO_Test.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -30,7 +40,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\giugg\\source\\repos\\short-streets\\PCTO\\PCTO\\PCTO.csproj": {
+                "projectPath": "C:\\Users\\giugg\\source\\repos\\short-streets\\PCTO\\PCTO\\PCTO.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -43,9 +57,21 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[5.10.3, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[16.7.1, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.16.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
             },
             "coverlet.collector": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
