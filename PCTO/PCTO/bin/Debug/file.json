@@ -215,7 +215,7 @@
 		"weight": 4,
 		"destination": {
 			"number": "6",
-			"street": "Piazza della Libertà",
+			"street": "Piazza della Liberta'",
 			"town": "Bergamo",
 			"province": "BG",
 			"coordinates": {
