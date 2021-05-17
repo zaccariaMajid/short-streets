@@ -42,6 +42,7 @@ namespace PCTO
             gMap.ShowCenter = false;
             gMap.MapProvider = BingMapProvider.Instance;
             GMaps.Instance.Mode = AccessMode.ServerOnly;
+            gMap.DragButton = MouseButtons.Left;
             gMap.MinZoom = 4;
             gMap.MaxZoom = 18;
             gMap.Zoom = 13;
