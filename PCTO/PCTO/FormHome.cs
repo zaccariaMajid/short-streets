@@ -17,10 +17,13 @@ namespace PCTO
         {
             InitializeComponent();
             fShortStreets = f;
+            lblMinCoordinates.Text = $"Min coordinates: {f.coordinatesRange.MinCoordinates.Lat}, {f.coordinatesRange.MinCoordinates.Lng}";
+            lblMaxCoordinates.Text = $"Max coordinates: {f.coordinatesRange.MaxCoordinates.Lat}, {f.coordinatesRange.MaxCoordinates.Lng}";
         }
         static ApiCaller caller = new ApiCaller();
         CoordinateHelper helper = new CoordinateHelper(caller);
         static IList<Address> previousAddresses = new List<Address>();
+        bool IsValidAddress;
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txbCurNumber.Text) ||
@@ -34,10 +37,13 @@ namespace PCTO
             try
             {
                 SetCurrentAddress();
-                cmbPrevious.Text = string.Empty;
-                gpbSetCurAddress.Enabled = false;
-                gpbCurrentAddress.Enabled = true;
-                lblCurrentAddress.Text = $"{fShortStreets.currentAddress} - {fShortStreets.currentAddress.Coordinates}";
+                if(IsValidAddress)
+                {
+                    cmbPrevious.Text = string.Empty;
+                    gpbSetCurAddress.Enabled = false;
+                    gpbCurrentAddress.Enabled = true;
+                    lblCurrentAddress.Text = $"{fShortStreets.currentAddress} - {fShortStreets.currentAddress.Coordinates}";
+                }
             }
             catch (ArgumentException argEx)
             {
@@ -55,6 +61,13 @@ namespace PCTO
         {
             fShortStreets.currentAddress = new Address(txbCurNumber.Text, txbCurStreet.Text, txbCurTown.Text, txbCurProvince.Text);
             SetCoordinates();
+            IsValidAddress = true;
+            if (!CoordinatesRangeManager.IsInRange(fShortStreets.coordinatesRange, fShortStreets.currentAddress.Coordinates))
+            {
+                MessageBox.Show($"Current address coordinates are out of range ({fShortStreets.coordinatesRange})");
+                IsValidAddress = false;
+                return;
+            }
             AddCurrentAddress();
         }
         void SetCoordinates()
@@ -113,5 +126,6 @@ namespace PCTO
         {
             fShortStreets.ShowFormRiderSpace();
         }
+
     }
 }

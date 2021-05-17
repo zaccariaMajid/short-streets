@@ -18,6 +18,7 @@ namespace PCTO
         FormMap formMap;
         public Stream stream;
         public Address currentAddress;
+        public IList<Package> packages = new List<Package>();
         public CoordinatesRange coordinatesRange = new CoordinatesRange()
         {
             MinCoordinates = new Coordinates() { Lat = 45.672642M, Lng = 9.655701M },
@@ -72,7 +73,7 @@ namespace PCTO
             formRiderSpace.Show();
         }
 
-        public void ShowFormMap(IList<Package> packages)
+        public void ShowFormMap()
         {
             formHome.Hide();
             formRiderSpace.Hide();
@@ -85,6 +86,14 @@ namespace PCTO
         private void shortestStreetToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowFormHome();
+        }
+
+        private void mapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (currentAddress != null)
+                ShowFormMap();
+            else
+                MessageBox.Show("Set your current position to access to the map (home)");
         }
     }
 }

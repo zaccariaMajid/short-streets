@@ -39,7 +39,7 @@ namespace PCTO
     }
     public static class CoordinatesRangeManager
     {
-        public static bool BeInRange(CoordinatesRange range, Coordinates c)
+        public static bool IsInRange(CoordinatesRange range, Coordinates c)
         {
             if (c.Lat < range.MinCoordinates.Lat ||
                 c.Lng < range.MinCoordinates.Lng ||

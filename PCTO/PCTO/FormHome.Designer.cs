@@ -47,22 +47,11 @@ namespace PCTO
             this.gpbCurrentAddress = new System.Windows.Forms.GroupBox();
             this.btnRiderSpace = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.btnSetRange = new System.Windows.Forms.Button();
+            this.lblMaxCoordinates = new System.Windows.Forms.Label();
+            this.lblMinCoordinates = new System.Windows.Forms.Label();
             this.gpbSetCurAddress.SuspendLayout();
             this.gpbCurrentAddress.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // gpbSetCurAddress
@@ -79,16 +68,16 @@ namespace PCTO
             this.gpbSetCurAddress.Controls.Add(this.label2);
             this.gpbSetCurAddress.Controls.Add(this.label1);
             this.gpbSetCurAddress.Controls.Add(this.txbCurTown);
-            this.gpbSetCurAddress.Location = new System.Drawing.Point(12, 12);
+            this.gpbSetCurAddress.Location = new System.Drawing.Point(12, 187);
             this.gpbSetCurAddress.Name = "gpbSetCurAddress";
-            this.gpbSetCurAddress.Size = new System.Drawing.Size(1005, 144);
+            this.gpbSetCurAddress.Size = new System.Drawing.Size(1005, 178);
             this.gpbSetCurAddress.TabIndex = 0;
             this.gpbSetCurAddress.TabStop = false;
             this.gpbSetCurAddress.Text = "Set your current address";
             // 
             // btnSimulatePrevious
             // 
-            this.btnSimulatePrevious.Location = new System.Drawing.Point(418, 105);
+            this.btnSimulatePrevious.Location = new System.Drawing.Point(418, 115);
             this.btnSimulatePrevious.Name = "btnSimulatePrevious";
             this.btnSimulatePrevious.Size = new System.Drawing.Size(144, 30);
             this.btnSimulatePrevious.TabIndex = 9;
@@ -99,7 +88,7 @@ namespace PCTO
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 89);
+            this.label5.Location = new System.Drawing.Point(6, 99);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(63, 17);
             this.label5.TabIndex = 8;
@@ -108,7 +97,7 @@ namespace PCTO
             // cmbPrevious
             // 
             this.cmbPrevious.FormattingEnabled = true;
-            this.cmbPrevious.Location = new System.Drawing.Point(9, 109);
+            this.cmbPrevious.Location = new System.Drawing.Point(9, 119);
             this.cmbPrevious.Name = "cmbPrevious";
             this.cmbPrevious.Size = new System.Drawing.Size(403, 24);
             this.cmbPrevious.TabIndex = 7;
@@ -116,7 +105,7 @@ namespace PCTO
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(862, 89);
+            this.btnConfirm.Location = new System.Drawing.Point(862, 126);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(137, 46);
             this.btnConfirm.TabIndex = 6;
@@ -190,7 +179,7 @@ namespace PCTO
             // 
             // btnChange
             // 
-            this.btnChange.Location = new System.Drawing.Point(862, 106);
+            this.btnChange.Location = new System.Drawing.Point(862, 127);
             this.btnChange.Name = "btnChange";
             this.btnChange.Size = new System.Drawing.Size(137, 28);
             this.btnChange.TabIndex = 2;
@@ -214,15 +203,15 @@ namespace PCTO
             this.gpbCurrentAddress.Controls.Add(this.lblCurrentAddress);
             this.gpbCurrentAddress.Controls.Add(this.btnChange);
             this.gpbCurrentAddress.Enabled = false;
-            this.gpbCurrentAddress.Location = new System.Drawing.Point(12, 173);
+            this.gpbCurrentAddress.Location = new System.Drawing.Point(12, 388);
             this.gpbCurrentAddress.Name = "gpbCurrentAddress";
-            this.gpbCurrentAddress.Size = new System.Drawing.Size(1005, 140);
+            this.gpbCurrentAddress.Size = new System.Drawing.Size(1005, 161);
             this.gpbCurrentAddress.TabIndex = 3;
             this.gpbCurrentAddress.TabStop = false;
             // 
             // btnRiderSpace
             // 
-            this.btnRiderSpace.Location = new System.Drawing.Point(862, 54);
+            this.btnRiderSpace.Location = new System.Drawing.Point(862, 75);
             this.btnRiderSpace.Name = "btnRiderSpace";
             this.btnRiderSpace.Size = new System.Drawing.Size(137, 46);
             this.btnRiderSpace.TabIndex = 3;
@@ -232,114 +221,34 @@ namespace PCTO
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnSetRange);
-            this.groupBox1.Controls.Add(this.groupBox3);
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 336);
+            this.groupBox1.Controls.Add(this.lblMaxCoordinates);
+            this.groupBox1.Controls.Add(this.lblMinCoordinates);
+            this.groupBox1.Location = new System.Drawing.Point(12, 18);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1005, 213);
+            this.groupBox1.Size = new System.Drawing.Size(1005, 144);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Set coordinates range";
+            this.groupBox1.Text = "Coordinates range";
             // 
-            // label6
+            // lblMaxCoordinates
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 49);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 17);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Latitude";
+            this.lblMaxCoordinates.AutoSize = true;
+            this.lblMaxCoordinates.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMaxCoordinates.Location = new System.Drawing.Point(516, 66);
+            this.lblMaxCoordinates.Name = "lblMaxCoordinates";
+            this.lblMaxCoordinates.Size = new System.Drawing.Size(137, 20);
+            this.lblMaxCoordinates.TabIndex = 1;
+            this.lblMaxCoordinates.Text = "Max coordinates:";
             // 
-            // label7
+            // lblMinCoordinates
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(14, 100);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(71, 17);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Longitude";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Location = new System.Drawing.Point(6, 49);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(281, 148);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Min coordinates";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(101, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(145, 22);
-            this.textBox1.TabIndex = 2;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(101, 97);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(145, 22);
-            this.textBox2.TabIndex = 3;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.textBox3);
-            this.groupBox3.Controls.Add(this.textBox4);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Location = new System.Drawing.Point(293, 49);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(291, 148);
-            this.groupBox3.TabIndex = 3;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Max coordinates";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(102, 97);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(145, 22);
-            this.textBox3.TabIndex = 3;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(102, 46);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(145, 22);
-            this.textBox4.TabIndex = 2;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(15, 49);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 17);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Latitude";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(15, 100);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(71, 17);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Longitude";
-            // 
-            // btnSetRange
-            // 
-            this.btnSetRange.Location = new System.Drawing.Point(862, 120);
-            this.btnSetRange.Name = "btnSetRange";
-            this.btnSetRange.Size = new System.Drawing.Size(137, 46);
-            this.btnSetRange.TabIndex = 4;
-            this.btnSetRange.Text = "SET RANGE";
-            this.btnSetRange.UseVisualStyleBackColor = true;
+            this.lblMinCoordinates.AutoSize = true;
+            this.lblMinCoordinates.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMinCoordinates.Location = new System.Drawing.Point(86, 66);
+            this.lblMinCoordinates.Name = "lblMinCoordinates";
+            this.lblMinCoordinates.Size = new System.Drawing.Size(133, 20);
+            this.lblMinCoordinates.TabIndex = 0;
+            this.lblMinCoordinates.Text = "Min coordinates:";
             // 
             // FormHome
             // 
@@ -356,10 +265,7 @@ namespace PCTO
             this.gpbCurrentAddress.ResumeLayout(false);
             this.gpbCurrentAddress.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -383,16 +289,7 @@ namespace PCTO
         private System.Windows.Forms.Button btnSimulatePrevious;
         private System.Windows.Forms.Button btnRiderSpace;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnSetRange;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblMaxCoordinates;
+        private System.Windows.Forms.Label lblMinCoordinates;
     }
 }

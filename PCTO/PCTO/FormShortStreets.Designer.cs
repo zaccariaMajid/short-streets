@@ -31,9 +31,9 @@ namespace PCTO
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.shortestStreetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.riderSpaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.riderSpaceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlHome = new System.Windows.Forms.Panel();
+            this.mapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,8 +42,8 @@ namespace PCTO
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.shortestStreetToolStripMenuItem,
-            this.riderSpaceToolStripMenuItem,
-            this.riderSpaceToolStripMenuItem1});
+            this.riderSpaceToolStripMenuItem1,
+            this.mapToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1058, 28);
@@ -56,12 +56,6 @@ namespace PCTO
             this.shortestStreetToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
             this.shortestStreetToolStripMenuItem.Text = "Home";
             this.shortestStreetToolStripMenuItem.Click += new System.EventHandler(this.shortestStreetToolStripMenuItem_Click);
-            // 
-            // riderSpaceToolStripMenuItem
-            // 
-            this.riderSpaceToolStripMenuItem.Name = "riderSpaceToolStripMenuItem";
-            this.riderSpaceToolStripMenuItem.Size = new System.Drawing.Size(118, 24);
-            this.riderSpaceToolStripMenuItem.Text = "Shortest street";
             // 
             // riderSpaceToolStripMenuItem1
             // 
@@ -76,6 +70,13 @@ namespace PCTO
             this.pnlHome.Name = "pnlHome";
             this.pnlHome.Size = new System.Drawing.Size(1030, 554);
             this.pnlHome.TabIndex = 1;
+            // 
+            // mapToolStripMenuItem
+            // 
+            this.mapToolStripMenuItem.Name = "mapToolStripMenuItem";
+            this.mapToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
+            this.mapToolStripMenuItem.Text = "Map";
+            this.mapToolStripMenuItem.Click += new System.EventHandler(this.mapToolStripMenuItem_Click);
             // 
             // FormShortStreets
             // 
@@ -101,8 +102,8 @@ namespace PCTO
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem shortestStreetToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem riderSpaceToolStripMenuItem;
         public System.Windows.Forms.Panel pnlHome;
         private System.Windows.Forms.ToolStripMenuItem riderSpaceToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem mapToolStripMenuItem;
     }
 }

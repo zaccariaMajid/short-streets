@@ -63,7 +63,7 @@ namespace PCTO
                 currentPackage.Destination.Number = txbNumber.Text;
                 currentPackage.Destination.Street = txbRoad.Text;
                 helper.SetCoordinates(currentPackage.Destination);
-                if(!CoordinatesRangeManager.BeInRange(fShortStreets.coordinatesRange, currentPackage.Destination.Coordinates))
+                if(!CoordinatesRangeManager.IsInRange(fShortStreets.coordinatesRange, currentPackage.Destination.Coordinates))
                 {
                     MessageBox.Show($"Packages coordinates are out of range ({fShortStreets.coordinatesRange})");
                     return;
@@ -88,20 +88,20 @@ namespace PCTO
 
         private void btnConfirmPackages_Click(object sender, EventArgs e)
         {
-            IList<Package> confirmedPackages = new List<Package>();
+            fShortStreets.packages.Clear();
             foreach (var p in packages)
-                confirmedPackages.Add(p.ToPackage());
+                fShortStreets.packages.Add(p.ToPackage());
             if (fShortStreets.currentAddress == null)
             {
                 MessageBox.Show("Set your current position to access to the map (home)");
                 return;
             }
-            if (confirmedPackages.Where(x => x.IsValid == false).ToList().Count != 0)
+            if (fShortStreets.packages.Where(x => x.IsValid == false).ToList().Count != 0)
             {
                 MessageBox.Show("Convalid all packages to continue");
                 return;
             }
-            fShortStreets.ShowFormMap(confirmedPackages);
+            fShortStreets.ShowFormMap();
         }
 
         private void dgvSetPackages_CellValueChanged(object sender, DataGridViewCellEventArgs e)
