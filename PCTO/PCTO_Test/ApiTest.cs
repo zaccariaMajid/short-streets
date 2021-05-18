@@ -59,6 +59,22 @@ namespace PCTO_Test
             a.Coordinates.Lat.Should().BeInRange(39.2M, 39.3M);
             a.Coordinates.Lng.Should().BeInRange(9.1M, 9.2M);
         }
+
+        [Fact]
+        public void GetCoordinatesTest()
+        {
+            //Arrange
+            Address a = new Address("58", "Via Dante Alighieri", "Cagliari", "CA");
+            //Act
+            var indirizzo = a.ToCompleteAddress();
+            IApiCaller caller = new ApiCaller();
+            CoordinateHelper helper = new CoordinateHelper(caller);
+            var result= helper.GetCoordinates(indirizzo);
+            //Assert
+            result.Should().BeOfType(typeof(List<Coordinates>));
+        }
+
+
         //[Fact]
         //public void Correttezzacoordinate3()
         //{
@@ -75,6 +91,43 @@ namespace PCTO_Test
         //    a.Coordinates.Lng.Should().BeInRange(9.1M, 9.2M);
         //}
         #endregion
-    }
 
+        #region Api
+        [Fact]
+        public void FirstControlCoordinates()
+        {
+            Address a = new Address("32", "Via Giacomo Manzù", "Terno d'Isola", "BG");
+            IApiCaller caller = new ApiCaller();
+            CoordinateHelper helper = new CoordinateHelper(caller);
+            helper.SetCoordinates(a);
+            a.Coordinates.Confidence.Should().BeInRange(0, 10);
+            a.Coordinates.Lat.Should().BeInRange(45.6825M, 45.6833M);
+            a.Coordinates.Lng.Should().BeInRange(9.5362M, 9.540M);
+        }
+
+        [Fact]
+        public void SecondControlCoordinates()
+        {
+            Address a = new Address("3c", "Via Largo del Roccolo", "Terno d'Isola", "BG");
+            IApiCaller caller = new ApiCaller();
+            CoordinateHelper helper = new CoordinateHelper(caller);
+            helper.SetCoordinates(a);
+            a.Coordinates.Confidence.Should().BeInRange(0, 10);
+            a.Coordinates.Lat.Should().BeInRange(45.6878M, 45.6891M);
+            a.Coordinates.Lng.Should().BeInRange(9.5240M, 9.5297M);
+        }
+
+        [Fact]
+        public void ThirdControlCoordinates()
+        {
+            Address a = new Address("18", "Viale Giulio Cesare", "Bergamo", "BG");
+            IApiCaller caller = new ApiCaller();
+            CoordinateHelper helper = new CoordinateHelper(caller);
+            helper.SetCoordinates(a);
+            a.Coordinates.Confidence.Should().BeInRange(0, 10);
+            a.Coordinates.Lat.Should().BeInRange(45.7074M, 45.7105M);
+            a.Coordinates.Lng.Should().BeInRange(9.6787M, 9.6826M);
+        }
+        #endregion
+    }
 }

@@ -1188,6 +1188,14 @@
           "PCTO.exe": {}
         }
       },
+      "Itinero/1.5.0.0": {
+        "runtime": {
+          "Itinero.dll": {
+            "assemblyVersion": "1.5.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "GMap.NET.WindowsForms/1.7.5.0": {
         "runtime": {
           "GMap.NET.WindowsForms.dll": {
@@ -1201,6 +1209,30 @@
           "GMap.NET.Core.dll": {
             "assemblyVersion": "1.7.5.0",
             "fileVersion": "1.7.5.0"
+          }
+        }
+      },
+      "Itinero.IO.Osm/1.5.0.0": {
+        "runtime": {
+          "Itinero.IO.Osm.dll": {
+            "assemblyVersion": "1.5.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "OsmSharp/6.2.0.0": {
+        "runtime": {
+          "OsmSharp.dll": {
+            "assemblyVersion": "6.2.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "protobuf-net/2.3.7.0": {
+        "runtime": {
+          "protobuf-net.dll": {
+            "assemblyVersion": "2.3.7.0",
+            "fileVersion": "2.3.7.0"
           }
         }
       }
@@ -1924,12 +1956,32 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Itinero/1.5.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "GMap.NET.WindowsForms/1.7.5.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
     "GMap.NET.Core/1.7.5.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Itinero.IO.Osm/1.5.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "OsmSharp/6.2.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "protobuf-net/2.3.7.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
