@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCTO", "PCTO\PCTO.csproj", "{FD392BD1-3BA6-4938-9F8B-E02870239600}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCTO_Test", "PCTO_Test\PCTO_Test.csproj", "{1F43622C-95EB-4244-AD68-6402CFA81174}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD392BD1-3BA6-4938-9F8B-E02870239600}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD392BD1-3BA6-4938-9F8B-E02870239600}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD392BD1-3BA6-4938-9F8B-E02870239600}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD392BD1-3BA6-4938-9F8B-E02870239600}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F43622C-95EB-4244-AD68-6402CFA81174}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F43622C-95EB-4244-AD68-6402CFA81174}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F43622C-95EB-4244-AD68-6402CFA81174}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F43622C-95EB-4244-AD68-6402CFA81174}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {14258FB3-1541-4F5A-BB31-9E57181533D5}
+	EndGlobalSection
+EndGlobal

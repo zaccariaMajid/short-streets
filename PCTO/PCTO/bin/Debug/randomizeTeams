@@ -1,0 +1,11 @@
+public static IList<Team> Randomize(IList<Team> list)
+        {
+            for (int n = list.Count-1; n > 0; n--)
+            {
+                int k = new Random(n * (int)DateTime.Now.Ticks).Next(n + 1);
+                Team value = list[k];
+                list[k] = list[n];
+                list[n] = value;
+            }
+            return list;
+        }
