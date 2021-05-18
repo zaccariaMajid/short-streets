@@ -148,6 +148,7 @@
     <Compile Include="Class\Map\CoordinatesVertices.cs" />
     <Compile Include="Class\Map\MarkersImg.cs" />
     <Compile Include="Class\Map\PackagesRoutingDictionary.cs" />
+    <Compile Include="Class\Map\RoutingAlgorithm.cs" />
     <Compile Include="Class\PackDTO.cs" />
     <Compile Include="Class\Address.cs" />
     <Compile Include="Class\Package.cs" />
