@@ -64,7 +64,7 @@ namespace PCTO
             IsValidAddress = true;
             if (!CoordinatesRangeManager.IsInRange(fShortStreets.coordinatesRange, fShortStreets.currentAddress.Coordinates))
             {
-                MessageBox.Show($"Current address' coordinates are out of range ({fShortStreets.coordinatesRange})");
+                MessageBox.Show($"Current address coordinates are out of range ({fShortStreets.coordinatesRange})");
                 IsValidAddress = false;
                 return;
             }
