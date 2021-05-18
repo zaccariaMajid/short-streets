@@ -1,8 +1,0 @@
-{
-  "runtimeOptions": {
-    "additionalProbingPaths": [
-      "C:\\Users\\zacca\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\zacca\\.nuget\\packages"
-    ]
-  }
-}
