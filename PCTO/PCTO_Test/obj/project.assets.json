@@ -6126,11 +6126,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\giugg\\source\\repos\\short-streets\\PCTO\\PCTO_Test\\PCTO_Test.csproj",
+      "projectUniqueName": "C:\\Users\\giugg\\Desktop\\short-streets\\PCTO\\PCTO_Test\\PCTO_Test.csproj",
       "projectName": "PCTO_Test",
-      "projectPath": "C:\\Users\\giugg\\source\\repos\\short-streets\\PCTO\\PCTO_Test\\PCTO_Test.csproj",
+      "projectPath": "C:\\Users\\giugg\\Desktop\\short-streets\\PCTO\\PCTO_Test\\PCTO_Test.csproj",
       "packagesPath": "C:\\Users\\giugg\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\giugg\\source\\repos\\short-streets\\PCTO\\PCTO_Test\\obj\\",
+      "outputPath": "C:\\Users\\giugg\\Desktop\\short-streets\\PCTO\\PCTO_Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -6150,8 +6150,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\giugg\\source\\repos\\short-streets\\PCTO\\PCTO\\PCTO.csproj": {
-              "projectPath": "C:\\Users\\giugg\\source\\repos\\short-streets\\PCTO\\PCTO\\PCTO.csproj"
+            "C:\\Users\\giugg\\Desktop\\short-streets\\PCTO\\PCTO\\PCTO.csproj": {
+              "projectPath": "C:\\Users\\giugg\\Desktop\\short-streets\\PCTO\\PCTO\\PCTO.csproj"
             }
           }
         }
