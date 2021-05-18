@@ -153,55 +153,55 @@
     <Compile Include="Class\Package.cs" />
     <Compile Include="Class\Map\RoutingPoint.cs" />
     <Compile Include="Class\ShowingFormMapEventArgs.cs" />
-    <Compile Include="FormHome.cs">
+    <Compile Include="Forms\FormHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormHome.Designer.cs">
+    <Compile Include="Forms\FormHome.Designer.cs">
       <DependentUpon>FormHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMap.cs">
+    <Compile Include="Forms\FormMap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMap.Designer.cs">
+    <Compile Include="Forms\FormMap.Designer.cs">
       <DependentUpon>FormMap.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormRiderSpace.cs">
+    <Compile Include="Forms\FormRiderSpace.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormRiderSpace.Designer.cs">
+    <Compile Include="Forms\FormRiderSpace.Designer.cs">
       <DependentUpon>FormRiderSpace.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormShortStreets.cs">
+    <Compile Include="Forms\FormShortStreets.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormShortStreets.Designer.cs">
+    <Compile Include="Forms\FormShortStreets.Designer.cs">
       <DependentUpon>FormShortStreets.cs</DependentUpon>
     </Compile>
     <Compile Include="Functions\Demo.cs" />
     <Compile Include="Functions\FormsElaboration.cs" />
     <Compile Include="Functions\LoadFile.cs" />
     <Compile Include="Functions\PropertyControl.cs" />
-    <Compile Include="LoadingForm.cs">
+    <Compile Include="Forms\LoadingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoadingForm.Designer.cs">
+    <Compile Include="Forms\LoadingForm.Designer.cs">
       <DependentUpon>LoadingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormHome.resx">
+    <EmbeddedResource Include="Forms\FormHome.resx">
       <DependentUpon>FormHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMap.resx">
+    <EmbeddedResource Include="Forms\FormMap.resx">
       <DependentUpon>FormMap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormRiderSpace.resx">
+    <EmbeddedResource Include="Forms\FormRiderSpace.resx">
       <DependentUpon>FormRiderSpace.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormShortStreets.resx">
+    <EmbeddedResource Include="Forms\FormShortStreets.resx">
       <DependentUpon>FormShortStreets.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoadingForm.resx">
+    <EmbeddedResource Include="Forms\LoadingForm.resx">
       <DependentUpon>LoadingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
