@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IligS5Zn80gw2FHSLFR9ey+MjPEH7q+xrszuw/8FucQZ+NYJOA6Pa+oNZUuCTiSiIEmoJM+kotvhONtpZKWFTw==",
+  "dgSpecHash": "n8g/Qmv5oRvyBmb/XniW6TbOc0PsxziIIgAb/8MB05GnSeqF7WcC+c+G/fO+mZkagdvaDaJaHDbGApuw7JZD3Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\giugg\\Desktop\\short-streets\\PCTO\\PCTO_Test\\PCTO_Test.csproj",
+  "projectFilePath": "C:\\Users\\giugg\\source\\repos\\short-streets\\PCTO\\PCTO_Test\\PCTO_Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\giugg\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",
     "C:\\Users\\giugg\\.nuget\\packages\\coverlet.collector\\1.3.0\\coverlet.collector.1.3.0.nupkg.sha512",
