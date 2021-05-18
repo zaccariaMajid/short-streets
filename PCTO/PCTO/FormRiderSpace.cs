@@ -26,6 +26,11 @@ namespace PCTO
 
         private void btnConfirmNumPackages_Click(object sender, EventArgs e)
         {
+            if ((int)nudPackages.Value < 1)
+            {
+                MessageBox.Show("Invalid packages quantity");
+                return;
+            }
             FormsElaboration.SetDgvRows((int)nudPackages.Value, dgvSetPackages, packages, true);
             AvoidToAdd();
             nudPackages.Value = 0;
@@ -164,6 +169,11 @@ namespace PCTO
 
         private void btnGetPresetPackages_Click(object sender, EventArgs e)
         {
+            if ((int)nudPresetQuantity.Value < 1)
+            {
+                MessageBox.Show("Invalid packages quantity");
+                return;
+            }
             FormsElaboration.SetDgvRows((int)nudPresetQuantity.Value, dgvSetPackages, packages, false);
             AvoidToAdd();
             dgvSetPackages.RowHeadersVisible = false;
