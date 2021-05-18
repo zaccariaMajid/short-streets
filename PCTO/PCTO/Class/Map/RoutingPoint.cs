@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace PCTO
 {
-    public class vertice
+    public class RoutingPoint
     {
-        public int Vertice;
+        public int Id;
 
-        public List<int> Collegati;
+        public IList<int> Connected;
 
-        public List<int> Costi;
+        public IList<int> Costs;
 
-        public int Peso;
+        public int Weight;
 
         public int Volume;
 
-        public bool Usato;
+        public bool IsUsed;
     }
 }

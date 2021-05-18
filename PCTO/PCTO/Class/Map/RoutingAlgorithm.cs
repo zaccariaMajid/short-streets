@@ -24,10 +24,10 @@ namespace PCTO
         }
         public class viaggio
         {
-            public List<vertice> viaggioSingolo;
+            public List<RoutingPoint> viaggioSingolo;
             public soluzione sol;
 
-            public viaggio(List<vertice> ViaggioSingolo, soluzione Sol)
+            public viaggio(List<RoutingPoint> ViaggioSingolo, soluzione Sol)
             {
                 viaggioSingolo = ViaggioSingolo;
                 sol = Sol;
@@ -37,8 +37,8 @@ namespace PCTO
         }
         static void Main(string[] args)
         {
-            var a = JsonConvert.DeserializeObject<List<vertice>>(File.ReadAllText(@"D:\pcto\pcto creazione dati\pcto creazione dati\bin\Debug\netcoreapp3.1\datiGrafo.json"));
-            vertice[] dati = new vertice[a.Count];
+            var a = JsonConvert.DeserializeObject<List<RoutingPoint>>(File.ReadAllText(@"D:\pcto\pcto creazione dati\pcto creazione dati\bin\Debug\netcoreapp3.1\datiGrafo.json"));
+            RoutingPoint[] dati = new RoutingPoint[a.Count];
             dati = a.ToArray();
             List<int> eleViaggio = new List<int>();
             List<List<int>> tot = new List<List<int>>();
@@ -53,7 +53,7 @@ namespace PCTO
             x = 0;
             while (x < numPacchi)
             {
-                if (dati[x].Peso > maxPeso)
+                if (dati[x].Weight > maxPeso)
                 {
                     throw new ArgumentException($"vertice {x} non idoneo per il Peso");
                     verifica = false;
@@ -81,14 +81,14 @@ namespace PCTO
                 {
                     if (eleViaggio.Count() == 1)
                     {
-                        foreach (vertice v in dati)
+                        foreach (RoutingPoint v in dati)
                         {
-                            if (v.Usato == false && eleViaggio.Count() == 1)
+                            if (v.IsUsed == false && eleViaggio.Count() == 1)
                             {
-                                eleViaggio.Add(v.Vertice);
+                                eleViaggio.Add(v.Id);
                             }
                         }
-                        dati[eleViaggio[eleViaggio.Count() - 1] - 1].Usato = true;
+                        dati[eleViaggio[eleViaggio.Count() - 1] - 1].IsUsed = true;
                         x++;
                     }
                     else
@@ -96,10 +96,10 @@ namespace PCTO
                         vertice = calcoloVertice(dati, eleViaggio);
                         if (vertice == 0)
                             break;
-                        if (calcoloPeso(dati, eleViaggio) + dati[vertice - 1].Peso < maxPeso && calcoloVolume(dati, eleViaggio) + dati[vertice - 1].Volume < maxVolume)
+                        if (calcoloPeso(dati, eleViaggio) + dati[vertice - 1].Weight < maxPeso && calcoloVolume(dati, eleViaggio) + dati[vertice - 1].Volume < maxVolume)
                         {
                             eleViaggio.Add(vertice);
-                            dati[eleViaggio[eleViaggio.Count() - 1] - 1].Usato = true;
+                            dati[eleViaggio[eleViaggio.Count() - 1] - 1].IsUsed = true;
                             x++;
                         }
                         else
@@ -110,26 +110,26 @@ namespace PCTO
                 eleViaggio.Clear();
                 eleViaggio.Add(1);
             }
-            List<int> casa = new List<int>(dati[0].Costi);
+            List<int> casa = new List<int>(dati[0].Costs);
             List<viaggio> totDati = new List<viaggio>();
             foreach (List<int> b in tot)
             {
-                dati[0].Costi = new List<int>(casa);
-                viaggio f = new viaggio(new List<vertice>(), new soluzione(default(int), new List<int>()));
+                dati[0].Costs = new List<int>(casa);
+                viaggio f = new viaggio(new List<RoutingPoint>(), new soluzione(default(int), new List<int>()));
                 foreach (int s in b)
                 {
                     f.viaggioSingolo.Add(dati[s - 1]);
                 }
                 List<int> vert = new List<int>();
-                foreach (vertice g in f.viaggioSingolo)
+                foreach (RoutingPoint g in f.viaggioSingolo)
                 {
-                    vert.Add(g.Vertice);
+                    vert.Add(g.Id);
                 }
                 List<int> final = new List<int>();
-                foreach (vertice g in f.viaggioSingolo)
+                foreach (RoutingPoint g in f.viaggioSingolo)
                 {
                     int cont = 1;
-                    foreach (int h in g.Costi)
+                    foreach (int h in g.Costs)
                     {
                         if (vert.Contains(cont))
                         {
@@ -137,8 +137,8 @@ namespace PCTO
                         }
                         cont++;
                     }
-                    g.Costi = new List<int>(final);
-                    g.Collegati = new List<int>(vert);
+                    g.Costs = new List<int>(final);
+                    g.Connected = new List<int>(vert);
                     final.Clear();
                 }
                 f.sol = ElaborazioneVertici(f.viaggioSingolo, vert);
@@ -152,10 +152,10 @@ namespace PCTO
                 totSoluzioni = totSoluzioni + k.sol.Prezzo;
             }
         }
-        public static soluzione ElaborazioneVertici(List<vertice> dati, List<int> vert)
+        public static soluzione ElaborazioneVertici(List<RoutingPoint> dati, List<int> vert)
         {
             int x = 0;
-            int num = dati[0].Collegati.Count();
+            int num = dati[0].Connected.Count();
             List<int> temp = new List<int>();
             while (x < num)
             {
@@ -163,10 +163,10 @@ namespace PCTO
                 x++;
             }
             x = 0;
-            foreach (vertice a in dati)
+            foreach (RoutingPoint a in dati)
             {
-                a.Collegati = new List<int>(temp);
-                a.Vertice = x + 1;
+                a.Connected = new List<int>(temp);
+                a.Id = x + 1;
                 x++;
             }
             var sol = CalcoloPercorso(dati);
@@ -178,7 +178,7 @@ namespace PCTO
             }
             return (sol);
         }
-        public static soluzione CalcoloPercorso(List<vertice> dati)
+        public static soluzione CalcoloPercorso(List<RoutingPoint> dati)
         {
             List<int> minPercorso = new List<int>();
             List<int> percorso = new List<int>();
@@ -187,20 +187,20 @@ namespace PCTO
             int prezzo = 0;
             List<int> coll = new List<int>();
             int x = 0;
-            while (dati[0].Collegati.Count() > x)
+            while (dati[0].Connected.Count() > x)
             {
                 coll.Add(x + 1);
                 x++;
             }
-            percorso.Add(dati[0].Vertice);
+            percorso.Add(dati[0].Id);
             asd(coll, percorso, dati, prezzo, ref sol);
             return (sol);
         }
-        public static List<int> asd(List<int> coll, List<int> percorso, List<vertice> dati, int prezzo, ref soluzione sol)
+        public static List<int> asd(List<int> coll, List<int> percorso, List<RoutingPoint> dati, int prezzo, ref soluzione sol)
         {
             foreach (int i in coll)
             {
-                if (!percorso.Contains(dati[i - 1].Vertice))
+                if (!percorso.Contains(dati[i - 1].Id))
                 {
                     percorso.Add(i);
                     percorso = asd(coll, percorso, dati, prezzo, ref sol);
@@ -209,20 +209,20 @@ namespace PCTO
             if (percorso.Count == dati.Count)
             {
                 prezzo = 0;
-                if (dati[0].Collegati.Contains(percorso[percorso.Count - 1]))
+                if (dati[0].Connected.Contains(percorso[percorso.Count - 1]))
                 {
                     int posizione = 0;
                     int x = 0;
                     foreach (int i in percorso)
                     {
-                        vertice elemento = dati.Where(y => y.Vertice == i).FirstOrDefault();
+                        RoutingPoint elemento = dati.Where(y => y.Id == i).FirstOrDefault();
                         if (i == percorso[percorso.Count - 1])
                         {
-                            foreach (int a in dati[0].Collegati)
+                            foreach (int a in dati[0].Connected)
                             {
                                 if (a == percorso[percorso.Count - 1])
                                 {
-                                    prezzo = prezzo + elemento.Costi[0];
+                                    prezzo = prezzo + elemento.Costs[0];
                                     break;
                                 }
                             }
@@ -239,11 +239,11 @@ namespace PCTO
                         }
                         else
                         {
-                            foreach (int a in elemento.Collegati)
+                            foreach (int a in elemento.Connected)
                             {
                                 if (a == percorso[x + 1])
                                 {
-                                    prezzo = prezzo + elemento.Costi[posizione];
+                                    prezzo = prezzo + elemento.Costs[posizione];
                                     posizione = 0;
                                     break;
                                 }
@@ -261,16 +261,16 @@ namespace PCTO
             return (percorso);
         }
         //calcolo Peso e Volume presente in quel momento nel viaggio
-        static int calcoloPeso(vertice[] pesi, List<int> numeri)
+        static int calcoloPeso(RoutingPoint[] pesi, List<int> numeri)
         {
             int Peso = 0;
             foreach (int i in numeri)
             {
-                Peso = Peso + pesi[i - 1].Peso;
+                Peso = Peso + pesi[i - 1].Weight;
             }
             return Peso;
         }
-        static int calcoloVolume(vertice[] volumi, List<int> numeri)
+        static int calcoloVolume(RoutingPoint[] volumi, List<int> numeri)
         {
             int Volume = 0;
             foreach (int i in numeri)
@@ -289,24 +289,24 @@ namespace PCTO
             }
             return viaggio;
         }
-        static int calcoloVertice(vertice[] dati, List<int> viaggio)
+        static int calcoloVertice(RoutingPoint[] dati, List<int> viaggio)
         {
             int distanza = 0;
             int tot = int.MaxValue;
             int vertice = 0;
-            foreach (vertice a in dati)
+            foreach (RoutingPoint a in dati)
             {
-                if (a.Usato != true)
+                if (a.IsUsed != true)
                 {
                     foreach (int s in viaggio)
                     {
                         if (s != 1)
-                            distanza = distanza + a.Costi[s - 1];
+                            distanza = distanza + a.Costs[s - 1];
                     }
                     if (tot > distanza)
                     {
                         tot = distanza;
-                        vertice = a.Vertice;
+                        vertice = a.Id;
                     }
                     distanza = 0;
                 }

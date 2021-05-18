@@ -12,6 +12,7 @@ namespace PCTO
 {
     public class CoordinatesVertices
     {
+        // int value  -> distance
         public Dictionary<Coordinates, int> Coordinates { get; set; }
         public Coordinates CurrentPosition { get; set; }
 
