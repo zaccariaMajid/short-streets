@@ -73,27 +73,30 @@ namespace PCTO
             this.dgvSetPackages.RowTemplate.Height = 24;
             this.dgvSetPackages.Size = new System.Drawing.Size(1005, 237);
             this.dgvSetPackages.TabIndex = 0;
+            this.dgvSetPackages.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSetPackages_CellEnter);
+            this.dgvSetPackages.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSetPackages_CellValueChanged);
             this.dgvSetPackages.SelectionChanged += new System.EventHandler(this.dgvSetPackages_SelectionChanged);
             // 
             // gpbQuantity
             // 
+            this.gpbQuantity.Controls.Add(this.btnClearPackages);
             this.gpbQuantity.Controls.Add(this.btnConfirmNumPackages);
             this.gpbQuantity.Controls.Add(this.nudPackages);
-            this.gpbQuantity.Location = new System.Drawing.Point(289, 11);
+            this.gpbQuantity.Location = new System.Drawing.Point(12, 12);
             this.gpbQuantity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gpbQuantity.Name = "gpbQuantity";
             this.gpbQuantity.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gpbQuantity.Size = new System.Drawing.Size(269, 69);
+            this.gpbQuantity.Size = new System.Drawing.Size(375, 69);
             this.gpbQuantity.TabIndex = 1;
             this.gpbQuantity.TabStop = false;
-            this.gpbQuantity.Text = "Set new packages quantity";
+            this.gpbQuantity.Text = "Set packages quantity";
             // 
             // btnClearPackages
             // 
-            this.btnClearPackages.Location = new System.Drawing.Point(831, 458);
+            this.btnClearPackages.Location = new System.Drawing.Point(252, 30);
             this.btnClearPackages.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClearPackages.Name = "btnClearPackages";
-            this.btnClearPackages.Size = new System.Drawing.Size(186, 33);
+            this.btnClearPackages.Size = new System.Drawing.Size(89, 23);
             this.btnClearPackages.TabIndex = 2;
             this.btnClearPackages.Text = "CLEAR";
             this.btnClearPackages.UseVisualStyleBackColor = true;
@@ -106,7 +109,7 @@ namespace PCTO
             this.btnConfirmNumPackages.Name = "btnConfirmNumPackages";
             this.btnConfirmNumPackages.Size = new System.Drawing.Size(89, 23);
             this.btnConfirmNumPackages.TabIndex = 1;
-            this.btnConfirmNumPackages.Text = "SET";
+            this.btnConfirmNumPackages.Text = "OK";
             this.btnConfirmNumPackages.UseVisualStyleBackColor = true;
             this.btnConfirmNumPackages.Click += new System.EventHandler(this.btnConfirmNumPackages_Click);
             // 
@@ -301,14 +304,14 @@ namespace PCTO
             // 
             this.groupBox1.Controls.Add(this.nudPresetQuantity);
             this.groupBox1.Controls.Add(this.btnGetPresetPackages);
-            this.groupBox1.Location = new System.Drawing.Point(12, 14);
+            this.groupBox1.Location = new System.Drawing.Point(746, 12);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Size = new System.Drawing.Size(271, 69);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Import packages";
+            this.groupBox1.Text = "Get pre-set packages";
             // 
             // nudPresetQuantity
             // 
@@ -323,9 +326,9 @@ namespace PCTO
             this.btnGetPresetPackages.Location = new System.Drawing.Point(149, 29);
             this.btnGetPresetPackages.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGetPresetPackages.Name = "btnGetPresetPackages";
-            this.btnGetPresetPackages.Size = new System.Drawing.Size(100, 23);
+            this.btnGetPresetPackages.Size = new System.Drawing.Size(89, 23);
             this.btnGetPresetPackages.TabIndex = 0;
-            this.btnGetPresetPackages.Text = "IMPORT";
+            this.btnGetPresetPackages.Text = "GET";
             this.btnGetPresetPackages.UseVisualStyleBackColor = true;
             this.btnGetPresetPackages.Click += new System.EventHandler(this.btnGetPresetPackages_Click);
             // 
@@ -334,7 +337,6 @@ namespace PCTO
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1029, 561);
-            this.Controls.Add(this.btnClearPackages);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnConfirmPackages);
             this.Controls.Add(this.gpbEdit);
