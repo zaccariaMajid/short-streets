@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,8 +43,9 @@ namespace PCTO
             List<int> eleViaggio = new List<int>();
             List<List<int>> tot = new List<List<int>>();
             int numPacchi = a.Count;
-            int maxPeso = 100000000;
-            int maxVolume = 100000;
+            int maxPeso = 100;
+            int maxVolume = 100;
+            bool verifica = true;
 
             int x = 0;
             int y = 0;
@@ -52,7 +55,7 @@ namespace PCTO
             {
                 if (dati[x].Peso > maxPeso)
                 {
-                    Console.WriteLine($"vertice {x} non idoneo per il Peso");
+                    throw new ArgumentException($"vertice {x} non idoneo per il Peso");
                     verifica = false;
                 }
                 x++;
@@ -63,7 +66,7 @@ namespace PCTO
             {
                 if (dati[x].Volume > maxVolume)
                 {
-                    Console.WriteLine($"vertice {x} non idoneo per il Volume");
+                    throw new ArgumentException($"vertice {x} non idoneo per il Volume");
                     verifica = false;
                 }
                 x++;
@@ -147,15 +150,7 @@ namespace PCTO
             foreach (viaggio k in totDati)
             {
                 totSoluzioni = totSoluzioni + k.sol.Prezzo;
-                foreach (int f in k.sol.Percorso)
-                {
-                    Console.Write(f + " ");
-                }
-                Console.WriteLine("\n" + k.sol.Prezzo);
             }
-
-            Console.WriteLine("Fine.");
-            Console.ReadKey();
         }
         public static soluzione ElaborazioneVertici(List<vertice> dati, List<int> vert)
         {
