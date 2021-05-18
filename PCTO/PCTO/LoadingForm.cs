@@ -17,14 +17,5 @@ namespace PCTO
         {
             InitializeComponent();
         }
-
-        Stream s;
-        private void LoadingForm_Load(object sender, EventArgs e)
-        {
-            this.Show();
-            s = LoadFile.GetStream("comune_bergamo.pbf");
-            this.Close();
-            Application.Run(new FormShortStreets() { stream = s });
-        }
     }
 }

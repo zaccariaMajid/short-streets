@@ -21,8 +21,8 @@ namespace PCTO_Test
             List<Package> ListaPacchi = new List<Package>();
             Address address = new Address("31a", "Via Giacomo Leopardi", "Milano", "MI");
             Address address1 = new Address("20a", "Via Dante Alighieri", "Bergamo", "BG");
-            ListaPacchi.Add(new Package(address, "beta", 1, 4));
-            ListaPacchi.Add(new Package(address1, "alfa", 2, 3));
+            ListaPacchi.Add(new Package(address, 1, 4, "beta"));
+            ListaPacchi.Add(new Package(address1, 2, 3, "alfa"));
             string codice = "alfa";
            
             //Act          
@@ -45,8 +45,8 @@ namespace PCTO_Test
             List<Package> ListaPacchi = new List<Package>();
             Address address = new Address("31a", "Via Giacomo Leopardi", "Milano", "MI");
             Address address1 = new Address("20a", "Via Dante Alighieri", "Bergamo", "BG");
-            ListaPacchi.Add(new Package(address, "beta", 1, 4));
-            ListaPacchi.Add(new Package(address1, "alfa", 2, 3));
+            ListaPacchi.Add(new Package(address, 1, 4, "beta"));
+            ListaPacchi.Add(new Package(address1, 2, 3, "alfa"));
 
             //Act          
             var quantitaPacchi = GetPackagesQuantity();
@@ -63,7 +63,7 @@ namespace PCTO_Test
             //Arrange
                        
             Address address1 = new Address("20a", "Via Dante Alighieri", "Bergamo", "BG");
-            Package pacco = new Package(address1, "alfa", 2, 3);           
+            Package pacco = new Package(address1, 2, 3, "alfa");           
 
             //Act          
             var paccodto = pacco.ToDTO();
@@ -112,7 +112,7 @@ namespace PCTO_Test
             //Arrange
 
             Address address1 = new Address("20a", "Via Dante Alighieri", "Bergamo", "BG");
-            Package pacco = new Package(address1, "alfa", 2, 3);
+            Package pacco = new Package(address1, 2, 3, "alfa");
 
             //Act
             var valido = pacco.IsValid;
@@ -127,7 +127,7 @@ namespace PCTO_Test
             //Arrange
 
             Address address1 = new Address("20a", "Via Dante Alighieri", "Bergamo", "BG");
-            Package pacco = new Package(address1, "alfa", -1, 3);
+            Package pacco = new Package(address1, -1, 3, "alfa");
 
             //Act
             var valido = pacco.IsValid;
@@ -142,7 +142,7 @@ namespace PCTO_Test
             //Arrange
 
             Address address1 = new Address("20a", "Via Dante Alighieri", "Bergamo", "BG");
-            Package pacco = new Package(address1, "alfa", 2, -3);
+            Package pacco = new Package(address1, 2, -3, "alfa");
 
             //Act
             var valido = pacco.IsValid;
@@ -157,7 +157,7 @@ namespace PCTO_Test
             //Arrange
 
             Address address1 = new Address("", "Via Dante Alighieri", "Bergamo", "BG");
-            Package pacco = new Package(address1, "alfa", 2, -3);
+            Package pacco = new Package(address1, 2, -3, "alfa");
 
             //Act
             var valido = pacco.IsValid;
@@ -172,7 +172,7 @@ namespace PCTO_Test
             //Arrange
 
             Address address1 = new Address("20a", "", "Bergamo", "BG");
-            Package pacco = new Package(address1, "alfa", 2, -3);
+            Package pacco = new Package(address1, 2, -3, "alfa");
 
             //Act
             var valido = pacco.IsValid;
@@ -187,7 +187,7 @@ namespace PCTO_Test
             //Arrange
 
             Address address1 = new Address("20a", "Via Dante Alighieri", "", "BG");
-            Package pacco = new Package(address1, "alfa", 2, -3);
+            Package pacco = new Package(address1, 2, -3, "alfa");
 
             //Act
             var valido = pacco.IsValid;
@@ -202,7 +202,7 @@ namespace PCTO_Test
             //Arrange
 
             Address address1 = new Address("20a", "Via Dante Alighieri", "Bergamo", "");
-            Package pacco = new Package(address1, "alfa", 2, -3);
+            Package pacco = new Package(address1, 2, -3, "alfa");
 
             //Act
             var valido = pacco.IsValid;
@@ -216,7 +216,7 @@ namespace PCTO_Test
             //Arrange
 
             Address address1 = new Address("20a", "Via Dante Alighieri", "Bergamo", "");
-            Package pacco = new Package(address1, "alfa", 2, -3);
+            Package pacco = new Package(address1, 2, -3, "alfa");
 
             //Act
             var valido = pacco.IsValid;
@@ -288,8 +288,8 @@ namespace PCTO_Test
             List<Package> ListaPacchi = new List<Package>();
             Address address = new Address("31a", "Via Giacomo Leopardi", "Milano", "MI");
             Address address1 = new Address("20a", "Via Dante Alighieri", "Bergamo", "BG");
-            ListaPacchi.Add(new Package(address, "beta", 1, 4));
-            ListaPacchi.Add(new Package(address1, "alfa", 2, 3));
+            ListaPacchi.Add(new Package(address, 1, 4, "beta"));
+            ListaPacchi.Add(new Package(address1, 2, 3, "alfa"));
             var x = -2;
 
             //Assert
@@ -302,8 +302,8 @@ namespace PCTO_Test
             List<Package> ListaPacchi = new List<Package>();
             Address address = new Address("31a", "Via Giacomo Leopardi", "Milano", "MI");
             Address address1 = new Address("20a", "Via Dante Alighieri", "Bergamo", "BG");
-            ListaPacchi.Add(new Package(address, "beta", 1, 4));
-            ListaPacchi.Add(new Package(address1, "alfa", 2, 3));
+            ListaPacchi.Add(new Package(address, 1, 4, "beta"));
+            ListaPacchi.Add(new Package(address1, 2, 3, "alfa"));
             var x = 10;
 
             //Assert
@@ -319,8 +319,8 @@ namespace PCTO_Test
             List<Package> ListaPacchi = new List<Package>();
             Address address = new Address("31a", "Via Giacomo Leopardi", "Milano", "MI");
             Address address1 = new Address("20a", "Via Dante Alighieri", "Bergamo", "BG");
-            ListaPacchi.Add(new Package(address, "beta", 1, 4));
-            ListaPacchi.Add(new Package(address1, "alfa", 2, 3));
+            ListaPacchi.Add(new Package(address, 1, 4, "beta"));
+            ListaPacchi.Add(new Package(address1, 2, 3, "alfa"));
 
             //Act
             var lista = RandomizeResult(ListaPacchi);

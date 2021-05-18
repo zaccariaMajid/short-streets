@@ -13,6 +13,7 @@ namespace PCTO
 {
     partial class FormShortStreets : Form
     {
+        LoadingForm loadingForm;
         FormHome formHome;
         FormRiderSpace formRiderSpace;
         FormMap formMap;
@@ -27,18 +28,19 @@ namespace PCTO
         public FormShortStreets()
         {
             InitializeComponent();
+            loadingForm = new LoadingForm() { TopLevel = true, TopMost = true };
+            loadingForm.Show();
+            Application.DoEvents();
             Startup();
+            Application.DoEvents();
+            loadingForm.Close();
+            Application.DoEvents();
             ShowFormHome();
         }
 
         void Startup()
         {
-            //loadingForm = new LoadingForm() { TopLevel = true, TopMost = true };
-            //this.Hide();
-            //loadingForm.Show();
             stream = LoadFile.GetStream("comune_bergamo.pbf");
-            //loadingForm.Hide();
-            //this.Show();
             formHome = new FormHome(this) { TopLevel = false, TopMost = true };
             formHome.FormBorderStyle = FormBorderStyle.None;
             pnlHome.Controls.Add(formHome);

@@ -35,7 +35,7 @@ namespace PCTO
             }
 
         }
-        static void Main(string[] args)
+        static void Start()
         {
             var a = JsonConvert.DeserializeObject<List<RoutingPoint>>(File.ReadAllText(@"D:\pcto\pcto creazione dati\pcto creazione dati\bin\Debug\netcoreapp3.1\datiGrafo.json"));
             RoutingPoint[] dati = new RoutingPoint[a.Count];

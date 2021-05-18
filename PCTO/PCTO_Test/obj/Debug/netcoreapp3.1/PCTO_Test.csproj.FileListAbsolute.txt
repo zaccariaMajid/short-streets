@@ -538,3 +538,8 @@ C:\Users\sonzogni.17133\Documents\GitHub\short-streets\PCTO\PCTO_Test\obj\Debug\
 C:\Users\sonzogni.17133\Documents\GitHub\short-streets\PCTO\PCTO_Test\obj\Debug\netcoreapp3.1\PCTO_Test.dll
 C:\Users\sonzogni.17133\Documents\GitHub\short-streets\PCTO\PCTO_Test\obj\Debug\netcoreapp3.1\PCTO_Test.pdb
 C:\Users\sonzogni.17133\Documents\GitHub\short-streets\PCTO\PCTO_Test\obj\Debug\netcoreapp3.1\PCTO_Test.genruntimeconfig.cache
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1\Itinero.dll
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1\Itinero.IO.Osm.dll
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1\OsmSharp.dll
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1\protobuf-net.dll
+C:\Users\giugg\source\repos\short-streets\PCTO\PCTO_Test\bin\Debug\netcoreapp3.1\protobuf-net.xml
