@@ -75,16 +75,6 @@ namespace PCTO
 
         public void ShowFormMap()
         {
-            if (currentAddress == null)
-            {
-                MessageBox.Show("Set your current position to access to the map (home)");
-                return;
-            }
-            if (packages.Where(x => x.IsValid == false).ToList().Count != 0)
-            {
-                MessageBox.Show("Convalid all packages to continue");
-                return;
-            }
             formHome.Hide();
             formRiderSpace.Hide();
             formMap.Show();
@@ -100,7 +90,10 @@ namespace PCTO
 
         private void mapToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowFormMap();
+            if (currentAddress != null)
+                ShowFormMap();
+            else
+                MessageBox.Show("Set your current position to access to the map (home)");
         }
     }
 }
