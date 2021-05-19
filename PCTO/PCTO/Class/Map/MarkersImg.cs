@@ -34,4 +34,21 @@ namespace PCTO
         public Bitmap[] Images { get; }
 
     }
+
+    public class PathColor
+    {
+        public PathColor()
+        {
+            Colors = new Color[]
+            {
+                Color.Red,
+                Color.Green,
+                Color.Blue,
+                Color.Yellow,
+                Color.Purple,
+                Color.Chocolate
+            };
+        }
+        public Color[] Colors { get; }
+    }
 }

@@ -24,6 +24,7 @@ namespace PCTO
             InitializeComponent();
 
             markersImg = new MarkersImg();
+            pathColor = new PathColor();
             fShortStreets = f;
             fShortStreets.StreamRead += (o, e) =>
             {
@@ -35,7 +36,6 @@ namespace PCTO
                 MarkersOverlay = new GMapOverlay("markers");
                 RoutesOverlay = new GMapOverlay("routes");
                 SetPosition(e.CurrentAddress);
-                SetMarkers(e.Packages);
                 SetPackagesRoutingDictionary(e.CurrentAddress, e.Packages);
                 SetConfidenceMessage(e.CurrentAddress, e.Packages);
                 SetRoute(e.CurrentAddress, e.Packages);
@@ -53,6 +53,7 @@ namespace PCTO
         GMapOverlay RoutesOverlay;
         RouterDb RouterDb;
         MarkersImg markersImg;
+        PathColor pathColor;
         PackagesRoutingDictionary Prd;
         string ConfidenceMessage;
 
@@ -98,7 +99,7 @@ namespace PCTO
 
         private void SetConfidenceMessage(Address address, IList<Package> packages)
         {
-            ConfidenceMessage = $"START) {address} - Confidence: {Confidences.List[address.Coordinates.Confidence]}\n";
+            ConfidenceMessage = $"HOME) {address} - Confidence: {Confidences.List[address.Coordinates.Confidence]}\n";
             int num = 1;
             foreach (var p in packages)
             {
@@ -117,11 +118,25 @@ namespace PCTO
 
         void SetRoute(Address startPosition, IList<Package> list)
         {
-            GetPath
-                (GetRoutingPoints
-                    (GetAllCoordinates
-                        (startPosition, list.ToList())));
-            SetPath();
+            try
+            {
+                SetPath
+                    (GetRoutingPoints
+                        (GetAllCoordinates
+                            (startPosition, list.ToList())));
+
+            }
+            catch (ArgumentException argEx)
+            {
+                MessageBox.Show(argEx.Message);
+                return;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Generic error: {ex.Message}");
+                return;
+            }
+
         }
 
         IList<Coordinates> GetAllCoordinates(Address startPosition, IList<Package> list)
@@ -159,39 +174,51 @@ namespace PCTO
             return routingPoints;
         }
 
-
-        void GetPath(IList<RoutingPoint> points)
+        void SetPath(IList<RoutingPoint> points)
         {
-
+            IList<Trip> trips = RoutingAlgorithm.GetViaggio(points);
+            int count = 0;
+            foreach (var t in trips)
+            {
+                IList<int> sequence = new List<int>();
+                foreach (var v in t.viaggioSingolo)
+                    sequence.Add(v.Id);
+                IList<Package> packages = new List<Package>();
+                foreach (int cod in sequence)
+                    packages.Add(Prd.Dictionary[cod]);
+                SetPath(packages, pathColor.Colors[count]);
+                SetMarkers(packages);
+                count++;
+            }
         }
 
-        void SetPath()
+        void SetPath(IList<Package> list, Color color)
         {
             gMap.Overlays.Add(RoutesOverlay);
-            //IList<PointLatLng> points = list.Select(x => new PointLatLng(double.Parse(x.Destination.Coordinates.Lat.ToString()), double.Parse(x.Destination.Coordinates.Lng.ToString())))
-            //.ToList();
+            IList<PointLatLng> points = list.Select(x => new PointLatLng(double.Parse(x.Destination.Coordinates.Lat.ToString()), double.Parse(x.Destination.Coordinates.Lng.ToString())))
+                                            .ToList();
             //points.Insert(0, new PointLatLng(double.Parse(startPosition.Coordinates.Lat.ToString()), double.Parse(startPosition.Coordinates.Lng.ToString())));
             //points.Add(new PointLatLng(double.Parse(startPosition.Coordinates.Lat.ToString()), double.Parse(startPosition.Coordinates.Lng.ToString())));
 
             try
             {
-                //for (int x = 0; x < points.Count; x++)
-                //{
-                //if (x + 1 < points.Count)
-                //{
-                //var router = new Router(RouterDb);
-                //var profile = Vehicle.Pedestrian.Fastest();
-                //var start = router.Resolve(profile, float.Parse(points[x].Lat.ToString()), float.Parse(points[x].Lng.ToString()));
-                //var end = router.Resolve(profile, float.Parse(points[x + 1].Lat.ToString()), float.Parse(points[x + 1].Lng.ToString()));
-                //var route = router.Calculate(profile, start, end);
-                //IList<PointLatLng> allPoints = route.Shape.Select(s => new PointLatLng() { Lat = double.Parse(s.Latitude.ToString()), Lng = double.Parse(s.Longitude.ToString()) })
-                //                                          .ToList();
-                //var r = new GMapRoute(allPoints, "route");
-                //r.Stroke.Color = Color.Red;
-                //r.Stroke.EndCap = System.Drawing.Drawing2D.LineCap.ArrowAnchor;
-                //RoutesOverlay.Routes.Add(r);
-                //}
-                //}
+                for (int x = 0; x < points.Count; x++)
+                {
+                    if (x + 1 < points.Count)
+                    {
+                        var router = new Router(RouterDb);
+                        var profile = Vehicle.Pedestrian.Fastest();
+                        var start = router.Resolve(profile, float.Parse(points[x].Lat.ToString()), float.Parse(points[x].Lng.ToString()));
+                        var end = router.Resolve(profile, float.Parse(points[x + 1].Lat.ToString()), float.Parse(points[x + 1].Lng.ToString()));
+                        var route = router.Calculate(profile, start, end);
+                        IList<PointLatLng> allPoints = route.Shape.Select(s => new PointLatLng() { Lat = double.Parse(s.Latitude.ToString()), Lng = double.Parse(s.Longitude.ToString()) })
+                                                                  .ToList();
+                        var r = new GMapRoute(allPoints, "route");
+                        r.Stroke.Color = color;
+                        r.Stroke.EndCap = System.Drawing.Drawing2D.LineCap.ArrowAnchor;
+                        RoutesOverlay.Routes.Add(r);
+                    }
+                }
             }
             catch (Exception ex)
             {

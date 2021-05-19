@@ -8,43 +8,41 @@ using System.Threading.Tasks;
 
 namespace PCTO
 {
- /*   class RoutingAlgorithm
+    public class Solution
+    {
+        public int Prezzo;
+        public List<int> Percorso;
+        public Solution(int prezzo, List<int> percorso)
+        {
+            Prezzo = prezzo;
+            Percorso = percorso;
+        }
+    }
+    public class Trip
+    {
+        public List<RoutingPoint> viaggioSingolo;
+        public Solution Sol;
+
+        public Trip(List<RoutingPoint> ViaggioSingolo, Solution Sol)
+        {
+            viaggioSingolo = ViaggioSingolo;
+            this.Sol = Sol;
+
+        }
+    }
+    public static class RoutingAlgorithm
     {
 
-        public class soluzione
+        public static IList<Trip> GetViaggio(IList<RoutingPoint> list)
         {
-            public int Prezzo;
-            public List<int> Percorso;
-            public soluzione(int prezzo, List<int> percorso)
-            {
-                Prezzo = prezzo;
-                Percorso = percorso;
-            }
-
-        }
-        public class viaggio
-        {
-            public List<RoutingPoint> viaggioSingolo;
-            public soluzione sol;
-
-            public viaggio(List<RoutingPoint> ViaggioSingolo, soluzione Sol)
-            {
-                viaggioSingolo = ViaggioSingolo;
-                sol = Sol;
-
-            }
-
-        }
-        static void Start()
-        {
-            var a = JsonConvert.DeserializeObject<List<RoutingPoint>>(File.ReadAllText(@"D:\pcto\pcto creazione dati\pcto creazione dati\bin\Debug\netcoreapp3.1\datiGrafo.json"));
-            RoutingPoint[] dati = new RoutingPoint[a.Count];
-            dati = a.ToArray();
+            var a = list.ToList();
+                /*JsonConvert.DeserializeObject<List<RoutingPoint>>(File.ReadAllText(@"D:\pcto\pcto creazione dati\pcto creazione dati\bin\Debug\netcoreapp3.1\datiGrafo.json"));*/
+            RoutingPoint[] dati = a.ToArray();
             List<int> eleViaggio = new List<int>();
             List<List<int>> tot = new List<List<int>>();
             int numPacchi = a.Count;
-            int maxPeso = 100;
-            int maxVolume = 100;
+            int maxPeso = 20;
+            int maxVolume = 20;
             bool verifica = true;
 
             int x = 0;
@@ -111,11 +109,11 @@ namespace PCTO
                 eleViaggio.Add(1);
             }
             List<int> casa = new List<int>(dati[0].Costs);
-            List<viaggio> totDati = new List<viaggio>();
+            List<Trip> totDati = new List<Trip>();
             foreach (List<int> b in tot)
             {
                 dati[0].Costs = new List<int>(casa);
-                viaggio f = new viaggio(new List<RoutingPoint>(), new soluzione(default(int), new List<int>()));
+                Trip f = new Trip(new List<RoutingPoint>(), new Solution(default(int), new List<int>()));
                 foreach (int s in b)
                 {
                     f.viaggioSingolo.Add(dati[s - 1]);
@@ -141,18 +139,25 @@ namespace PCTO
                     g.Connected = new List<int>(vert);
                     final.Clear();
                 }
-                f.sol = ElaborazioneVertici(f.viaggioSingolo, vert);
+                f.Sol = ElaborazioneVertici(f.viaggioSingolo, vert);
 
                 totDati.Add(f);
-                f = default(viaggio);
+                f = default(Trip);
             }
             int totSoluzioni = 0;
-            foreach (viaggio k in totDati)
+            foreach (Trip k in totDati)
             {
-                totSoluzioni = totSoluzioni + k.sol.Prezzo;
+                totSoluzioni = totSoluzioni + k.Sol.Prezzo;
             }
+            if(totDati.Count==0)
+            {
+                var routingPoints = new List<RoutingPoint>() { new RoutingPoint() { Id = 1, Volume = 0, Weight = 0, Costs = new List<int>(), Connected = new List<int>() } };
+                var trip = new Trip(routingPoints, new Solution(0, new List<int>()));
+                return new List<Trip>() { trip };
+            }
+            return totDati;
         }
-        public static soluzione ElaborazioneVertici(List<RoutingPoint> dati, List<int> vert)
+        public static Solution ElaborazioneVertici(List<RoutingPoint> dati, List<int> vert)
         {
             int x = 0;
             int num = dati[0].Connected.Count();
@@ -178,12 +183,12 @@ namespace PCTO
             }
             return (sol);
         }
-        public static soluzione CalcoloPercorso(List<RoutingPoint> dati)
+        public static Solution CalcoloPercorso(List<RoutingPoint> dati)
         {
             List<int> minPercorso = new List<int>();
             List<int> percorso = new List<int>();
             int minPrezzo = int.MaxValue;
-            soluzione sol = new soluzione(minPrezzo, minPercorso);
+            Solution sol = new Solution(minPrezzo, minPercorso);
             int prezzo = 0;
             List<int> coll = new List<int>();
             int x = 0;
@@ -196,7 +201,7 @@ namespace PCTO
             asd(coll, percorso, dati, prezzo, ref sol);
             return (sol);
         }
-        public static List<int> asd(List<int> coll, List<int> percorso, List<RoutingPoint> dati, int prezzo, ref soluzione sol)
+        public static List<int> asd(List<int> coll, List<int> percorso, List<RoutingPoint> dati, int prezzo, ref Solution sol)
         {
             foreach (int i in coll)
             {
@@ -313,6 +318,6 @@ namespace PCTO
             }
             return vertice;
         }
-    }*/
+    }
 }
 
