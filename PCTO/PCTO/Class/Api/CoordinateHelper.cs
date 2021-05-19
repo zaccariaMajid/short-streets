@@ -13,7 +13,7 @@ namespace PCTO
             this.caller = caller;
         }
 
-        List<Coordinates> GetCoordinates(string completeAddress)
+        public List<Coordinates> GetCoordinates(string completeAddress)
         {
             completeAddress = WebUtility.UrlEncode(completeAddress);
             var stuff = caller.GetApiResult(completeAddress);

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PCTO
 {
-    class RoutingAlgorithm
+ /*   class RoutingAlgorithm
     {
 
         public class soluzione
@@ -313,6 +313,6 @@ namespace PCTO
             }
             return vertice;
         }
-    }
+    }*/
 }
 

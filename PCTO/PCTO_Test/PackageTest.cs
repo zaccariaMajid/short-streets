@@ -55,21 +55,21 @@ namespace PCTO_Test
             quantitaPacchi.GetType().Should().Be(typeof(int));
             quantitaPacchi.Should().BeGreaterOrEqualTo(0);
         }
-        [Fact]
         #endregion
 
+        #region DTOTest
+        [Fact]
         public void ToDto()
         {
-            //Arrange
-                       
+            //Arrange 
             Address address1 = new Address("20a", "Via Dante Alighieri", "Bergamo", "BG");
             Package pacco = new Package(address1, 2, 3, "alfa");           
 
             //Act          
             var paccodto = pacco.ToDTO();
 
-
             //Assert
+            paccodto.Should().BeOfType(typeof(PackDTO));
             paccodto.Id.Should().Be(pacco.Id);
             paccodto.Volume.Should().Be(pacco.Volume);
             paccodto.Weight.Should().Be(pacco.Weight);
@@ -81,6 +81,22 @@ namespace PCTO_Test
             paccodto.Lng.Should().Be(pacco.Destination.Coordinates.Lng);
             paccodto.Confidence.Should().Be(pacco.Destination.Coordinates.Confidence);
         }
+
+        [Fact]
+        public void ToEmptyDTOTest()
+        {
+            //Arrange
+            Address address1 = new Address("20a", "Via Dante Alighieri", "Bergamo", "BG");
+            Package pacco = new Package(address1, 2, 3, "alfa");
+
+            //Act          
+            var paccodto = pacco.ToEmptyDTO();
+
+            //Assert
+            paccodto.Should().BeOfType(typeof(PackDTO));
+            paccodto.Id.Should().Be(pacco.Id);
+        }
+
         [Fact]
         public void Topackage()
         {
@@ -91,8 +107,8 @@ namespace PCTO_Test
             //Act          
             var package=pacco.ToPackage();
 
-
             //Assert
+            package.Should().BeOfType(typeof(Package));
             package.Id.Should().Be(pacco.Id);
             package.Volume.Should().Be(pacco.Volume);
             package.Weight.Should().Be(pacco.Weight);
@@ -104,6 +120,7 @@ namespace PCTO_Test
             package.Destination.Coordinates.Lng.Should().Be(pacco.Lng);
             package.Destination.Coordinates.Confidence.Should().Be(pacco.Confidence);
         }
+        #endregion
 
         #region Isvalid
         [Fact]
@@ -328,7 +345,7 @@ namespace PCTO_Test
             //Assert
             lista.Count().Should().Be(ListaPacchi.Count());
         }
-        /*
+        
         [Fact]
         public void RandomizeResultTest()
         {
@@ -336,15 +353,17 @@ namespace PCTO_Test
             List<Package> ListaPacchi = new List<Package>();
             Address address = new Address("31a", "Via Giacomo Leopardi", "Milano", "MI");
             Address address1 = new Address("20a", "Via Dante Alighieri", "Bergamo", "BG");
-            ListaPacchi.Add(new Package(address, "beta", 1, 4));
-            ListaPacchi.Add(new Package(address1, "alfa", 2, 3));
+            Address address2 = new Address("29a", "Via Gavazzeni", "Bergamo", "BG");
+            ListaPacchi.Add(new Package(address, 1, 4, "beta"));
+            ListaPacchi.Add(new Package(address1, 2, 3, "alfa"));
+            ListaPacchi.Add(new Package(address2, 3, 8, "Omega"));
 
             //Act
-            var lista = RandomizeResult(ListaPacchi).First();
+            var lista = RandomizeResult(ListaPacchi);
 
             //Assert
-            lista.Id.Should().NotBe(ListaPacchi[0].Id);
-        }*/
+            lista.First().Id.Should().Be(ListaPacchi[0].Id);
+        }
         #endregion
     }
 }

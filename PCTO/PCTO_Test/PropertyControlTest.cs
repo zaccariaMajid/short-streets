@@ -13,8 +13,6 @@ namespace PCTO_Test
 {
     public class PropertyControlTest
     {
-       
-
         #region Province
         [Fact]
         public void ControlprovinceUPPER()
@@ -133,38 +131,47 @@ namespace PCTO_Test
         }
         [Fact]
         public void controlexfirstLOWER()
-        {   //Arrange
-            var nome = new Address("29a", "Via Gavazzeni", "Bergamo", "bG");
-            var g = nome.Province;
+        {
+            //Arrange
+            string province = "bG";
+
+            //Act
+            Action action = () => Province(province);
+
             //Assert
-            Assert.Throws<ArgumentException>(() => Province(g));
+            action.Should().Throw<System.ArgumentException>().WithMessage("Province must be a 2 upper chars string");
         }
         [Fact]
         public void controlexLOWER()
         {
             //Arrange
-            var nome = new Address("29a", "Via Gavazzeni", "Bergamo", "bg");
-            var g = nome.Province;
+            string province = "bg";
+
+            //Act
+            Action action = () => Province(province);
+
             //Assert
-            Assert.Throws<ArgumentException>(() => Province(g));
+            action.Should().Throw<System.ArgumentException>().WithMessage("Province must be a 2 upper chars string");
         }
         [Fact]
         public void controlexfirstUPPER()
         {
             //Arrange
-            var nome = new Address("29a", "Via Gavazzeni", "Bergamo", "Bg");
-            var g = nome.Province;
+            string province = "Bg";
+
+            //Act
+            Action action = () => Province(province);
+
             //Assert
-            Assert.Throws<ArgumentException>(() => Province(g));
+            action.Should().Throw<System.ArgumentException>().WithMessage("Province must be a 2 upper chars string");
         }
         [Fact]
         public void controlequalexfirstLOWER()
         {
             //Assert
-            var nome = new Address("29a", "Via Gavazzeni", "Bergamo", "bG");
-            var g = nome.Province;
+            string province = "bG";
             //Act
-            var ex = Assert.Throws<ArgumentException>(() => Province(g));
+            var ex = Assert.Throws<ArgumentException>(() => Province(province));
             //Assert
             Assert.Equal("Province must be a 2 upper chars string", ex.Message);
         }
@@ -172,10 +179,9 @@ namespace PCTO_Test
         public void controlequalexLOWER()
         {
             //Assert
-            var nome = new Address("29a", "Via Gavazzeni", "Bergamo", "bg");
-            var g = nome.Province;
+            string province = "bg";
             //Act
-            var ex = Assert.Throws<ArgumentException>(() => Province(g));
+            var ex = Assert.Throws<ArgumentException>(() => Province(province));
             //Assert
             Assert.Equal("Province must be a 2 upper chars string", ex.Message);
         }
@@ -183,10 +189,9 @@ namespace PCTO_Test
         public void controlequalexfirstUPPER()
         {
             //Assert
-            var nome = new Address("29a", "Via Gavazzeni", "Bergamo", "Bg");
-            var g = nome.Province;
+            string province = "Bg";
             //Act
-            var ex = Assert.Throws<ArgumentException>(() => Province(g));
+            var ex = Assert.Throws<ArgumentException>(() => Province(province));
             //Assert
             Assert.Equal("Province must be a 2 upper chars string", ex.Message); ;
         }
@@ -245,52 +250,22 @@ namespace PCTO_Test
             }
         }
         [Fact]
-        public void ControlAddress()
+        public void ToCompleteAddressTest1()
         {
             var Address = new Address("30a", "Via Manzoni", "Milano", "MI");
             var result = Address.ToCompleteAddress();
             result.Should().Be("Via Manzoni 30a Milano");
             result.Length.Should().Be(22);
         }
-        #endregion
-
-        #region API
-        [Fact]
-       public void FirstControlCoordinates()
-        {
-            Address a = new Address("32", "Via Giacomo Manzù", "Terno d'Isola", "BG");
-            IApiCaller caller = new ApiCaller();
-            CoordinateHelper helper = new CoordinateHelper(caller);
-            helper.SetCoordinates(a);
-            a.Coordinates.Confidence.Should().BeInRange(0,10);
-            a.Coordinates.Lat.Should().BeInRange(45.6825M, 45.6833M);
-            a.Coordinates.Lng.Should().BeInRange(9.5362M, 9.540M);
-        }
 
         [Fact]
-        public void SecondControlCoordinates()
+        public void ToCompleteAddressTest2()
         {
-            Address a = new Address("3c", "Via Largo del Roccolo", "Terno d'Isola", "BG");
-            IApiCaller caller = new ApiCaller();
-            CoordinateHelper helper = new CoordinateHelper(caller);
-            helper.SetCoordinates(a);
-            a.Coordinates.Confidence.Should().BeInRange(0, 10);
-            a.Coordinates.Lat.Should().BeInRange(45.6878M, 45.6891M);
-            a.Coordinates.Lng.Should().BeInRange(9.5240M, 9.5297M);
-        }
-
-        [Fact]
-        public void ThirdControlCoordinates()
-        {
-            Address a = new Address("18", "Viale Giulio Cesare", "Bergamo", "BG");
-            IApiCaller caller = new ApiCaller();
-            CoordinateHelper helper = new CoordinateHelper(caller);
-            helper.SetCoordinates(a);
-            a.Coordinates.Confidence.Should().BeInRange(0, 10);
-            a.Coordinates.Lat.Should().BeInRange(45.7074M, 45.7105M);
-            a.Coordinates.Lng.Should().BeInRange(9.6787M, 9.6826M);
+            var Address = new Address("29a", "Via Gavazzeni", "Bergamo", "BG");
+            var result = Address.ToCompleteAddress();
+            result.Should().Be("Via Gavazzeni 29a Bergamo");
+            result.Length.Should().Be(25);
         }
         #endregion
-
     }
 }
