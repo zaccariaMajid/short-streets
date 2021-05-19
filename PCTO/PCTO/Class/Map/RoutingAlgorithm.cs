@@ -41,7 +41,7 @@ namespace PCTO
             List<int> eleViaggio = new List<int>();
             List<List<int>> tot = new List<List<int>>();
             int numPacchi = a.Count;
-            int maxPeso = 20;
+            int maxPeso = 10;
             int maxVolume = 20;
             bool verifica = true;
 

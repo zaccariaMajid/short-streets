@@ -71,9 +71,9 @@ namespace PCTO
         void SetMarkers(IList<Package> packages)
         {
             gMap.Overlays.Clear();
-            gMap.Overlays.Add(MarkersOverlay);
-            MarkersOverlay.Markers.Add(new GMarkerGoogle(gMap.Position, markersImg.Images[0]));
-            int count = 1;
+            //gMap.Overlays.Add(MarkersOverlay);
+            //MarkersOverlay.Markers.Add(new GMarkerGoogle(gMap.Position, markersImg.Images[0]));
+            int count = 0;
             foreach (var p in packages)
             {
                 MarkersOverlay.Markers.Add(new GMarkerGoogle(new PointLatLng(double.Parse(p.Destination.Coordinates.Lat.ToString()),
@@ -146,6 +146,7 @@ namespace PCTO
                 coordinates.Add(p.Destination.Coordinates);
             return coordinates;
         }
+
         IList<RoutingPoint> GetRoutingPoints(IList<Coordinates> coordinates)
         {
             IList<Coordinates> tCoordinates;
@@ -153,7 +154,7 @@ namespace PCTO
             foreach (var c in coordinates)
             {
                 tCoordinates = coordinates.ToList();
-                tCoordinates.Remove(c);
+                //tCoordinates.Remove(c);
                 var coordinatesVertices = CoordinatesVerticesMaker.NewCoordinatesvertices(c, tCoordinates, RouterDb);
                 IList<int> connected = new List<int>();
                 IList<int> costs = new List<int>();
