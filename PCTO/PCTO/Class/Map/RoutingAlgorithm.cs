@@ -41,7 +41,7 @@ namespace PCTO
             List<int> eleViaggio = new List<int>();
             List<List<int>> tot = new List<List<int>>();
             int numPacchi = a.Count;
-            int maxPeso = 10;
+            int maxPeso = 20;
             int maxVolume = 20;
             bool verifica = true;
 
@@ -69,7 +69,7 @@ namespace PCTO
                 }
                 x++;
             }
-            //creazione dei viaggi e scrittura in output
+            //creazione dei viaggi
             x = 1;
             int vertice = 0;
             eleViaggio.Add(1);
@@ -108,6 +108,7 @@ namespace PCTO
                 eleViaggio.Clear();
                 eleViaggio.Add(1);
             }
+            tot[0].RemoveAt(0);
             List<int> casa = new List<int>(dati[0].Costs);
             List<Trip> totDati = new List<Trip>();
             foreach (List<int> b in tot)
@@ -139,8 +140,9 @@ namespace PCTO
                     g.Connected = new List<int>(vert);
                     final.Clear();
                 }
-                f.Sol = ElaborazioneVertici(f.viaggioSingolo, vert);
-
+                var solViaggio = ElaborazioneVertici(f.viaggioSingolo, vert);
+                f.Sol.Percorso = new List<int>(solViaggio.Percorso);
+                f.Sol.Prezzo = solViaggio.Prezzo;
                 totDati.Add(f);
                 f = default(Trip);
             }
