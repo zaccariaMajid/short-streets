@@ -44,7 +44,6 @@ namespace PCTO
                 Color.Red,
                 Color.Green,
                 Color.Blue,
-                Color.Yellow,
                 Color.Purple,
                 Color.Chocolate
             };

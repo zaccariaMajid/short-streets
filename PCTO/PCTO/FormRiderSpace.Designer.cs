@@ -31,9 +31,9 @@ namespace PCTO
         {
             this.dgvSetPackages = new System.Windows.Forms.DataGridView();
             this.gpbQuantity = new System.Windows.Forms.GroupBox();
-            this.btnClearPackages = new System.Windows.Forms.Button();
             this.btnConfirmNumPackages = new System.Windows.Forms.Button();
             this.nudPackages = new System.Windows.Forms.NumericUpDown();
+            this.btnClearPackages = new System.Windows.Forms.Button();
             this.gpbEdit = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -90,17 +90,6 @@ namespace PCTO
             this.gpbQuantity.TabStop = false;
             this.gpbQuantity.Text = "Set new packages quantity";
             // 
-            // btnClearPackages
-            // 
-            this.btnClearPackages.Location = new System.Drawing.Point(831, 462);
-            this.btnClearPackages.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnClearPackages.Name = "btnClearPackages";
-            this.btnClearPackages.Size = new System.Drawing.Size(186, 32);
-            this.btnClearPackages.TabIndex = 2;
-            this.btnClearPackages.Text = "CLEAR";
-            this.btnClearPackages.UseVisualStyleBackColor = true;
-            this.btnClearPackages.Click += new System.EventHandler(this.btnClearPackages_Click);
-            // 
             // btnConfirmNumPackages
             // 
             this.btnConfirmNumPackages.Location = new System.Drawing.Point(157, 30);
@@ -119,6 +108,18 @@ namespace PCTO
             this.nudPackages.Name = "nudPackages";
             this.nudPackages.Size = new System.Drawing.Size(107, 22);
             this.nudPackages.TabIndex = 0;
+            // 
+            // btnClearPackages
+            // 
+            this.btnClearPackages.Enabled = false;
+            this.btnClearPackages.Location = new System.Drawing.Point(831, 462);
+            this.btnClearPackages.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnClearPackages.Name = "btnClearPackages";
+            this.btnClearPackages.Size = new System.Drawing.Size(186, 32);
+            this.btnClearPackages.TabIndex = 2;
+            this.btnClearPackages.Text = "CLEAR";
+            this.btnClearPackages.UseVisualStyleBackColor = true;
+            this.btnClearPackages.Click += new System.EventHandler(this.btnClearPackages_Click);
             // 
             // gpbEdit
             // 
@@ -290,6 +291,7 @@ namespace PCTO
             // 
             // btnConfirmPackages
             // 
+            this.btnConfirmPackages.Enabled = false;
             this.btnConfirmPackages.Location = new System.Drawing.Point(831, 498);
             this.btnConfirmPackages.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnConfirmPackages.Name = "btnConfirmPackages";

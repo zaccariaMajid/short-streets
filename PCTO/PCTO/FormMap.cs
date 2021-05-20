@@ -37,7 +37,6 @@ namespace PCTO
                 MarkersOverlay = new GMapOverlay("markers");
                 SetPosition(e.CurrentAddress);
                 SetPackagesRoutingDictionary(e.CurrentAddress, e.Packages);
-                SetConfidenceMessage(e.CurrentAddress, e.Packages);
                 SetRoute(e.CurrentAddress, e.Packages);
             };
             gMap.ShowCenter = false;
@@ -70,7 +69,7 @@ namespace PCTO
         void SetMarkers(IList<Package> packages)
         {
             gMap.Overlays.Add(MarkersOverlay);
-            for (int count = 0; count < packages.Count - 1; count++)
+            for (int count = 0; count < packages.Count; count++)
                 MarkersOverlay.Markers.Add(new GMarkerGoogle(new PointLatLng(double.Parse(packages[count].Destination.Coordinates.Lat.ToString()),
                                                                              double.Parse(packages[count].Destination.Coordinates.Lng.ToString())),
                                                                              markersImg.Images[count]));
@@ -89,9 +88,10 @@ namespace PCTO
             }
         }
 
-        private void SetConfidenceMessage(Address address, IList<Package> packages)
+        private void SetConfidenceMessage(IList<Package> packages)
         {
-            ConfidenceMessage = $"HOME) {address} - Confidence: {Confidences.List[address.Coordinates.Confidence]}\n";
+            ConfidenceMessage = $"HOME) {packages[0]} - Confidence: {Confidences.List[packages[0].Destination.Coordinates.Confidence]}\n";
+            packages.Remove(packages.First());
             int num = 1;
             foreach (var p in packages)
             {
@@ -100,7 +100,6 @@ namespace PCTO
             }
             if (string.IsNullOrEmpty(ConfidenceMessage))
                 ConfidenceMessage = "No confidences available";
-
         }
 
         private void confidenceToolStripMenuItem_Click(object sender, EventArgs e)
@@ -139,16 +138,16 @@ namespace PCTO
         {
             IList<Coordinates> tCoordinates = coordinates.ToList();
             IList<RoutingPoint> routingPoints = new List<RoutingPoint>();
-            foreach (var c in coordinates)
+            foreach (Coordinates c in coordinates)
             {
-                var coordinatesVertices = CoordinatesVerticesMaker.NewCoordinatesvertices(c, tCoordinates, RouterDb);
+                CoordinatesVertices coordinatesVertices = CoordinatesVerticesMaker.NewCoordinatesvertices(c, tCoordinates, RouterDb);
                 IList<int> connected = new List<int>();
                 IList<int> costs = new List<int>();
-                foreach (var dict in coordinatesVertices.Coordinates)
+                foreach (var item in coordinatesVertices.Coordinates)
                 {
-                    int id = Prd.Dictionary.Where(x => x.Value.Destination.Coordinates == dict.Key).First().Key;
+                    int id = Prd.Dictionary.Where(x => x.Value.Destination.Coordinates == item.Key).First().Key;
                     connected.Add(id);
-                    int cost = dict.Value;
+                    int cost = item.Value;
                     costs.Add(cost);
                 }
                 var routingPoint = new RoutingPoint() { Id = Prd.Dictionary.Where(x => x.Value.Destination.Coordinates == c).First().Key };
@@ -166,6 +165,7 @@ namespace PCTO
             IList<Trip> trips = RoutingAlgorithm.GetTrip(points);
             IList<Package> packages = new List<Package>();
             int count = 0;
+            bool IsHomeInserted = false;
             foreach (var t in trips)
             {
                 IList<int> sequence = t.Sol.Percorso.ToList();
@@ -175,13 +175,17 @@ namespace PCTO
                 {
                     Package p = Prd.Dictionary[cod];
                     pck.Add(p);
-                    packages.Add(p);
+                    if(!IsHomeInserted || cod!=1)
+                    {
+                        packages.Add(p);
+                        IsHomeInserted = true;
+                    }
                 }
-                packages.Remove(packages.Last());
                 SetPathOnMap(pck, pathColor.Colors[count], count + 1);
                 count++;
             }
             SetMarkers(packages);
+            SetConfidenceMessage(packages.ToList());
         }
 
         void SetPathOnMap(IList<Package> list, Color color, int i)
