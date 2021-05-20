@@ -33,8 +33,8 @@ namespace PCTO
             };
             fShortStreets.ShowingFormMap += (o, e) =>
             {
+                gMap.Overlays.Clear();
                 MarkersOverlay = new GMapOverlay("markers");
-                RoutesOverlay = new GMapOverlay("routes");
                 SetPosition(e.CurrentAddress);
                 SetPackagesRoutingDictionary(e.CurrentAddress, e.Packages);
                 SetConfidenceMessage(e.CurrentAddress, e.Packages);
@@ -50,7 +50,6 @@ namespace PCTO
         }
 
         GMapOverlay MarkersOverlay;
-        GMapOverlay RoutesOverlay;
         RouterDb RouterDb;
         MarkersImg markersImg;
         PathColor pathColor;
@@ -70,18 +69,11 @@ namespace PCTO
 
         void SetMarkers(IList<Package> packages)
         {
-            gMap.Overlays.Clear();
-            //gMap.Overlays.Add(MarkersOverlay);
-            //MarkersOverlay.Markers.Add(new GMarkerGoogle(gMap.Position, markersImg.Images[0]));
-            int count = 0;
-            foreach (var p in packages)
-            {
-                MarkersOverlay.Markers.Add(new GMarkerGoogle(new PointLatLng(double.Parse(p.Destination.Coordinates.Lat.ToString()),
-                                                                      double.Parse(p.Destination.Coordinates.Lng.ToString())),
-                                                                      markersImg.Images[count]));
-                count++;
-            }
-
+            gMap.Overlays.Add(MarkersOverlay);
+            for (int count = 0; count < packages.Count - 1; count++)
+                MarkersOverlay.Markers.Add(new GMarkerGoogle(new PointLatLng(double.Parse(packages[count].Destination.Coordinates.Lat.ToString()),
+                                                                             double.Parse(packages[count].Destination.Coordinates.Lng.ToString())),
+                                                                             markersImg.Images[count]));
         }
 
         void SetPackagesRoutingDictionary(Address address, IList<Package> packages)
@@ -120,11 +112,7 @@ namespace PCTO
         {
             try
             {
-                SetPath
-                    (GetRoutingPoints
-                        (GetAllCoordinates
-                            (startPosition, list.ToList())));
-
+                SetPath(GetRoutingPoints(GetAllCoordinates(startPosition, list.ToList())));
             }
             catch (ArgumentException argEx)
             {
@@ -149,12 +137,10 @@ namespace PCTO
 
         IList<RoutingPoint> GetRoutingPoints(IList<Coordinates> coordinates)
         {
-            IList<Coordinates> tCoordinates;
+            IList<Coordinates> tCoordinates = coordinates.ToList();
             IList<RoutingPoint> routingPoints = new List<RoutingPoint>();
             foreach (var c in coordinates)
             {
-                tCoordinates = coordinates.ToList();
-                //tCoordinates.Remove(c);
                 var coordinatesVertices = CoordinatesVerticesMaker.NewCoordinatesvertices(c, tCoordinates, RouterDb);
                 IList<int> connected = new List<int>();
                 IList<int> costs = new List<int>();
@@ -177,24 +163,30 @@ namespace PCTO
 
         void SetPath(IList<RoutingPoint> points)
         {
-            IList<Trip> trips = RoutingAlgorithm.GetViaggio(points);
+            IList<Trip> trips = RoutingAlgorithm.GetTrip(points);
+            IList<Package> packages = new List<Package>();
             int count = 0;
             foreach (var t in trips)
             {
-                IList<int> sequence = new List<int>();
-                foreach (var v in t.viaggioSingolo)
-                    sequence.Add(v.Id);
-                IList<Package> packages = new List<Package>();
+                IList<int> sequence = t.Sol.Percorso.ToList();
+                sequence.Add(1);
+                IList<Package> pck = new List<Package>();
                 foreach (int cod in sequence)
-                    packages.Add(Prd.Dictionary[cod]);
-                SetPath(packages, pathColor.Colors[count]);
-                SetMarkers(packages);
+                {
+                    Package p = Prd.Dictionary[cod];
+                    pck.Add(p);
+                    packages.Add(p);
+                }
+                packages.Remove(packages.Last());
+                SetPathOnMap(pck, pathColor.Colors[count], count + 1);
                 count++;
             }
+            SetMarkers(packages);
         }
 
-        void SetPath(IList<Package> list, Color color)
+        void SetPathOnMap(IList<Package> list, Color color, int i)
         {
+            GMapOverlay RoutesOverlay = new GMapOverlay($"routes{i}");
             gMap.Overlays.Add(RoutesOverlay);
             IList<PointLatLng> points = list.Select(x => new PointLatLng(double.Parse(x.Destination.Coordinates.Lat.ToString()), double.Parse(x.Destination.Coordinates.Lng.ToString())))
                                             .ToList();
@@ -214,7 +206,7 @@ namespace PCTO
                         var route = router.Calculate(profile, start, end);
                         IList<PointLatLng> allPoints = route.Shape.Select(s => new PointLatLng() { Lat = double.Parse(s.Latitude.ToString()), Lng = double.Parse(s.Longitude.ToString()) })
                                                                   .ToList();
-                        var r = new GMapRoute(allPoints, "route");
+                        var r = new GMapRoute(allPoints, $"route{i}");
                         r.Stroke.Color = color;
                         r.Stroke.EndCap = System.Drawing.Drawing2D.LineCap.ArrowAnchor;
                         RoutesOverlay.Routes.Add(r);

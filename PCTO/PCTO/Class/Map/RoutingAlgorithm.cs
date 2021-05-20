@@ -33,7 +33,7 @@ namespace PCTO
     public static class RoutingAlgorithm
     {
 
-        public static IList<Trip> GetViaggio(IList<RoutingPoint> list)
+        public static IList<Trip> GetTrip(IList<RoutingPoint> list)
         {
             var a = list.ToList();
                 /*JsonConvert.DeserializeObject<List<RoutingPoint>>(File.ReadAllText(@"D:\pcto\pcto creazione dati\pcto creazione dati\bin\Debug\netcoreapp3.1\datiGrafo.json"));*/
