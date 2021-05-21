@@ -105,6 +105,11 @@ namespace PCTO
             // 
             this.nudPackages.Location = new System.Drawing.Point(29, 31);
             this.nudPackages.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.nudPackages.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
             this.nudPackages.Name = "nudPackages";
             this.nudPackages.Size = new System.Drawing.Size(107, 22);
             this.nudPackages.TabIndex = 0;
@@ -318,6 +323,11 @@ namespace PCTO
             // 
             this.nudPresetQuantity.Location = new System.Drawing.Point(25, 30);
             this.nudPresetQuantity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.nudPresetQuantity.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
             this.nudPresetQuantity.Name = "nudPresetQuantity";
             this.nudPresetQuantity.Size = new System.Drawing.Size(107, 22);
             this.nudPresetQuantity.TabIndex = 6;

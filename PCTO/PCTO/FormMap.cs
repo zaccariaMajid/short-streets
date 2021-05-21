@@ -33,6 +33,9 @@ namespace PCTO
             };
             fShortStreets.ShowingFormMap += (o, e) =>
             {
+                PathMessage = string.Empty;
+                CounterPathMessage = 1;
+                CounterHelper = 0;
                 gMap.Overlays.Clear();
                 MarkersOverlay = new GMapOverlay("markers");
                 SetPosition(e.CurrentAddress);
@@ -53,6 +56,9 @@ namespace PCTO
         MarkersImg markersImg;
         PathColor pathColor;
         PackagesRoutingDictionary Prd;
+        string PathMessage;
+        int CounterPathMessage;
+        int CounterHelper;
         string ConfidenceMessage;
 
         private void CloseMapToolStripMenuItem_Click(object sender, EventArgs e)
@@ -86,6 +92,18 @@ namespace PCTO
                 Prd.Dictionary.Add(count, p);
                 count++;
             }
+        }
+
+        void SetPathMessage(IList<int> list)
+        {
+            var l = list.Count - 2;
+            PathMessage = $"{PathMessage}Trip {CounterPathMessage}\n";
+            PathMessage = $"{PathMessage}Home -> ";
+            for (int n = 1; n <= l; n++)
+                PathMessage = $"{PathMessage}{n + CounterHelper} -> ";
+            PathMessage = $"{PathMessage}Home\n";
+            CounterHelper = CounterHelper + l;
+            CounterPathMessage++;
         }
 
         private void SetConfidenceMessage(IList<Package> packages)
@@ -175,13 +193,14 @@ namespace PCTO
                 {
                     Package p = Prd.Dictionary[cod];
                     pck.Add(p);
-                    if(!IsHomeInserted || cod!=1)
+                    if (!IsHomeInserted || cod != 1)
                     {
                         packages.Add(p);
                         IsHomeInserted = true;
                     }
                 }
                 SetPathOnMap(pck, pathColor.Colors[count], count + 1);
+                SetPathMessage(sequence);
                 count++;
             }
             SetMarkers(packages);
@@ -211,7 +230,8 @@ namespace PCTO
                         IList<PointLatLng> allPoints = route.Shape.Select(s => new PointLatLng() { Lat = double.Parse(s.Latitude.ToString()), Lng = double.Parse(s.Longitude.ToString()) })
                                                                   .ToList();
                         var r = new GMapRoute(allPoints, $"route{i}");
-                        r.Stroke.Color = color;
+                        r.Stroke = new Pen(color);
+                        r.Stroke.Width = 4;
                         r.Stroke.EndCap = System.Drawing.Drawing2D.LineCap.ArrowAnchor;
                         RoutesOverlay.Routes.Add(r);
                     }
@@ -222,6 +242,11 @@ namespace PCTO
                 MessageBox.Show(ex.Message);
                 return;
             }
+        }
+
+        private void pathToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(PathMessage);
         }
     }
 }

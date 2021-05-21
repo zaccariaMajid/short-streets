@@ -33,6 +33,7 @@ namespace PCTO
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.CloseMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.confidenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,7 +69,8 @@ namespace PCTO
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.CloseMapToolStripMenuItem,
-            this.confidenceToolStripMenuItem});
+            this.confidenceToolStripMenuItem,
+            this.pathToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -89,6 +91,13 @@ namespace PCTO
             this.confidenceToolStripMenuItem.Size = new System.Drawing.Size(98, 24);
             this.confidenceToolStripMenuItem.Text = "Confidence";
             this.confidenceToolStripMenuItem.Click += new System.EventHandler(this.confidenceToolStripMenuItem_Click);
+            // 
+            // pathToolStripMenuItem
+            // 
+            this.pathToolStripMenuItem.Name = "pathToolStripMenuItem";
+            this.pathToolStripMenuItem.Size = new System.Drawing.Size(51, 24);
+            this.pathToolStripMenuItem.Text = "Path";
+            this.pathToolStripMenuItem.Click += new System.EventHandler(this.pathToolStripMenuItem_Click);
             // 
             // FormMap
             // 
@@ -114,5 +123,6 @@ namespace PCTO
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem CloseMapToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem confidenceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pathToolStripMenuItem;
     }
 }
