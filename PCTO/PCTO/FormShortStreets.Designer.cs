@@ -29,11 +29,12 @@ namespace PCTO
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormShortStreets));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.shortestStreetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.riderSpaceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.pnlHome = new System.Windows.Forms.Panel();
             this.mapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnlHome = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,19 +65,19 @@ namespace PCTO
             this.riderSpaceToolStripMenuItem1.Text = "Rider space";
             this.riderSpaceToolStripMenuItem1.Click += new System.EventHandler(this.riderSpaceToolStripMenuItem1_Click);
             // 
-            // pnlHome
-            // 
-            this.pnlHome.Location = new System.Drawing.Point(12, 31);
-            this.pnlHome.Name = "pnlHome";
-            this.pnlHome.Size = new System.Drawing.Size(1030, 554);
-            this.pnlHome.TabIndex = 1;
-            // 
             // mapToolStripMenuItem
             // 
             this.mapToolStripMenuItem.Name = "mapToolStripMenuItem";
             this.mapToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
             this.mapToolStripMenuItem.Text = "Map";
             this.mapToolStripMenuItem.Click += new System.EventHandler(this.mapToolStripMenuItem_Click);
+            // 
+            // pnlHome
+            // 
+            this.pnlHome.Location = new System.Drawing.Point(12, 31);
+            this.pnlHome.Name = "pnlHome";
+            this.pnlHome.Size = new System.Drawing.Size(1030, 554);
+            this.pnlHome.TabIndex = 1;
             // 
             // FormShortStreets
             // 
@@ -85,6 +86,7 @@ namespace PCTO
             this.ClientSize = new System.Drawing.Size(1058, 597);
             this.Controls.Add(this.pnlHome);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1076, 644);

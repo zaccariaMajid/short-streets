@@ -232,6 +232,9 @@
   <ItemGroup>
     <None Include="bin\Debug\loading.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\short.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
