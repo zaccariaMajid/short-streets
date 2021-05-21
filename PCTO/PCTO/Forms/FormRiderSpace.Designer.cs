@@ -145,7 +145,7 @@ namespace PCTO
             this.gpbEdit.Controls.Add(this.label1);
             this.gpbEdit.Controls.Add(this.lblId);
             this.gpbEdit.Enabled = false;
-            this.gpbEdit.Location = new System.Drawing.Point(12, 328);
+            this.gpbEdit.Location = new System.Drawing.Point(12, 333);
             this.gpbEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gpbEdit.Name = "gpbEdit";
             this.gpbEdit.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
