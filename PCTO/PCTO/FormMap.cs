@@ -33,7 +33,7 @@ namespace PCTO
             };
             fShortStreets.ShowingFormMap += (o, e) =>
             {
-                PathMessage = string.Empty;
+                PathMessage = "No trips available";
                 CounterPathMessage = 1;
                 CounterHelper = 0;
                 gMap.Overlays.Clear();
@@ -97,6 +97,8 @@ namespace PCTO
         void SetPathMessage(IList<int> list)
         {
             var l = list.Count - 2;
+            if (PathMessage == "No trips available")
+                PathMessage = string.Empty;
             PathMessage = $"{PathMessage}Trip {CounterPathMessage}\n";
             PathMessage = $"{PathMessage}Home -> ";
             for (int n = 1; n <= l; n++)
@@ -129,7 +131,15 @@ namespace PCTO
         {
             try
             {
-                SetPath(GetRoutingPoints(GetAllCoordinates(startPosition, list.ToList())));
+                var coord = GetAllCoordinates(startPosition, list.ToList());
+                if (coord.Count > 1)
+                {
+                    SetPath(GetRoutingPoints(coord));
+                    return;
+                }
+                var packStartPosition = new List<Package>() { new Package(startPosition, 0, 0) };
+                SetMarkers(packStartPosition);
+                SetConfidenceMessage(packStartPosition);
             }
             catch (ArgumentException argEx)
             {
