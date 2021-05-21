@@ -178,7 +178,7 @@ namespace PCTO
                     int cost = item.Value;
                     costs.Add(cost);
                 }
-                var routingPoint = new RoutingPoint() { Id = Prd.Dictionary.Where(x => x.Value.Destination.Coordinates == c).First().Key };
+                var routingPoint = new RoutingPoint(Prd.Dictionary.Where(x => x.Value.Destination.Coordinates == c).First().Key, new List<int>(), new List<int>(), 0, 0, false);
                 routingPoint.Volume = Prd.Dictionary[routingPoint.Id].Volume;
                 routingPoint.Weight = Prd.Dictionary[routingPoint.Id].Weight;
                 routingPoint.Connected = connected;

@@ -32,7 +32,6 @@ namespace PCTO
     }
     public static class RoutingAlgorithm
     {
-
         public static IList<Trip> GetTrip(IList<RoutingPoint> list)
         {
             var a = list.ToList();
@@ -153,7 +152,7 @@ namespace PCTO
             }
             if(totDati.Count==0)
             {
-                var routingPoints = new List<RoutingPoint>() { new RoutingPoint() { Id = 1, Volume = 0, Weight = 0, Costs = new List<int>(), Connected = new List<int>() } };
+                var routingPoints = new List<RoutingPoint>() { new RoutingPoint(1, new List<int>(), new List<int>(), 0, 0, false)};
                 var trip = new Trip(routingPoints, new Solution(0, new List<int>()));
                 return new List<Trip>() { trip };
             }

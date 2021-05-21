@@ -13,7 +13,155 @@ namespace PCTO_Test
 {
    public class PackageTest
    {
-        #region GetPackages
+
+        #region ToStringTest
+        [Fact]
+        public void ToStringTest1()
+        {
+            //Arrange
+            Address address = new Address("20a", "Via Dante Alighieri", "Bergamo", "BG");
+            Package pacco = new Package(address, 2, 3, "alfa");
+
+            //Act
+            var result = pacco.ToString();
+
+            //Assert
+            result.Should().Be("Via Dante Alighieri 20a, Bergamo (BG) 2 m³ 3 Kg");
+            result.Length.Should().Be(47);
+
+        }
+
+        [Fact]
+        public void ToStringTest2()
+        {
+            //Arrange
+            Address address = new Address("31a", "Via Giacomo Leopardi", "Milano", "MI");
+            Package pacco = new Package(address, 6, 1, "alfa");
+
+            //Act
+            var result = pacco.ToString();
+
+            //Assert
+            result.Should().Be("Via Giacomo Leopardi 31a, Milano (MI) 6 m³ 1 Kg");
+            result.Length.Should().Be(47);
+
+        }
+        #endregion
+
+        #region IsvalidTest
+        [Fact]
+        public void IsValidTest1()
+        {
+            //Arrange
+            Address address1 = new Address("20a", "Via Dante Alighieri", "Bergamo", "BG");
+            Package pacco = new Package(address1, 2, 3, "alfa");
+
+            //Act
+            var valido = pacco.IsValid;
+
+
+            //Assert
+            valido.Should().Be(true);
+        }
+        [Fact]
+        public void IsValidTest2()
+        {
+            //Arrange
+            Address address1 = new Address("20a", "Via Dante Alighieri", "Bergamo", "BG");
+            Package pacco = new Package(address1, -1, 3, "alfa");
+
+            //Act
+            var valido = pacco.IsValid;
+
+
+            //Assert
+            valido.Should().Be(false);
+        }
+        [Fact]
+        public void IsValidTest3()
+        {
+            //Arrange
+            Address address1 = new Address("20a", "Via Dante Alighieri", "Bergamo", "BG");
+            Package pacco = new Package(address1, 2, -3, "alfa");
+
+            //Act
+            var valido = pacco.IsValid;
+
+
+            //Assert
+            valido.Should().Be(false);
+        }
+        [Fact]
+        public void IsValidTest4()
+        {
+            //Arrange
+            Address address1 = new Address("", "Via Dante Alighieri", "Bergamo", "BG");
+            Package pacco = new Package(address1, 2, -3, "alfa");
+
+            //Act
+            var valido = pacco.IsValid;
+
+
+            //Assert
+            valido.Should().Be(false);
+        }
+        [Fact]
+        public void IsValidTest5()
+        {
+            //Arrange
+            Address address1 = new Address("20a", "", "Bergamo", "BG");
+            Package pacco = new Package(address1, 2, -3, "alfa");
+
+            //Act
+            var valido = pacco.IsValid;
+
+
+            //Assert
+            valido.Should().Be(false);
+        }
+        [Fact]
+        public void IsValidTest6()
+        {
+            //Arrange
+            Address address1 = new Address("20a", "Via Dante Alighieri", "", "BG");
+            Package pacco = new Package(address1, 2, -3, "alfa");
+
+            //Act
+            var valido = pacco.IsValid;
+
+
+            //Assert
+            valido.Should().Be(false);
+        }
+        [Fact]
+        public void IsValidTest7()
+        {
+            //Arrange
+            Address address1 = new Address("20a", "Via Dante Alighieri", "Bergamo", "");
+            Package pacco = new Package(address1, 2, -3, "alfa");
+
+            //Act
+            var valido = pacco.IsValid;
+
+            //Assert
+            valido.Should().Be(false);
+        }
+        [Fact]
+        public void IsValidTest8()
+        {
+            //Arrange
+            Address address1 = new Address("20a", "Via Dante Alighieri", "Bergamo", "");
+            Package pacco = new Package(address1, 2, -3, "alfa");
+
+            //Act
+            var valido = pacco.IsValid;
+
+            //Assert
+            valido.Should().Be(false);
+        }
+        #endregion
+
+        #region GetPackagesByIdTest
         [Fact]
         public void GetPackageByIdTest()
         {
@@ -38,6 +186,9 @@ namespace PCTO_Test
             pacco.Weight.Should().Be(3);
 
         }
+        #endregion
+
+        #region GetPackagesQuantityTest
         [Fact]
         public void GetPackagesQuantityTest()
         {
@@ -57,9 +208,9 @@ namespace PCTO_Test
         }
         #endregion
 
-        #region DTOTest
+        #region ToDTOTest
         [Fact]
-        public void ToDto()
+        public void ToDTOTest()
         {
             //Arrange 
             Address address1 = new Address("20a", "Via Dante Alighieri", "Bergamo", "BG");
@@ -81,7 +232,9 @@ namespace PCTO_Test
             paccodto.Lng.Should().Be(pacco.Destination.Coordinates.Lng);
             paccodto.Confidence.Should().Be(pacco.Destination.Coordinates.Confidence);
         }
+        #endregion
 
+        #region ToEmptyDTOTest
         [Fact]
         public void ToEmptyDTOTest()
         {
@@ -96,177 +249,47 @@ namespace PCTO_Test
             paccodto.Should().BeOfType(typeof(PackDTO));
             paccodto.Id.Should().Be(pacco.Id);
         }
+        #endregion
 
+        #region GetPresetDTOTest
         [Fact]
-        public void Topackage()
+        public void GetPresetDTOTest()
         {
             //Arrange
-            PackDTO pacco = new PackDTO("123", 2, 3, "12", "Via Giacomo Leopardi", "Calusco D'Adda", "BG");
-            
+            int x = 2;
 
-            //Act          
-            var package=pacco.ToPackage();
+            //Act
+            var result = GetPresetDTO(x);
 
             //Assert
-            package.Should().BeOfType(typeof(Package));
-            package.Id.Should().Be(pacco.Id);
-            package.Volume.Should().Be(pacco.Volume);
-            package.Weight.Should().Be(pacco.Weight);
-            package.Destination.Number.Should().Be(pacco.Number);
-            package.Destination.Street.Should().Be(pacco.Street);
-            package.Destination.Town.Should().Be(pacco.Town);
-            package.Destination.Province.Should().Be(pacco.Province);
-            package.Destination.Coordinates.Lat.Should().Be(pacco.Lat);
-            package.Destination.Coordinates.Lng.Should().Be(pacco.Lng);
-            package.Destination.Coordinates.Confidence.Should().Be(pacco.Confidence);
+            result.Count.Should().Be(2);
+
         }
         #endregion
 
-        #region Isvalid
+        #region GetPackagesFromJsonTest
         [Fact]
-        public void Isvalidtest1()
-        {
-            //Arrange
-
-            Address address1 = new Address("20a", "Via Dante Alighieri", "Bergamo", "BG");
-            Package pacco = new Package(address1, 2, 3, "alfa");
-
-            //Act
-            var valido = pacco.IsValid;
-
-
-            //Assert
-            valido.Should().Be(true);
-        }
-        [Fact]
-        public void IsvalidtestVolume()
-        {
-            //Arrange
-
-            Address address1 = new Address("20a", "Via Dante Alighieri", "Bergamo", "BG");
-            Package pacco = new Package(address1, -1, 3, "alfa");
-
-            //Act
-            var valido = pacco.IsValid;
-
-
-            //Assert
-            valido.Should().Be(false);
-        }
-        [Fact]
-        public void IsvalidtestWeight()
-        {
-            //Arrange
-
-            Address address1 = new Address("20a", "Via Dante Alighieri", "Bergamo", "BG");
-            Package pacco = new Package(address1, 2, -3, "alfa");
-
-            //Act
-            var valido = pacco.IsValid;
-
-
-            //Assert
-            valido.Should().Be(false);
-        }
-        [Fact]
-        public void IsvalidtestNumber()
-        {
-            //Arrange
-
-            Address address1 = new Address("", "Via Dante Alighieri", "Bergamo", "BG");
-            Package pacco = new Package(address1, 2, -3, "alfa");
-
-            //Act
-            var valido = pacco.IsValid;
-
-
-            //Assert
-            valido.Should().Be(false);
-        }
-        [Fact]
-        public void IsvalidtestStreet()
-        {
-            //Arrange
-
-            Address address1 = new Address("20a", "", "Bergamo", "BG");
-            Package pacco = new Package(address1, 2, -3, "alfa");
-
-            //Act
-            var valido = pacco.IsValid;
-
-
-            //Assert
-            valido.Should().Be(false);
-        }
-        [Fact]
-        public void IsvalidtestTown()
-        {
-            //Arrange
-
-            Address address1 = new Address("20a", "Via Dante Alighieri", "", "BG");
-            Package pacco = new Package(address1, 2, -3, "alfa");
-
-            //Act
-            var valido = pacco.IsValid;
-
-
-            //Assert
-            valido.Should().Be(false);
-        }
-        [Fact]
-        public void IsvalidtestProvince()
-        {
-            //Arrange
-
-            Address address1 = new Address("20a", "Via Dante Alighieri", "Bergamo", "");
-            Package pacco = new Package(address1, 2, -3, "alfa");
-
-            //Act
-            var valido = pacco.IsValid;
-
-            //Assert
-            valido.Should().Be(false);
-        }
-        [Fact]
-        public void IsvalidtestCoordinates()
-        {
-            //Arrange
-
-            Address address1 = new Address("20a", "Via Dante Alighieri", "Bergamo", "");
-            Package pacco = new Package(address1, 2, -3, "alfa");
-
-            //Act
-            var valido = pacco.IsValid;
-
-            //Assert
-            valido.Should().Be(false);
-        }
-        #endregion
-
-        #region GetPackagesFromJson
-        [Fact]
-        public void GetPackagesFromJsonExist()
+        public void GetPackagesFromJsonTest1()
         {
             //Arrange
             string file = "file.json";
             
             //Act
             Assert.True(File.Exists(file));
-
         }
+
         [Fact]
-        public void GetPackagesFromJsonNotExist()
+        public void GetPackagesFromJsonTest2()
         {
             //Arrange
             string file = "elif.json";
 
             //Act
             Assert.False(File.Exists(file));
-
         }
 
         [Fact]
-        public void GetPackagesFromJsonCount()
+        public void GetPackagesFromJsonTest3()
         {
             //Act
             List<Package> json = GetPackagesFromJson();
@@ -277,7 +300,7 @@ namespace PCTO_Test
         }
         
         [Fact]
-        public void GetPackagesFromJsonFirst()
+        public void GetPackagesFromJsonTest4()
         {
             //Act
             var json = GetPackagesFromJson();
@@ -297,9 +320,9 @@ namespace PCTO_Test
         }
         #endregion
 
-        #region Controlvalue
+        #region ControlvalueTest
         [Fact]
-        public void ControlValueTestNegative()
+        public void ControlValueTest1()
         {
             //Arrange
             List<Package> ListaPacchi = new List<Package>();
@@ -313,7 +336,7 @@ namespace PCTO_Test
             Assert.Throws<ArgumentException>(() => ControlValue(x, ListaPacchi));
         }
         [Fact]
-        public void ControlValueTestPositiveMorethanCount()
+        public void ControlValueTest2()
         {
             //Arrange
             List<Package> ListaPacchi = new List<Package>();
@@ -328,9 +351,9 @@ namespace PCTO_Test
         }
         #endregion
 
-        #region randomize
+        #region RandomizeResultTest
         [Fact]
-        public void RandomizeResultTestCount()
+        public void RandomizeResultTest1()
         {
             //Arrange
             List<Package> ListaPacchi = new List<Package>();
@@ -347,7 +370,7 @@ namespace PCTO_Test
         }
         
         [Fact]
-        public void RandomizeResultTest()
+        public void RandomizeResultTest2()
         {
             //Arrange
             List<Package> ListaPacchi = new List<Package>();

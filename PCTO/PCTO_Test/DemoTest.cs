@@ -11,6 +11,8 @@ namespace PCTO_Test
 {
     public class DemoTest
     {
+        #region SimulatePreviousAddressTest
+
         [Fact]
         public void SimulatePreviousAddressesTest()
         {
@@ -22,6 +24,9 @@ namespace PCTO_Test
 
             //Assert
             addresslist.Count.Should().Be(3);
+            addresslist[1].Number.Should().Be("53");
+            addresslist[2].Number.Should().Be("9");
         }
+        #endregion
     }
 }

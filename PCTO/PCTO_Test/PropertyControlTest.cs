@@ -13,9 +13,9 @@ namespace PCTO_Test
 {
     public class PropertyControlTest
     {
-        #region Province
+        #region ProvinceTest
         [Fact]
-        public void ControlprovinceUPPER()
+        public void ProvinceTest1()
         {
             //Arrange
             string province = "BG";
@@ -26,7 +26,7 @@ namespace PCTO_Test
 
         }
         [Fact]
-        public void ControlprovinceLOWER1()
+        public void ProvinceTest2()
         {
             //Arrange
             var provincia = "mi";
@@ -42,7 +42,7 @@ namespace PCTO_Test
             }
         }
         [Fact]
-        public void ControlprovincefirstUPPER1_2()
+        public void ProvinceTest3()
         {
             //Arrange
             var provincia = "Mi";
@@ -58,7 +58,7 @@ namespace PCTO_Test
             }
         }
         [Fact]
-        public void ControlprovincefirstLOWER1_3()
+        public void ProvinceTest4()
         {
             //Arrange
             var provincia = "mI";
@@ -74,7 +74,7 @@ namespace PCTO_Test
             }
         }
         [Fact]
-        public void ControlprovinceLOWER2_1()
+        public void ProvinceTest5()
         {
             //Arrange
             var provincia = "mi";
@@ -93,7 +93,7 @@ namespace PCTO_Test
         }
 
         [Fact]
-        public void ControlprovincefirstUPPER2_2()
+        public void ProvinceTest6()
         {
             //Arrange
             var provincia = "Mi";
@@ -111,7 +111,7 @@ namespace PCTO_Test
             ex.Should().Be(true);
         }
         [Fact]
-        public void ControlprovincefirstLOWER2_3()
+        public void ProvinceTest7()
         {
             //Arrange
             var provincia = "mI";
@@ -130,7 +130,7 @@ namespace PCTO_Test
 
         }
         [Fact]
-        public void controlexfirstLOWER()
+        public void ProvinceTest8()
         {
             //Arrange
             string province = "bG";
@@ -142,7 +142,7 @@ namespace PCTO_Test
             action.Should().Throw<System.ArgumentException>().WithMessage("Province must be a 2 upper chars string");
         }
         [Fact]
-        public void controlexLOWER()
+        public void ProvinceTest9()
         {
             //Arrange
             string province = "bg";
@@ -154,7 +154,7 @@ namespace PCTO_Test
             action.Should().Throw<System.ArgumentException>().WithMessage("Province must be a 2 upper chars string");
         }
         [Fact]
-        public void controlexfirstUPPER()
+        public void ProvinceTest10()
         {
             //Arrange
             string province = "Bg";
@@ -166,7 +166,7 @@ namespace PCTO_Test
             action.Should().Throw<System.ArgumentException>().WithMessage("Province must be a 2 upper chars string");
         }
         [Fact]
-        public void controlequalexfirstLOWER()
+        public void ProvinceTest11()
         {
             //Assert
             string province = "bG";
@@ -176,7 +176,7 @@ namespace PCTO_Test
             Assert.Equal("Province must be a 2 upper chars string", ex.Message);
         }
         [Fact]
-        public void controlequalexLOWER()
+        public void ProvinceTest12()
         {
             //Assert
             string province = "bg";
@@ -186,7 +186,7 @@ namespace PCTO_Test
             Assert.Equal("Province must be a 2 upper chars string", ex.Message);
         }
         [Fact]
-        public void controlequalexfirstUPPER()
+        public void ProvinceTest13()
         {
             //Assert
             string province = "Bg";
@@ -197,16 +197,16 @@ namespace PCTO_Test
         }
         #endregion 
 
-        #region Number
+        #region PositiveNumberTest
         [Fact]
-        public void NegativeNumber1()
+        public void PostitiveNumberTest1()
         {
             int Number = 5;
             var result = PositiveNumber(Number);
             result.Should().Be(Number);
         }
         [Fact]
-        public void NegativeNumber2()
+        public void PositiveNumberTest2()
         {
             int Number = 5;
             int result = default(int);
@@ -222,9 +222,9 @@ namespace PCTO_Test
         }
         #endregion
 
-        #region String
+        #region ValidStringTest
         [Fact]
-        public void ValidString1()
+        public void ValidStringTest1()
         {
             //Arrange
             string word1 = "Abc";
@@ -234,7 +234,7 @@ namespace PCTO_Test
             result.Should().Be(word1);
         }
         [Fact]
-        public void ValidString2()
+        public void ValidStringTest2()
         {
             //Arrange
             string word = null;
@@ -249,23 +249,7 @@ namespace PCTO_Test
                 result.Should().Be(null);
             }
         }
-        [Fact]
-        public void ToCompleteAddressTest1()
-        {
-            var Address = new Address("30a", "Via Manzoni", "Milano", "MI");
-            var result = Address.ToCompleteAddress();
-            result.Should().Be("Via Manzoni 30a Milano");
-            result.Length.Should().Be(22);
-        }
-
-        [Fact]
-        public void ToCompleteAddressTest2()
-        {
-            var Address = new Address("29a", "Via Gavazzeni", "Bergamo", "BG");
-            var result = Address.ToCompleteAddress();
-            result.Should().Be("Via Gavazzeni 29a Bergamo");
-            result.Length.Should().Be(25);
-        }
+        
         #endregion
     }
 }
