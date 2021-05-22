@@ -10,6 +10,21 @@ namespace PCTO_Test
 {
     public class AddressTest
     {
+        #region AddressTest
+        [Fact]
+        public void AddressTest1()
+        {
+            //Act
+            Address address = new Address("14a", "Via Giacomo Leopardi", "Milano", "MI");
+
+            //Assert
+            address.Number.Should().Be("14a");
+            address.Street.Should().Be("Via Giacomo Leopardi");
+            address.Town.Should().Be("Milano");
+            address.Province.Should().Be("MI");
+        }
+        #endregion
+
         #region ToCompleteAddressTest
         [Fact]
         public void ToCompleteAddressTest1()

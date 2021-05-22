@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PCTO
 {
-    class ShowingFormMapEventArgs : EventArgs
+    public class ShowingFormMapEventArgs : EventArgs
     {
         public ShowingFormMapEventArgs(Address address, IList<Package> list)
         {

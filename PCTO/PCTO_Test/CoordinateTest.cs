@@ -14,6 +14,43 @@ namespace PCTO_Test
 {
     public class CoordinateTest
     {
+        #region ToStringTest
+        [Fact]
+        public void ToStringTest1()
+        {
+            //Arrange
+            Address indirizzo = new Address("20a", "Via Dante Alighieri", "Bergamo", "BG");
+            indirizzo.Coordinates.Lat = 45.0M;
+            indirizzo.Coordinates.Lng = 80.0M;
+            indirizzo.Coordinates.Confidence = 9;
+
+            //Act
+            var result = indirizzo.Coordinates.ToString();
+
+            //Assert
+            result.Should().Be("45,0, 80,0 (Confidence: 9)");
+            result.Length.Should().Be(26);
+        }
+
+        [Fact]
+        public void ToStringTest2()
+        {
+            //Arrange
+            Address indirizzo = new Address("20a", "Via Dante Alighieri", "Bergamo", "BG");
+            indirizzo.Coordinates.Lat = 30.0M;
+            indirizzo.Coordinates.Lng = 150.0M;
+            indirizzo.Coordinates.Confidence = 6;
+
+            //Act
+            var result = indirizzo.Coordinates.ToString();
+
+            //Assert
+            result.Should().Be("30,0, 150,0 (Confidence: 6)");
+            result.Length.Should().Be(27);
+
+        }
+        #endregion
+
         #region ControlLatitudeTest
         [Fact]
         public void ControlLatitudeTest1()
