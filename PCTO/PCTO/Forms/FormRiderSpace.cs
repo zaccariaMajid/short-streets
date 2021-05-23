@@ -163,6 +163,7 @@ namespace PCTO
         private void btnClearPackages_Click(object sender, EventArgs e)
         {
             packages.Clear();
+            fShortStreets.packages.Clear();
             FormsElaboration.PopulateDgv(dgvSetPackages, packages);
             btnConfirmNumPackages.Enabled = true;
             btnGetPresetPackages.Enabled = true;
